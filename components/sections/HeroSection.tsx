@@ -64,7 +64,7 @@ export default function HeroSection() {
             <div className="text-xs sm:text-sm text-zinc-500 mt-1">ROI moyen</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-white tabular-nums">−60%</div>
+            <div className="text-2xl sm:text-3xl font-bold text-white tabular-nums">−40%</div>
             <div className="text-xs sm:text-sm text-zinc-500 mt-1">Coût par lead</div>
           </div>
         </div>
