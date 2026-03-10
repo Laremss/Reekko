@@ -54,13 +54,13 @@ export default function HeroSection() {
         </div>
 
         {/* Stats */}
-        <div className="mt-20 border-t border-zinc-800/60">
+        <div className="mt-20">
           <div className="grid grid-cols-3 max-w-xl mx-auto">
             <div className="text-center px-4 py-8">
               <div className="text-2xl sm:text-3xl font-black font-bold text-white tabular-nums">15+</div>
               <div className="text-xs sm:text-sm text-zinc-500 mt-1">Entreprises accompagnées</div>
             </div>
-            <div className="text-center px-4 py-8 border-x border-zinc-800/40">
+            <div className="text-center px-4 py-8">
               <div className="text-2xl sm:text-3xl font-black font-bold text-white tabular-nums">3×</div>
               <div className="text-xs sm:text-sm text-zinc-500 mt-1">ROI moyen</div>
             </div>
@@ -72,10 +72,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-zinc-600">
-        <div className="w-px h-12 bg-gradient-to-b from-transparent via-zinc-600 to-transparent" />
-      </div>
     </section>
   )
 }
