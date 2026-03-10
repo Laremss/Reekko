@@ -59,19 +59,29 @@ export default function CredibilitySection() {
           </p>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-6 text-center"
-            >
-              <div className="text-3xl sm:text-4xl font-black text-white mb-2 tabular-nums">
-                {stat.value}
-              </div>
-              <div className="text-sm text-zinc-500">{stat.label}</div>
-            </div>
-          ))}
+        {/* Stats — bande horizontale, sans cartes qui se confondent avec le quadrillage */}
+        <div className="mb-16 border-y border-zinc-800/50">
+          <div className="grid grid-cols-2 lg:grid-cols-4">
+            {stats.map((stat, index) => {
+              // Séparateurs internes uniquement : pas de boîte extérieure
+              const sep =
+                index === 1
+                  ? 'border-l border-zinc-800/50'
+                  : index === 2
+                    ? 'border-t border-zinc-800/50 lg:border-t-0 lg:border-l'
+                    : index === 3
+                      ? 'border-t border-l border-zinc-800/50 lg:border-t-0'
+                      : ''
+              return (
+                <div key={index} className={`px-6 py-10 text-center ${sep}`}>
+                  <div className="text-4xl sm:text-5xl font-black bg-gradient-to-br from-indigo-200 to-violet-300 bg-clip-text text-transparent mb-2 tabular-nums">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-zinc-500">{stat.label}</div>
+                </div>
+              )
+            })}
+          </div>
         </div>
 
         {/* Testimonials */}

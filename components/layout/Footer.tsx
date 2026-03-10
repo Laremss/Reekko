@@ -55,7 +55,7 @@ export default function Footer() {
                 <Linkedin size={15} />
               </a>
               <a
-                href="mailto:contact@reekko.fr"
+                href="mailto:contact@reekko.com"
                 className="w-9 h-9 rounded-lg border border-zinc-800 flex items-center justify-center text-zinc-500 hover:text-white hover:border-zinc-600 hover:bg-zinc-800/60 transition-all"
                 aria-label="Email"
               >

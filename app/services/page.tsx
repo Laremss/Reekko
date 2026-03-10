@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "Découvrez l'Acquisition Automation Sprint de Reekko : un accompagnement intensif pour mettre en place votre système d'acquisition B2B automatisé en quelques semaines.",
   alternates: {
-    canonical: 'https://reekko.fr/services',
+    canonical: 'https://www.reekko.com/services',
   },
 }
 

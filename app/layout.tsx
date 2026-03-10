@@ -10,7 +10,7 @@ const inter = Inter({
   display: 'swap',
 })
 
-const siteUrl = 'https://reekko.com'
+const siteUrl = 'https://www.reekko.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

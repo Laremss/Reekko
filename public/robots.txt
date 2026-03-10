@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /_next/
 
-Sitemap: https://reekko.fr/sitemap.xml
+Sitemap: https://www.reekko.com/sitemap.xml

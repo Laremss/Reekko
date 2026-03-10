@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://reekko.com/sitemap.xml',
-    host: 'https://reekko.com',
+    sitemap: 'https://www.reekko.com/sitemap.xml',
+    host: 'https://www.reekko.com',
   }
 }

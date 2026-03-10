@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Découvrez Reekko, l\'agence spécialisée en growth marketing et automatisation de l\'acquisition B2B. Notre mission, nos valeurs et notre équipe.',
   alternates: {
-    canonical: 'https://reekko.fr/a-propos',
+    canonical: 'https://www.reekko.com/a-propos',
   },
 }
 

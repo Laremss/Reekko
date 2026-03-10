@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Reekko conçoit des systèmes d'acquisition automatisés pour aider les startups, SaaS et agences B2B à générer davantage d'opportunités commerciales grâce au growth marketing.",
   alternates: {
-    canonical: 'https://reekko.fr',
+    canonical: 'https://www.reekko.com',
   },
 }
 

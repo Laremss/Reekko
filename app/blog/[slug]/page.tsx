@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
     },
     alternates: {
-      canonical: `https://reekko.fr/blog/${post.slug}`,
+      canonical: `https://www.reekko.com/blog/${post.slug}`,
     },
   }
 }
@@ -145,7 +145,7 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const headings = extractHeadings(post.content)
-  const postUrl = `https://reekko.fr/blog/${post.slug}`
+  const postUrl = `https://www.reekko.com/blog/${post.slug}`
   const relatedPosts = getAllPosts().filter((p) => p.slug !== slug).slice(0, 2)
 
   const jsonLd = {
@@ -158,12 +158,12 @@ export default async function BlogPostPage({ params }: Props) {
     author: {
       '@type': 'Organization',
       name: post.author,
-      url: 'https://reekko.fr',
+      url: 'https://www.reekko.com',
     },
     publisher: {
       '@type': 'Organization',
       name: 'Reekko',
-      url: 'https://reekko.fr',
+      url: 'https://www.reekko.com',
     },
     keywords: post.tags.join(', '),
     url: postUrl,

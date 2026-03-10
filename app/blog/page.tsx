@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     'Ressources, stratégies et conseils pour automatiser votre acquisition B2B, maîtriser le growth marketing et générer plus de leads qualifiés.',
   alternates: {
-    canonical: 'https://reekko.fr/blog',
+    canonical: 'https://www.reekko.com/blog',
   },
 }
 

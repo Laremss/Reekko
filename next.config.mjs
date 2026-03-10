@@ -14,6 +14,23 @@ const nextConfig = {
   },
 
   async headers() {
+    // Content Security Policy pour Next.js App Router
+    // 'unsafe-inline' requis : scripts de bootstrap Next.js + balises JSON-LD inline
+    const csp = [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline'",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob:",
+      "font-src 'self'",
+      "connect-src 'self' https://formspree.io",
+      "frame-src 'none'",
+      "object-src 'none'",
+      "base-uri 'self'",
+      "form-action 'self' https://formspree.io",
+      "frame-ancestors 'none'",
+      "upgrade-insecure-requests",
+    ].join('; ')
+
     return [
       {
         source: '/(.*)',
@@ -23,13 +40,16 @@ const nextConfig = {
             key: 'Strict-Transport-Security',
             value: 'max-age=63072000; includeSubDomains; preload',
           },
-          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          // X-Frame-Options cohérent avec frame-ancestors 'none' dans le CSP
+          { key: 'X-Frame-Options', value: 'DENY' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
-          { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
+          // strict-origin-when-cross-origin : recommandé (plus sécurisé que origin-when-cross-origin)
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
+          { key: 'Content-Security-Policy', value: csp },
         ],
       },
       {

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Découvrez le Framework Reekko : 4 étapes pour transformer votre acquisition B2B en un système automatisé, efficace et scalable.',
   alternates: {
-    canonical: 'https://reekko.fr/methode',
+    canonical: 'https://www.reekko.com/methode',
   },
 }
 
