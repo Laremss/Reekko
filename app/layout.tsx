@@ -10,7 +10,7 @@ const inter = Inter({
   display: 'swap',
 })
 
-const siteUrl = 'https://reekko.fr'
+const siteUrl = 'https://reekko.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -102,7 +102,7 @@ export default function RootLayout({
               contactPoint: {
                 '@type': 'ContactPoint',
                 contactType: 'sales',
-                email: 'contact@reekko.fr',
+                email: 'contact@reekko.com',
                 availableLanguage: 'French',
               },
               sameAs: [
