@@ -115,7 +115,7 @@ export default function Header() {
       >
         <div className="flex items-center justify-between p-4 border-b border-zinc-800/50">
           <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
               <Zap className="w-3.5 h-3.5 text-white fill-white" />
             </div>
             <span className="font-bold text-white text-lg">Reekko</span>

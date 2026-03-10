@@ -1,0 +1,23 @@
+<svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="reekko-bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background: rounded square -->
+  <rect width="100" height="100" rx="22" fill="url(#reekko-bg)"/>
+
+  <!-- K: left vertical bar -->
+  <rect x="18" y="15" width="14" height="70" rx="3" fill="white"/>
+
+  <!--
+    K arms = Lightning bolt:
+    Outer tip at (26, 50) — 6px inside the bar for solid visual connection
+    Inner kink at (46, 50) — the characteristic lightning bolt "break"
+    Upper arm: outer (82,15) → tip (26,50), inner (82,29) → kink (46,50)
+    Lower arm: tip (26,50) → outer (82,85), kink (46,50) → inner (82,71)
+  -->
+  <path d="M82,15 L26,50 L82,85 L82,71 L46,50 L82,29 Z" fill="white"/>
+</svg>

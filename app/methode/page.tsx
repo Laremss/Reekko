@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
 import { Search, Lightbulb, Cog, TrendingUp, ArrowRight, CheckCircle } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import ParallaxGrid from '@/components/ui/ParallaxGrid'
 
 export const metadata: Metadata = {
   title: 'Notre Méthode — Framework d\'acquisition B2B',
   description:
-    'Découvrez le Framework Reekko : 4 étapes pour transformer votre acquisition B2B en un système automatisé, prévisible et scalable.',
+    'Découvrez le Framework Reekko : 4 étapes pour transformer votre acquisition B2B en un système automatisé, efficace et scalable.',
   alternates: {
     canonical: 'https://reekko.fr/methode',
   },
@@ -107,9 +108,10 @@ export default function MethodePage() {
       {/* Hero */}
       <section className="relative py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-0 w-[600px] h-[400px] rounded-full bg-indigo-600/8 blur-[100px]" />
+          <div className="absolute top-0 right-1/4 w-[500px] h-[400px] rounded-full bg-indigo-600/10 blur-[100px]" />
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-violet-600/8 blur-[80px]" />
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
+        <ParallaxGrid opacity={0.05} strength={12} />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-6">
@@ -124,7 +126,7 @@ export default function MethodePage() {
           </h1>
           <p className="text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
             4 étapes structurées pour transformer votre acquisition B2B en un
-            système prévisible, automatisé et scalable — sans dépendre d'actions
+            système automatisé et scalable. Sans dépendre d'actions
             ponctuelles.
           </p>
         </div>

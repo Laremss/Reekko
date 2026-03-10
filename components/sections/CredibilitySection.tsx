@@ -1,16 +1,16 @@
 import { Star, Quote } from 'lucide-react'
 
 const stats = [
-  { value: '+50', label: 'Entreprises accompagnées' },
-  { value: '3×', label: 'ROI moyen constaté' },
-  { value: '−60%', label: 'Réduction du coût par lead' },
+  { value: '15+', label: 'Entreprises accompagnées' },
+  { value: '×3', label: 'ROI moyen constaté' },
+  { value: '−40%', label: 'Réduction du coût par lead' },
   { value: '4 sem.', label: 'Délai de mise en place' },
 ]
 
 const testimonials = [
   {
     quote:
-      'En 5 semaines, Reekko a mis en place un système qui génère maintenant 20+ rendez-vous qualifiés par mois de manière automatique. Le retour sur investissement est spectaculaire.',
+      'On cherchait à sortir de la prospection 100% manuelle. En quelques semaines, Reekko a mis en place un système qui tourne et génère des rendez-vous régulièrement. Simple et efficace.',
     author: 'Thomas M.',
     role: 'CEO',
     company: 'SaaS B2B · 50 collaborateurs',
@@ -18,7 +18,7 @@ const testimonials = [
   },
   {
     quote:
-      'Avant Reekko, notre prospection était entièrement manuelle et peu scalable. Aujourd\'hui nous avons un véritable système prévisible de génération d\'opportunités.',
+      'Notre pipeline était irrégulier et trop dépendant du bouche-à-oreille. Avec le système mis en place, on a une source de leads plus régulière. Le premier mois a été convaincant.',
     author: 'Sophie L.',
     role: 'Head of Growth',
     company: 'Scale-up tech · 30 collaborateurs',
@@ -26,7 +26,7 @@ const testimonials = [
   },
   {
     quote:
-      'La méthode est claire, le delivery est rapide et les résultats sont au rendez-vous. Je recommande à toute entreprise B2B qui cherche à structurer son acquisition.',
+      'Méthode claire, déploiement rapide. On savait exactement où on en était à chaque étape. Pas de sur-promesse, les résultats sont là. Je recommande.',
     author: 'Marc D.',
     role: 'Directeur Commercial',
     company: 'Agence conseil · 15 collaborateurs',
@@ -119,21 +119,9 @@ export default function CredibilitySection() {
 
         {/* Trust badges */}
         <div className="mt-16 text-center">
-          <p className="text-zinc-600 text-xs uppercase tracking-widest mb-6">
-            Ils nous font confiance
+          <p className="text-zinc-600 text-sm max-w-md mx-auto">
+            Nos clients sont des startups SaaS, agences et PME B2B qui cherchent à structurer leur acquisition sans dépendre d'actions ponctuelles.
           </p>
-          <div className="flex items-center justify-center flex-wrap gap-8">
-            {['Startup SaaS', 'Agence Growth', 'Scale-up B2B', 'PME Tech', 'Conseil'].map(
-              (company) => (
-                <div
-                  key={company}
-                  className="px-5 py-2 rounded-lg border border-zinc-800/60 bg-zinc-900/30 text-zinc-600 text-sm font-medium"
-                >
-                  {company}
-                </div>
-              )
-            )}
-          </div>
         </div>
       </div>
     </section>

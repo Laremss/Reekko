@@ -9,6 +9,7 @@ import { formatDate } from '@/lib/utils'
 import TableOfContents from '@/components/blog/TableOfContents'
 import ShareButtons from '@/components/blog/ShareButtons'
 import Button from '@/components/ui/Button'
+import ParallaxGrid from '@/components/ui/ParallaxGrid'
 import {
   ArrowLeft,
   Clock,
@@ -16,10 +17,11 @@ import {
   User,
   Tag,
   ArrowRight,
+  BookOpen,
 } from 'lucide-react'
 
-interface Props {
-  params: { slug: string }
+type Props = {
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -28,7 +30,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const post = getPostBySlug(params.slug)
+  const { slug } = await params
+  const post = getPostBySlug(slug)
   if (!post) return {}
 
   return {
@@ -93,10 +96,49 @@ const mdxComponents = {
       {children}
     </h4>
   ),
+  blockquote: ({ children }: any) => (
+    <blockquote className="not-italic my-8 border-l-4 border-indigo-500 bg-indigo-500/5 rounded-r-xl px-6 py-5">
+      <div className="text-zinc-200 font-medium leading-relaxed [&>p]:m-0 [&>p]:text-zinc-200">
+        {children}
+      </div>
+    </blockquote>
+  ),
+  hr: () => (
+    <div className="my-10 flex items-center gap-3">
+      <div className="flex-1 h-px bg-zinc-800" />
+      <div className="flex gap-1.5">
+        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500/50" />
+        <div className="w-1.5 h-1.5 rounded-full bg-violet-500/50" />
+        <div className="w-1.5 h-1.5 rounded-full bg-indigo-500/50" />
+      </div>
+      <div className="flex-1 h-px bg-zinc-800" />
+    </div>
+  ),
+  table: ({ children }: any) => (
+    <div className="my-8 overflow-x-auto rounded-xl border border-zinc-800/60">
+      <table className="w-full text-sm">{children}</table>
+    </div>
+  ),
+  thead: ({ children }: any) => (
+    <thead className="border-b border-zinc-700 bg-zinc-900/60">{children}</thead>
+  ),
+  tbody: ({ children }: any) => (
+    <tbody className="divide-y divide-zinc-800/60">{children}</tbody>
+  ),
+  tr: ({ children }: any) => (
+    <tr className="hover:bg-zinc-900/30 transition-colors">{children}</tr>
+  ),
+  th: ({ children }: any) => (
+    <th className="text-left font-semibold text-zinc-200 py-3 px-4">{children}</th>
+  ),
+  td: ({ children }: any) => (
+    <td className="py-3 px-4 text-zinc-400">{children}</td>
+  ),
 }
 
-export default function BlogPostPage({ params }: Props) {
-  const post = getPostBySlug(params.slug)
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
 
   if (!post) {
     notFound()
@@ -104,6 +146,7 @@ export default function BlogPostPage({ params }: Props) {
 
   const headings = extractHeadings(post.content)
   const postUrl = `https://reekko.fr/blog/${post.slug}`
+  const relatedPosts = getAllPosts().filter((p) => p.slug !== slug).slice(0, 2)
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -137,9 +180,10 @@ export default function BlogPostPage({ params }: Props) {
         {/* Article Header */}
         <header className="relative py-16 sm:py-20 overflow-hidden border-b border-zinc-800/50">
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 right-1/4 w-[400px] h-[300px] rounded-full bg-indigo-600/6 blur-[80px]" />
+            <div className="absolute top-0 right-1/4 w-[500px] h-[400px] rounded-full bg-indigo-600/10 blur-[100px]" />
+            <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-violet-600/8 blur-[80px]" />
           </div>
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-[size:50px_50px]" />
+          <ParallaxGrid opacity={0.05} strength={10} />
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Back link */}
@@ -226,6 +270,38 @@ export default function BlogPostPage({ params }: Props) {
                   Retour au blog
                 </Link>
               </div>
+
+              {/* Related posts */}
+              {relatedPosts.length > 0 && (
+                <div className="mt-12 pt-8 border-t border-zinc-800/50">
+                  <div className="flex items-center gap-2 mb-6">
+                    <BookOpen className="w-4 h-4 text-indigo-400" />
+                    <h3 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">
+                      Pour aller plus loin
+                    </h3>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {relatedPosts.map((related) => (
+                      <Link
+                        key={related.slug}
+                        href={`/blog/${related.slug}`}
+                        className="group rounded-xl border border-zinc-800/60 bg-zinc-900/40 p-5 hover:border-zinc-700/60 hover:bg-zinc-900/60 transition-all duration-200"
+                      >
+                        <span className="text-xs font-medium text-indigo-400 mb-2 block">
+                          {related.category}
+                        </span>
+                        <h4 className="text-sm font-semibold text-white leading-snug mb-2 group-hover:text-indigo-300 transition-colors">
+                          {related.title}
+                        </h4>
+                        <div className="flex items-center gap-1 text-zinc-500 text-xs">
+                          <Clock className="w-3 h-3" />
+                          <span>{related.readingTime}</span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* CTA */}
               <div className="mt-12 rounded-2xl border border-indigo-500/20 bg-indigo-500/5 p-8">

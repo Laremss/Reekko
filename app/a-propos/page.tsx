@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ArrowRight, Target, Heart, Zap, Users } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import ParallaxGrid from '@/components/ui/ParallaxGrid'
 
 export const metadata: Metadata = {
   title: 'À propos — Reekko, expert en acquisition B2B',
@@ -22,7 +23,7 @@ const values = [
     icon: Zap,
     title: 'Rapide et efficace',
     description:
-      'On croit que les meilleurs résultats viennent d'une exécution rapide et itérative. On met en place, on mesure, on optimise.',
+      "On croit que les meilleurs résultats viennent d'une exécution rapide et itérative. On met en place, on mesure, on optimise.",
   },
   {
     icon: Heart,
@@ -57,9 +58,10 @@ export default function AProposPage() {
       {/* Hero */}
       <section className="relative py-24 sm:py-32 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 left-1/3 w-[500px] h-[400px] rounded-full bg-indigo-600/6 blur-[100px]" />
+          <div className="absolute top-0 right-1/4 w-[500px] h-[400px] rounded-full bg-indigo-600/10 blur-[100px]" />
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-violet-600/8 blur-[80px]" />
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
+        <ParallaxGrid opacity={0.05} strength={12} />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-8">
@@ -90,18 +92,18 @@ export default function AProposPage() {
             <p className="text-zinc-400 leading-relaxed mb-5">
               Trop d'entreprises B2B brillantes échouent à croître non pas parce
               que leur produit est mauvais, mais parce qu'elles n'ont pas de
-              système d'acquisition prévisible. Elles dépendent de la chance,
+              système d'acquisition structuré. Elles dépendent de la chance,
               du bouche-à-oreille ou d'actions ponctuelles qui ne scalent pas.
             </p>
             <p className="text-zinc-400 leading-relaxed mb-5">
               Chez Reekko, on croit que chaque entreprise B2B mérite d'avoir un
-              système d'acquisition qui fonctionne en continu — sans dépendre
+              système d'acquisition qui fonctionne en continu, sans dépendre
               d'une seule personne, sans réinventer la roue chaque trimestre.
             </p>
             <p className="text-zinc-400 leading-relaxed">
               C'est pour ça qu'on a développé le Framework Reekko : une méthode
               éprouvée pour construire un système d'acquisition automatisé,
-              mesurable et scalable — adapté à chaque entreprise B2B.
+              mesurable et scalable, adapté à chaque entreprise B2B.
             </p>
           </div>
         </div>

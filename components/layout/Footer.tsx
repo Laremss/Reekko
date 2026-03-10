@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Zap, Twitter, Linkedin, Mail } from 'lucide-react'
+import { Twitter, Linkedin, Mail, Zap } from 'lucide-react'
 
 const footerLinks = {
   navigation: [

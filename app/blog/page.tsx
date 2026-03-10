@@ -3,6 +3,7 @@ import { getAllPosts, getAllCategories } from '@/lib/blog'
 import BlogCard from '@/components/blog/BlogCard'
 import { ArrowRight, BookOpen } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import ParallaxGrid from '@/components/ui/ParallaxGrid'
 
 export const metadata: Metadata = {
   title: 'Blog — Growth Marketing & Acquisition B2B',
@@ -23,9 +24,10 @@ export default function BlogPage() {
       {/* Hero */}
       <section className="relative py-20 sm:py-28 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-1/3 w-[500px] h-[300px] rounded-full bg-indigo-600/6 blur-[100px]" />
+          <div className="absolute top-0 right-1/4 w-[500px] h-[400px] rounded-full bg-indigo-600/10 blur-[100px]" />
+          <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-violet-600/8 blur-[80px]" />
         </div>
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
+        <ParallaxGrid opacity={0.05} strength={12} />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-6">

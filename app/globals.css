@@ -55,8 +55,8 @@
   }
 
   .bg-hero-grid {
-    background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
     background-size: 50px 50px;
   }
 
@@ -123,7 +123,11 @@
 }
 
 .prose blockquote {
-  @apply border-l-4 border-indigo-500 bg-indigo-500/5 rounded-r-lg not-italic;
+  @apply border-l-4 border-indigo-500 bg-indigo-500/5 rounded-r-xl not-italic px-6 py-4 my-8;
+}
+
+.prose blockquote p {
+  @apply text-zinc-200 font-medium m-0;
 }
 
 .prose a {
@@ -132,4 +136,36 @@
 
 .prose img {
   @apply rounded-xl border border-zinc-800;
+}
+
+/* Tables */
+.prose table {
+  @apply text-sm border-collapse my-8 w-full;
+}
+
+.prose thead {
+  @apply border-b border-zinc-700;
+}
+
+.prose th {
+  @apply text-left font-semibold text-zinc-200 py-3 px-4;
+}
+
+.prose td {
+  @apply py-3 px-4 text-zinc-400 border-b border-zinc-800/60;
+}
+
+/* Listes : puces indigo */
+.prose ul > li::marker {
+  color: theme('colors.indigo.500');
+}
+
+.prose ol > li::marker {
+  color: theme('colors.indigo.400');
+  font-weight: 600;
+}
+
+/* Strong */
+.prose strong {
+  @apply text-zinc-100 font-semibold;
 }

@@ -1,19 +1,13 @@
 import Link from 'next/link'
 import { ArrowRight, Zap, TrendingUp, Target } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import ParallaxGrid from '@/components/ui/ParallaxGrid'
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950 pt-16">
       {/* Grid background */}
-      <div
-        className="absolute inset-0 opacity-100"
-        style={{
-          backgroundImage:
-            'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
-          backgroundSize: '50px 50px',
-        }}
-      />
+      <ParallaxGrid opacity={0.055} strength={16} />
 
       {/* Gradient orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -62,7 +56,7 @@ export default function HeroSection() {
         {/* Stats */}
         <div className="mt-20 pt-10 border-t border-zinc-800/60 grid grid-cols-3 gap-4 sm:gap-8 max-w-xl mx-auto">
           <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-white tabular-nums">+50</div>
+            <div className="text-2xl sm:text-3xl font-bold text-white tabular-nums">15+</div>
             <div className="text-xs sm:text-sm text-zinc-500 mt-1">Entreprises accompagnées</div>
           </div>
           <div className="text-center border-x border-zinc-800/60">

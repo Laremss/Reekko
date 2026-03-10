@@ -5,7 +5,7 @@ const problems = [
     icon: Timer,
     title: 'Prospection inefficace',
     description:
-      'Vos équipes passent des heures sur des tâches manuelles répétitives — recherche de contacts, envoi d\'emails, relances — avec un retour sur investissement faible et un taux de conversion décevant.',
+      'Vos équipes passent des heures sur des tâches manuelles répétitives : recherche de contacts, envoi d\'emails, relances. Résultat : un ROI faible et des taux de conversion décevants.',
     highlight: 'Temps gaspillé',
   },
   {
@@ -19,7 +19,7 @@ const problems = [
     icon: AlertTriangle,
     title: 'Pas de système scalable',
     description:
-      'Votre acquisition repose sur des actions ponctuelles et des individus clés. Il n\'existe aucun système prévisible et reproductible capable de générer des opportunités en continu.',
+      'Votre acquisition repose sur des actions ponctuelles et des individus clés. Il n\'existe aucun système structuré et reproductible capable de générer des opportunités en continu.',
     highlight: 'Croissance bloquée',
   },
 ]
@@ -45,7 +45,7 @@ export default function ProblemSection() {
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto leading-relaxed">
             La plupart des entreprises B2B souffrent des mêmes problèmes
-            d'acquisition — et perdent des opportunités commerciales chaque jour.
+            d'acquisition et perdent des opportunités commerciales chaque jour.
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export default function ProblemSection() {
         <div className="mt-20 text-center">
           <p className="text-zinc-500 text-sm">
             Et si vous pouviez avoir un système qui génère des leads de manière{' '}
-            <span className="text-zinc-300">automatique et prévisible</span> ?
+            <span className="text-zinc-300">automatique et régulier</span> ?
           </p>
         </div>
       </div>

@@ -50,13 +50,13 @@ export default function SolutionSection() {
             <span>Notre méthode</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
-            Le Framework Reekko —{' '}
+            Le Framework Reekko :
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-              4 étapes
+              {' '}4 étapes
             </span>{' '}
             vers un système
             <br className="hidden md:block" />
-            d'acquisition prévisible
+            d'acquisition solide
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto leading-relaxed">
             Une méthode éprouvée pour transformer votre acquisition B2B en un
@@ -111,7 +111,7 @@ export default function SolutionSection() {
         {/* Bottom CTA hint */}
         <div className="mt-16 text-center">
           <p className="text-zinc-500 text-sm">
-            Ce framework a été conçu pour être mis en place rapidement —{' '}
+            Ce framework a été conçu pour être mis en place rapidement,{' '}
             <span className="text-zinc-300">en quelques semaines, pas en mois.</span>
           </p>
         </div>
