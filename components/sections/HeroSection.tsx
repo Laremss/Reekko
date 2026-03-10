@@ -54,18 +54,20 @@ export default function HeroSection() {
         </div>
 
         {/* Stats */}
-        <div className="mt-20 pt-10 border-t border-zinc-800/60 grid grid-cols-3 gap-4 sm:gap-8 max-w-xl mx-auto">
-          <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-white tabular-nums">15+</div>
-            <div className="text-xs sm:text-sm text-zinc-500 mt-1">Entreprises accompagnées</div>
-          </div>
-          <div className="text-center border-x border-zinc-800/60">
-            <div className="text-2xl sm:text-3xl font-bold text-white tabular-nums">3×</div>
-            <div className="text-xs sm:text-sm text-zinc-500 mt-1">ROI moyen</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl sm:text-3xl font-bold text-white tabular-nums">−40%</div>
-            <div className="text-xs sm:text-sm text-zinc-500 mt-1">Coût par lead</div>
+        <div className="mt-20 border-t border-zinc-800/60">
+          <div className="grid grid-cols-3 max-w-xl mx-auto">
+            <div className="text-center px-4 py-8">
+              <div className="text-2xl sm:text-3xl font-black bg-gradient-to-br from-indigo-200 to-violet-300 bg-clip-text text-transparent tabular-nums">15+</div>
+              <div className="text-xs sm:text-sm text-zinc-500 mt-1">Entreprises accompagnées</div>
+            </div>
+            <div className="text-center px-4 py-8 border-x border-zinc-800/40">
+              <div className="text-2xl sm:text-3xl font-black bg-gradient-to-br from-indigo-200 to-violet-300 bg-clip-text text-transparent tabular-nums">3×</div>
+              <div className="text-xs sm:text-sm text-zinc-500 mt-1">ROI moyen</div>
+            </div>
+            <div className="text-center px-4 py-8">
+              <div className="text-2xl sm:text-3xl font-black bg-gradient-to-br from-indigo-200 to-violet-300 bg-clip-text text-transparent tabular-nums">−40%</div>
+              <div className="text-xs sm:text-sm text-zinc-500 mt-1">Coût par lead</div>
+            </div>
           </div>
         </div>
       </div>
