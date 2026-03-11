@@ -36,7 +36,7 @@ export default function HeroSection() {
         >
           Automatisez votre
           <br />
-          <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400 bg-clip-text text-transparent animate-gradient-text">
+          <span className="bg-gradient-to-r from-blue-300 via-indigo-300 to-violet-400 bg-clip-text text-transparent animate-gradient-text">
             acquisition B2B.
           </span>
         </h1>

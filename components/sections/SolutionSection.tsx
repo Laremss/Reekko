@@ -49,7 +49,7 @@ export default function SolutionSection() {
         <AnimateOnScroll className="text-center mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
             Le Framework Reekko :
-            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent animate-gradient-text">
+            <span className="bg-gradient-to-r from-indigo-300 to-violet-400 bg-clip-text text-transparent animate-gradient-text">
               {' '}4 étapes
             </span>{' '}
             vers un moteur
