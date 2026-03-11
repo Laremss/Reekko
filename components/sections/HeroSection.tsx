@@ -19,7 +19,7 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 pt-8 pb-16 sm:pt-10 sm:pb-24">
         {/* Badge */}
         <div
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-sm font-medium mb-8 backdrop-blur-sm animate-fade-in-up"
@@ -43,7 +43,7 @@ export default function HeroSection() {
 
         {/* Subheadline */}
         <p
-          className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up"
+          className="text-lg sm:text-xl font-light text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up"
           style={{ animationDelay: '220ms' }}
         >
           Reekko construit le moteur commercial qui remplace votre prospection

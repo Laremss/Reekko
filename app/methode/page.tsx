@@ -106,7 +106,7 @@ export default function MethodePage() {
   return (
     <div className="min-h-screen bg-zinc-950 pt-16">
       {/* Hero */}
-      <section className="relative py-24 sm:py-32 overflow-hidden">
+      <section className="relative pt-10 pb-20 sm:pt-14 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className="absolute top-0 right-1/4 w-[500px] h-[400px] rounded-full bg-indigo-600/10 blur-[100px]" />
           <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-violet-600/8 blur-[80px]" />
@@ -124,7 +124,7 @@ export default function MethodePage() {
               votre moteur commercial
             </span>
           </h1>
-          <p className="text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '220ms' }}>
+          <p className="text-lg font-light text-zinc-400 max-w-2xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '220ms' }}>
             Un accompagnement structuré pour passer d'une prospection
             artisanale à un pipeline qui tourne en continu. Sans réinventer
             la roue chaque trimestre.
