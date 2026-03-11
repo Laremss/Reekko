@@ -100,21 +100,27 @@
   animation: fadeInUp 0.7s ease-out both;
 }
 
-/* Animated gradient text — glow pulse */
-@keyframes glowPulse {
-  0%, 100% {
-    filter: drop-shadow(0 0 0px transparent);
-    background-position: 0% center;
-  }
-  50% {
-    filter: drop-shadow(0 0 18px rgba(139, 92, 246, 0.5));
-    background-position: 100% center;
-  }
+/* Animated gradient text — shimmer sweep */
+@keyframes shimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
 .animate-gradient-text {
-  background-size: 220% auto;
-  animation: glowPulse 4s ease-in-out infinite;
+  /* Gradient : bleu → indigo → éclat violet clair → violet profond → bleu (boucle seamless) */
+  background-image: linear-gradient(
+    to right,
+    #93c5fd,
+    #a5b4fc,
+    #ede9fe,
+    #7c3aed,
+    #93c5fd
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
 }
 
 /* MDX / Prose overrides */
