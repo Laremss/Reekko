@@ -8,6 +8,7 @@ const footerLinks = {
     { href: '/blog', label: 'Blog' },
     { href: '/a-propos', label: 'À propos' },
     { href: '/contact', label: 'Contact' },
+    { href: '/agence-growth-marketing-rennes', label: 'Agence à Rennes' },
   ],
   ressources: [
     { href: '/blog/growth-marketing', label: 'Qu\'est-ce que le growth marketing ?' },
