@@ -70,20 +70,20 @@ export default function HeroSection() {
           className="mt-20 animate-fade-in-up"
           style={{ animationDelay: '480ms' }}
         >
-          <div className="grid grid-cols-3 max-w-xl mx-auto">
-            <div className="text-center px-4 py-8">
+          <div className="grid grid-cols-3 max-w-xl mx-auto rounded-2xl border border-zinc-800/60 bg-zinc-900/40 backdrop-blur-sm divide-x divide-zinc-800/60">
+            <div className="text-center px-4 py-7">
               <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">
                 15+
               </div>
               <div className="text-xs sm:text-sm text-zinc-500 mt-1">Entreprises accompagnées</div>
             </div>
-            <div className="text-center px-4 py-8">
+            <div className="text-center px-4 py-7">
               <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">
                 ×3
               </div>
               <div className="text-xs sm:text-sm text-zinc-500 mt-1">ROI moyen</div>
             </div>
-            <div className="text-center px-4 py-8">
+            <div className="text-center px-4 py-7">
               <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">
                 −40%
               </div>
