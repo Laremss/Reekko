@@ -335,9 +335,9 @@ export default function RennesPage() {
             <p className="text-zinc-500 text-sm font-medium mb-4 text-center">Ressources pour approfondir</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {[
-                { label: 'Qu'est-ce que le growth marketing ?', href: '/blog/growth-marketing' },
-                { label: 'Automatiser sa prospection B2B', href: '/blog/automatiser-prospection-b2b' },
-                { label: 'Stratégies d'acquisition B2B', href: '/blog/strategies-acquisition-b2b' },
+                { label: "Qu'est-ce que le growth marketing ?", href: '/blog/growth-marketing' },
+                { label: "Automatiser sa prospection B2B", href: '/blog/automatiser-prospection-b2b' },
+                { label: "Stratégies d'acquisition B2B", href: '/blog/strategies-acquisition-b2b' },
               ].map((r, i) => (
                 <Link
                   key={i}
