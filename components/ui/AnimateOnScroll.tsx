@@ -40,7 +40,13 @@ export default function AnimateOnScroll({
     )
 
     observer.observe(el)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      // Reset to hidden so React 18 Strict Mode's second run starts clean
+      el.style.opacity = '0'
+      el.style.transform = 'translateY(16px)'
+      el.style.transitionDelay = '0ms'
+    }
   }, [delay])
 
   return (
