@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { ArrowRight, Zap } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
@@ -22,13 +21,19 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-sm font-medium mb-8 backdrop-blur-sm">
+        <div
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-sm font-medium mb-8 backdrop-blur-sm animate-fade-in-up"
+          style={{ animationDelay: '0ms' }}
+        >
           <Zap className="w-3.5 h-3.5 fill-indigo-300" />
           <span>Growth Marketing & Automatisation B2B</span>
         </div>
 
         {/* Headline */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.05] mb-6">
+        <h1
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.05] mb-6 animate-fade-in-up"
+          style={{ animationDelay: '100ms' }}
+        >
           Automatisez votre
           <br />
           <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">
@@ -37,14 +42,20 @@ export default function HeroSection() {
         </h1>
 
         {/* Subheadline */}
-        <p className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p
+          className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up"
+          style={{ animationDelay: '220ms' }}
+        >
           Reekko construit le moteur commercial qui remplace votre prospection
           manuelle et génère des rendez-vous qualifiés en continu, sans y
           passer vos soirées.
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up"
+          style={{ animationDelay: '350ms' }}
+        >
           <Button size="lg" href="/contact">
             Réserver un appel stratégique
             <ArrowRight className="w-5 h-5" />
@@ -55,7 +66,10 @@ export default function HeroSection() {
         </div>
 
         {/* Stats */}
-        <div className="mt-20">
+        <div
+          className="mt-20 animate-fade-in-up"
+          style={{ animationDelay: '480ms' }}
+        >
           <div className="grid grid-cols-3 max-w-xl mx-auto">
             <div className="text-center px-4 py-8">
               <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">15+</div>
@@ -72,7 +86,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-
     </section>
   )
 }

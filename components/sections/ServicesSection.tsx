@@ -1,12 +1,13 @@
 import { ArrowRight, Check, Zap, BarChart2, Mail, Users } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
 
 const inclusions = [
-  { icon: BarChart2, text: 'Audit complet de l\'acquisition actuelle' },
+  { icon: BarChart2, text: "Audit complet de l'acquisition actuelle" },
   { icon: Zap, text: 'Définition de la stratégie growth' },
   { icon: Mail, text: 'Mise en place des automatisations de prospection' },
   { icon: Users, text: 'Structuration du système de génération de leads' },
-  { icon: Check, text: 'Recommandations d\'optimisation continues' },
+  { icon: Check, text: "Recommandations d'optimisation continues" },
 ]
 
 export default function ServicesSection() {
@@ -24,7 +25,7 @@ export default function ServicesSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <AnimateOnScroll className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-5">
             <span>Notre offre principale</span>
           </div>
@@ -35,10 +36,10 @@ export default function ServicesSection() {
               {' '}votre acquisition
             </span>
           </h2>
-        </div>
+        </AnimateOnScroll>
 
         {/* Service Card */}
-        <div className="max-w-4xl mx-auto">
+        <AnimateOnScroll delay={150} className="max-w-4xl mx-auto">
           <div className="relative rounded-3xl overflow-hidden">
             {/* Gradient border effect */}
             <div className="absolute inset-0 rounded-3xl p-px bg-gradient-to-br from-indigo-500/40 via-violet-500/20 to-transparent" />
@@ -54,8 +55,8 @@ export default function ServicesSection() {
                     Acquisition Automation Sprint
                   </h3>
                   <p className="text-zinc-400 leading-relaxed max-w-lg">
-                    Un accompagnement court et intensif pour concevoir et mettre en
-                    place un système d'acquisition automatisé, adapté à votre marché
+                    Un accompagnement court et intensif pour concevoir et déployer
+                    votre moteur d'acquisition automatisé, adapté à votre marché
                     et opérationnel en quelques semaines.
                   </p>
                 </div>
@@ -70,7 +71,7 @@ export default function ServicesSection() {
                       Pipeline qualifié
                     </div>
                     <div className="text-xs text-zinc-500 mt-0.5">
-                      en 30 jours
+                      en 4 à 6 semaines
                     </div>
                   </div>
                 </div>
@@ -116,7 +117,7 @@ export default function ServicesSection() {
               </div>
             </div>
           </div>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   )

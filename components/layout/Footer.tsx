@@ -34,7 +34,7 @@ export default function Footer() {
               <span className="font-bold text-white text-xl tracking-tight">Reekko</span>
             </Link>
             <p className="text-zinc-400 text-sm leading-relaxed max-w-sm mb-6">
-              Reekko conçoit des systèmes d'acquisition automatisés pour aider les entreprises B2B à générer davantage d'opportunités commerciales.
+              On construit le moteur commercial qui remplace votre prospection manuelle et génère des rendez-vous qualifiés en continu.
             </p>
             <div className="flex items-center gap-3">
               <a

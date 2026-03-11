@@ -1,12 +1,13 @@
 import { Search, Lightbulb, Cog, TrendingUp } from 'lucide-react'
+import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
 
 const steps = [
   {
     number: '01',
     icon: Search,
-    title: 'Analyse de l\'acquisition',
+    title: "Analyse de l'acquisition",
     description:
-      'Audit complet de votre acquisition actuelle : canaux, conversion, coûts, points de friction. On identifie où se trouve la vraie opportunité de croissance.',
+      "Audit complet de votre acquisition actuelle : canaux, conversion, coûts, points de friction. On identifie où se trouve la vraie opportunité de croissance.",
     tags: ['Audit', 'Diagnostic', 'Benchmark'],
   },
   {
@@ -14,7 +15,7 @@ const steps = [
     icon: Lightbulb,
     title: 'Conception du système growth',
     description:
-      'Définition de la stratégie growth adaptée à votre marché et vos cibles. Architecture du funnel d\'acquisition, choix des canaux, définition du messaging.',
+      "Définition de la stratégie growth adaptée à votre marché et vos cibles. Architecture du funnel d'acquisition, choix des canaux, définition du messaging.",
     tags: ['Stratégie', 'Funnel', 'Positioning'],
   },
   {
@@ -30,7 +31,7 @@ const steps = [
     icon: TrendingUp,
     title: 'Génération et optimisation des leads',
     description:
-      'Lancement du système, monitoring des performances, itérations pour améliorer les taux de conversion et réduire le coût par opportunité qualifiée.',
+      "Lancement du système, monitoring des performances, itérations pour améliorer les taux de conversion et réduire le coût par opportunité qualifiée.",
     tags: ['Leads', 'A/B Testing', 'Optimisation'],
   },
 ]
@@ -45,76 +46,70 @@ export default function SolutionSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-5">
-            <span>Notre méthode</span>
-          </div>
+        <AnimateOnScroll className="text-center mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
             Le Framework Reekko :
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
               {' '}4 étapes
             </span>{' '}
-            vers un système
+            vers un moteur
             <br className="hidden md:block" />
             d'acquisition solide
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto leading-relaxed">
             Une méthode éprouvée pour transformer votre acquisition B2B en un
-            système automatisé et scalable.
+            moteur automatisé et scalable.
           </p>
-        </div>
+        </AnimateOnScroll>
 
         {/* Steps */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8 hover:border-indigo-800/50 hover:bg-zinc-900/60 transition-all duration-300"
-            >
-              {/* Number + Icon Row */}
-              <div className="flex items-start justify-between mb-6">
-                <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center group-hover:bg-indigo-500/15 transition-colors">
-                  <step.icon className="w-5 h-5 text-indigo-400" />
-                </div>
-                <span className="text-5xl font-black text-zinc-800/60 leading-none tabular-nums group-hover:text-zinc-700/60 transition-colors">
-                  {step.number}
-                </span>
-              </div>
-
-              <h3 className="text-xl font-semibold text-white mb-3">
-                {step.title}
-              </h3>
-              <p className="text-zinc-400 text-sm leading-relaxed mb-5">
-                {step.description}
-              </p>
-
-              {/* Tags */}
-              <div className="flex items-center flex-wrap gap-2">
-                {step.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-zinc-800/80 text-zinc-400 border border-zinc-700/50"
-                  >
-                    {tag}
+        <AnimateOnScroll delay={150}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8 hover:border-indigo-800/50 hover:bg-zinc-900/60 transition-all duration-300"
+              >
+                {/* Number + Icon Row */}
+                <div className="flex items-start justify-between mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center group-hover:bg-indigo-500/15 transition-colors">
+                    <step.icon className="w-5 h-5 text-indigo-400" />
+                  </div>
+                  <span className="text-5xl font-black text-zinc-800/60 leading-none tabular-nums group-hover:text-zinc-700/60 transition-colors">
+                    {step.number}
                   </span>
-                ))}
+                </div>
+
+                <h3 className="text-xl font-semibold text-white mb-3">
+                  {step.title}
+                </h3>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-5">
+                  {step.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex items-center flex-wrap gap-2">
+                  {step.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-zinc-800/80 text-zinc-400 border border-zinc-700/50"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
 
-              {/* Connector for large screens */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-6 h-px bg-gradient-to-r from-zinc-700 to-transparent" />
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom CTA hint */}
-        <div className="mt-16 text-center">
+        {/* Bottom hint */}
+        <AnimateOnScroll delay={300} className="mt-16 text-center">
           <p className="text-zinc-500 text-sm">
             Ce framework a été conçu pour être mis en place rapidement,{' '}
             <span className="text-zinc-300">en quelques semaines, pas en mois.</span>
           </p>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   )
