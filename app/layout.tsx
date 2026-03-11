@@ -43,7 +43,7 @@ export const metadata: Metadata = {
       "Reekko conçoit des systèmes d'acquisition automatisés pour aider les entreprises B2B à générer davantage d'opportunités commerciales.",
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og',
         width: 1200,
         height: 630,
         alt: 'Reekko — Growth Marketing & Automatisation B2B',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     title: 'Reekko — Automatisez votre acquisition B2B',
     description:
       "Systèmes d'acquisition automatisés pour entreprises B2B. Growth marketing & lead generation.",
-    images: ['/og-image.jpg'],
+    images: ['/og'],
   },
   robots: {
     index: true,
@@ -96,7 +96,7 @@ export default function RootLayout({
               '@type': 'Organization',
               name: 'Reekko',
               url: siteUrl,
-              logo: `${siteUrl}/logo.png`,
+              logo: `${siteUrl}/logo.svg`,
               description:
                 "Reekko conçoit des systèmes d'acquisition automatisés pour aider les entreprises B2B à générer davantage d'opportunités commerciales.",
               contactPoint: {

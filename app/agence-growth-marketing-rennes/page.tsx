@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: 'Agence Growth Marketing Rennes — Acquisition B2B | Reekko',
     description:
       'Systèmes d\'acquisition B2B automatisés pour entreprises rennaises et bretonnes. Premiers résultats en 4 semaines.',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/og?title=Agence+Growth+Marketing+Rennes&sub=Acquisition+B2B+automatisée', width: 1200, height: 630 }],
   },
 }
 
@@ -130,12 +130,29 @@ const faq = [
   },
 ]
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map((item) => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.r,
+    },
+  })),
+}
+
 export default function RennesPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Hero */}
@@ -161,7 +178,7 @@ export default function RennesPage() {
             </span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg sm:text-xl font-light text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
             Reekko conçoit des systèmes d'acquisition automatisés pour les entreprises B2B du bassin rennais.
             Premiers rendez-vous qualifiés en 4 semaines, sans dépendre de la prospection manuelle.
           </p>

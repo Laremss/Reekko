@@ -45,6 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: post.date,
       authors: [post.author],
       tags: post.tags,
+      images: [{ url: `/og?title=${encodeURIComponent(post.title)}&sub=${encodeURIComponent(post.category)}`, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -151,19 +152,27 @@ export default async function BlogPostPage({ params }: Props) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': postUrl,
+    },
     headline: post.title,
     description: post.description,
+    image: `https://www.reekko.com/og?title=${encodeURIComponent(post.title)}&sub=${encodeURIComponent(post.category)}`,
     datePublished: post.date,
     dateModified: post.date,
     author: {
       '@type': 'Organization',
-      name: post.author,
+      name: 'Reekko',
       url: 'https://www.reekko.com',
     },
     publisher: {
       '@type': 'Organization',
       name: 'Reekko',
-      url: 'https://www.reekko.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.reekko.com/logo.svg',
+      },
     },
     keywords: post.tags.join(', '),
     url: postUrl,

@@ -103,8 +103,26 @@ const faqs = [
   },
 ]
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+}
+
 export default function ServicesPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     <div className="min-h-screen bg-zinc-950 pt-16">
       {/* Hero */}
       <section className="relative pt-10 pb-20 sm:pt-14 sm:pb-28 overflow-hidden">
@@ -244,5 +262,6 @@ export default function ServicesPage() {
         </div>
       </section>
     </div>
+    </>
   )
 }
