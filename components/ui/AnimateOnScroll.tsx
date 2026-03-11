@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 
 interface AnimateOnScrollProps {
@@ -15,42 +15,36 @@ export default function AnimateOnScroll({
   delay = 0,
 }: AnimateOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
 
-    // Initial hidden state applied via JS only — prevents flash on SSR
-    el.style.opacity = '0'
-    el.style.transform = 'translateY(16px)'
-    el.style.transition = 'opacity 0.7s ease-out, transform 0.7s ease-out'
-    if (delay) {
-      el.style.transitionDelay = `${delay}ms`
-    }
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.style.opacity = '1'
-          el.style.transform = 'translateY(0)'
+          setVisible(true)
           observer.unobserve(el)
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -48px 0px' }
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     )
 
     observer.observe(el)
-    return () => {
-      observer.disconnect()
-      // Reset to hidden so React 18 Strict Mode's second run starts clean
-      el.style.opacity = '0'
-      el.style.transform = 'translateY(16px)'
-      el.style.transitionDelay = '0ms'
-    }
-  }, [delay])
+    return () => observer.disconnect()
+  }, [])
 
   return (
-    <div ref={ref} className={cn(className)}>
+    <div
+      ref={ref}
+      className={cn(className)}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(20px)',
+        transition: `opacity 0.6s ease-out ${delay}ms, transform 0.6s ease-out ${delay}ms`,
+      }}
+    >
       {children}
     </div>
   )

@@ -19,34 +19,31 @@ export default function CountUp({ value, className, duration = 1600 }: CountUpPr
   const [count, setCount] = useState(0)
   const ref = useRef<HTMLSpanElement>(null)
   const rafId = useRef<number>(0)
-  const started = useRef(false)
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
 
-    const startAnimation = () => {
-      if (started.current) return
-      started.current = true
-
-      const startTime = performance.now()
-      const tick = (now: number) => {
-        const progress = Math.min((now - startTime) / duration, 1)
-        const eased = 1 - Math.pow(1 - progress, 3)
-        setCount(Math.round(eased * numeric))
-        if (progress < 1) {
-          rafId.current = requestAnimationFrame(tick)
-        }
-      }
-      rafId.current = requestAnimationFrame(tick)
-    }
+    // Local flag per effect run — each closure owns its own `alive`
+    // Cleanup sets it to false, so any pending rAF or observer callback is a no-op
+    let alive = true
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          startAnimation()
-          observer.unobserve(el)
+        if (!entry.isIntersecting || !alive) return
+        alive = false // prevent double-fire
+        observer.unobserve(el)
+
+        const startTime = performance.now()
+        const tick = (now: number) => {
+          const progress = Math.min((now - startTime) / duration, 1)
+          const eased = 1 - Math.pow(1 - progress, 3)
+          setCount(Math.round(eased * numeric))
+          if (progress < 1) {
+            rafId.current = requestAnimationFrame(tick)
+          }
         }
+        rafId.current = requestAnimationFrame(tick)
       },
       { threshold: 0 }
     )
@@ -54,9 +51,9 @@ export default function CountUp({ value, className, duration = 1600 }: CountUpPr
     observer.observe(el)
 
     return () => {
+      alive = false
       observer.disconnect()
       cancelAnimationFrame(rafId.current)
-      started.current = false
     }
   }, [numeric, duration])
 
