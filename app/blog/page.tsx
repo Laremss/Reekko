@@ -17,7 +17,6 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const posts = getAllPosts()
   const categories = getAllCategories()
-  const [featuredPost, ...otherPosts] = posts
 
   return (
     <div className="min-h-screen bg-zinc-950 pt-16">
@@ -56,19 +55,6 @@ export default function BlogPage() {
           </div>
         ) : (
           <>
-            {/* Featured Post */}
-            {featuredPost && (
-              <div className="mb-12">
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-1 h-5 rounded-full bg-gradient-to-b from-indigo-500 to-violet-500" />
-                  <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">
-                    Article à la une
-                  </h2>
-                </div>
-                <BlogCard post={featuredPost} featured />
-              </div>
-            )}
-
             {/* Category filter */}
             {categories.length > 1 && (
               <div className="flex items-center flex-wrap gap-2 mb-10">
@@ -87,22 +73,12 @@ export default function BlogPage() {
               </div>
             )}
 
-            {/* Other Posts */}
-            {otherPosts.length > 0 && (
-              <div>
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-1 h-5 rounded-full bg-gradient-to-b from-zinc-600 to-zinc-700" />
-                  <h2 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider">
-                    Tous les articles
-                  </h2>
-                </div>
-                <div className="space-y-4">
-                  {otherPosts.map((post) => (
-                    <BlogCard key={post.slug} post={post} />
-                  ))}
-                </div>
-              </div>
-            )}
+            {/* Grid — tous les articles */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {posts.map((post) => (
+                <BlogCard key={post.slug} post={post} featured />
+              ))}
+            </div>
           </>
         )}
 
