@@ -10,73 +10,73 @@ interface BlogCardProps {
 
 type CategoryStyle = {
   gradient: string
-  orb1: string
-  orb2: string
+  orb: string
+  ring1: string
+  ring2: string
   iconBg: string
   iconBorder: string
   iconColor: string
   badgeBg: string
   badgeBorder: string
   badgeText: string
-  titleColor: string
   Icon: React.ElementType
 }
 
 function getCategoryStyle(category: string): CategoryStyle {
   const map: Record<string, CategoryStyle> = {
     'Growth Marketing': {
-      gradient: 'from-violet-950 via-zinc-900 to-purple-950',
-      orb1: 'bg-violet-500/30',
-      orb2: 'bg-purple-600/20',
+      gradient: 'from-violet-950 via-[#110d1f] to-purple-950',
+      orb: 'bg-violet-500/50',
+      ring1: 'border-violet-500/25',
+      ring2: 'border-violet-400/10',
       iconBg: 'bg-violet-500/20',
-      iconBorder: 'border-violet-500/30',
-      iconColor: 'text-violet-400',
+      iconBorder: 'border-violet-500/40',
+      iconColor: 'text-violet-300',
       badgeBg: 'bg-violet-500/15',
       badgeBorder: 'border-violet-500/20',
       badgeText: 'text-violet-300',
-      titleColor: 'text-violet-100',
       Icon: TrendingUp,
     },
     Automatisation: {
-      gradient: 'from-emerald-950 via-zinc-900 to-cyan-950',
-      orb1: 'bg-emerald-500/25',
-      orb2: 'bg-cyan-600/20',
+      gradient: 'from-emerald-950 via-[#0a1410] to-cyan-950',
+      orb: 'bg-emerald-500/40',
+      ring1: 'border-emerald-500/25',
+      ring2: 'border-emerald-400/10',
       iconBg: 'bg-emerald-500/20',
-      iconBorder: 'border-emerald-500/30',
-      iconColor: 'text-emerald-400',
+      iconBorder: 'border-emerald-500/40',
+      iconColor: 'text-emerald-300',
       badgeBg: 'bg-emerald-500/15',
       badgeBorder: 'border-emerald-500/20',
       badgeText: 'text-emerald-300',
-      titleColor: 'text-emerald-50',
       Icon: Zap,
     },
     'Stratégie B2B': {
-      gradient: 'from-indigo-950 via-zinc-900 to-blue-950',
-      orb1: 'bg-indigo-500/30',
-      orb2: 'bg-blue-600/20',
+      gradient: 'from-indigo-950 via-[#0c0e1a] to-blue-950',
+      orb: 'bg-indigo-500/50',
+      ring1: 'border-indigo-500/25',
+      ring2: 'border-indigo-400/10',
       iconBg: 'bg-indigo-500/20',
-      iconBorder: 'border-indigo-500/30',
-      iconColor: 'text-indigo-400',
+      iconBorder: 'border-indigo-500/40',
+      iconColor: 'text-indigo-300',
       badgeBg: 'bg-indigo-500/15',
       badgeBorder: 'border-indigo-500/20',
       badgeText: 'text-indigo-300',
-      titleColor: 'text-indigo-50',
       Icon: Target,
     },
   }
 
   return (
     map[category] ?? {
-      gradient: 'from-indigo-950 via-zinc-900 to-violet-950',
-      orb1: 'bg-indigo-500/30',
-      orb2: 'bg-violet-600/20',
+      gradient: 'from-indigo-950 via-[#0c0e1a] to-violet-950',
+      orb: 'bg-indigo-500/50',
+      ring1: 'border-indigo-500/25',
+      ring2: 'border-indigo-400/10',
       iconBg: 'bg-indigo-500/20',
-      iconBorder: 'border-indigo-500/30',
-      iconColor: 'text-indigo-400',
+      iconBorder: 'border-indigo-500/40',
+      iconColor: 'text-indigo-300',
       badgeBg: 'bg-indigo-500/15',
       badgeBorder: 'border-indigo-500/20',
       badgeText: 'text-indigo-300',
-      titleColor: 'text-indigo-50',
       Icon: TrendingUp,
     }
   )
@@ -93,29 +93,32 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
           {/* Cover */}
           <div className={`aspect-video bg-gradient-to-br ${style.gradient} relative overflow-hidden`}>
             {/* Grid */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:28px_28px]" />
-            {/* Orbs */}
-            <div className={`absolute -top-10 -right-10 w-48 h-48 rounded-full ${style.orb1} blur-3xl`} />
-            <div className={`absolute -bottom-10 -left-6 w-36 h-36 rounded-full ${style.orb2} blur-2xl`} />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px]" />
 
-            {/* Icon — top right */}
-            <div className={`absolute top-5 right-5 w-11 h-11 rounded-xl ${style.iconBg} border ${style.iconBorder} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-              <Icon className={`w-5 h-5 ${style.iconColor}`} />
+            {/* Central glow */}
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full ${style.orb} blur-3xl`} />
+
+            {/* Concentric rings */}
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border ${style.ring1}`} />
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 rounded-full border ${style.ring2}`} />
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full border ${style.ring2} opacity-50`} />
+
+            {/* Large icon */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className={`w-20 h-20 rounded-2xl ${style.iconBg} border ${style.iconBorder} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm`}>
+                <Icon className={`w-9 h-9 ${style.iconColor}`} />
+              </div>
             </div>
 
-            {/* Title over the cover */}
-            <div className="absolute inset-0 flex flex-col justify-end p-5 pb-4">
-              <h2 className={`text-base sm:text-lg font-bold ${style.titleColor} leading-snug line-clamp-2 mb-3 drop-shadow-sm`}>
-                {post.title}
-              </h2>
-              <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${style.badgeBg} ${style.badgeText} border ${style.badgeBorder} self-start`}>
+            {/* Category badge */}
+            <div className="absolute bottom-4 left-4">
+              <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${style.badgeBg} ${style.badgeText} border ${style.badgeBorder} backdrop-blur-sm`}>
                 {post.category}
               </span>
             </div>
           </div>
 
           <div className="p-6">
-            {/* Meta */}
             <div className="flex items-center gap-3 mb-4">
               <div className="flex items-center gap-1.5 text-zinc-500 text-xs">
                 <Clock className="w-3.5 h-3.5" />
@@ -126,6 +129,10 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
                 <span>{formatDate(post.date)}</span>
               </div>
             </div>
+
+            <h2 className="text-xl font-bold text-white mb-3 leading-snug group-hover:text-indigo-100 transition-colors line-clamp-2">
+              {post.title}
+            </h2>
 
             <p className="text-zinc-400 text-sm leading-relaxed mb-5 line-clamp-3">
               {post.description}
@@ -146,20 +153,20 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
       <article className="rounded-xl border border-zinc-800/60 bg-zinc-900/30 overflow-hidden hover:border-zinc-700/60 hover:bg-zinc-900/50 transition-all duration-300 flex flex-col sm:flex-row gap-0">
         {/* Thumbnail compact */}
         <div className={`sm:w-40 lg:w-48 aspect-video sm:aspect-auto flex-shrink-0 bg-gradient-to-br ${style.gradient} relative overflow-hidden`}>
-          {/* Grid */}
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:20px_20px]" />
-          {/* Orbs */}
-          <div className={`absolute -top-6 -right-6 w-28 h-28 rounded-full ${style.orb1} blur-2xl`} />
-          <div className={`absolute -bottom-4 -left-4 w-20 h-20 rounded-full ${style.orb2} blur-xl`} />
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:20px_20px]" />
 
-          {/* Icon + mini title */}
-          <div className="absolute inset-0 flex flex-col items-start justify-between p-3.5">
-            <div className={`w-9 h-9 rounded-xl ${style.iconBg} border ${style.iconBorder} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
-              <Icon className={`w-4 h-4 ${style.iconColor}`} />
+          {/* Glow */}
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full ${style.orb} blur-2xl`} />
+
+          {/* Ring */}
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full border ${style.ring1}`} />
+          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full border ${style.ring2}`} />
+
+          {/* Icon */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className={`w-12 h-12 rounded-xl ${style.iconBg} border ${style.iconBorder} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 backdrop-blur-sm`}>
+              <Icon className={`w-5.5 h-5.5 ${style.iconColor}`} />
             </div>
-            <p className={`text-[11px] font-semibold ${style.titleColor} leading-snug line-clamp-3 opacity-80`}>
-              {post.title}
-            </p>
           </div>
         </div>
 
