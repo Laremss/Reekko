@@ -112,7 +112,7 @@
     to right,
     #93c5fd,
     #a5b4fc,
-    #ede9fe,
+    #c4b5fd,
     #7c3aed,
     #93c5fd
   );
@@ -120,7 +120,7 @@
   background-clip: text;
   color: transparent;
   background-size: 200% auto;
-  animation: shimmer 5s linear infinite;
+  animation: shimmer 7s linear infinite;
 }
 
 /* MDX / Prose overrides */
