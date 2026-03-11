@@ -90,7 +90,7 @@ const principles = [
   },
   {
     title: 'Rapide à déployer',
-    description: 'Un système opérationnel en quelques semaines, pas en mois.',
+    description: 'Un pipeline opérationnel en quelques semaines, pas en mois.',
   },
   {
     title: 'Scalable',
@@ -118,16 +118,16 @@ export default function MethodePage() {
             <span>Le Framework Reekko</span>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight mb-6">
-            Une méthode éprouvée pour
+            4 étapes pour construire
             <br />
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-              automatiser votre acquisition
+              votre moteur commercial
             </span>
           </h1>
           <p className="text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            4 étapes structurées pour transformer votre acquisition B2B en un
-            système automatisé et scalable. Sans dépendre d'actions
-            ponctuelles.
+            Un accompagnement structuré pour passer d'une prospection
+            artisanale à un pipeline qui tourne en continu. Sans réinventer
+            la roue chaque trimestre.
           </p>
         </div>
       </section>

@@ -38,8 +38,9 @@ export default function HeroSection() {
 
         {/* Subheadline */}
         <p className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Reekko conçoit des systèmes d'acquisition automatisés pour aider les
-          entreprises B2B à générer davantage d'opportunités commerciales.
+          Reekko construit le moteur commercial qui remplace votre prospection
+          manuelle et génère des rendez-vous qualifiés en continu, sans y
+          passer vos soirées.
         </p>
 
         {/* CTAs */}

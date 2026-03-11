@@ -27,9 +27,9 @@ const values = [
   },
   {
     icon: Heart,
-    title: 'Partenaire, pas prestataire',
+    title: 'Investis dans vos résultats',
     description:
-      'On s\'implique comme des co-fondateurs dans votre croissance. Votre succès est notre succès.',
+      'On travaille comme si c\'était notre propre pipeline. Votre succès est notre succès, pas juste une case cochée.',
   },
   {
     icon: Users,
@@ -68,10 +68,10 @@ export default function AProposPage() {
             <span>Notre histoire</span>
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight mb-6">
-            Reekko, née d'une
+            Reekko, construite
             <br />
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-              obsession pour la croissance
+              pour que votre acquisition tourne sans vous
             </span>
           </h1>
           <p className="text-lg text-zinc-400 max-w-2xl leading-relaxed">
@@ -92,18 +92,20 @@ export default function AProposPage() {
             <p className="text-zinc-400 leading-relaxed mb-5">
               Trop d'entreprises B2B brillantes échouent à croître non pas parce
               que leur produit est mauvais, mais parce qu'elles n'ont pas de
-              système d'acquisition structuré. Elles dépendent de la chance,
-              du bouche-à-oreille ou d'actions ponctuelles qui ne scalent pas.
+              moteur commercial structuré. Elles dépendent de la chance,
+              du bouche-à-oreille ou d'actions ponctuelles qui ne tiennent pas
+              dans le temps.
             </p>
             <p className="text-zinc-400 leading-relaxed mb-5">
-              Chez Reekko, on croit que chaque entreprise B2B mérite d'avoir un
-              système d'acquisition qui fonctionne en continu, sans dépendre
-              d'une seule personne, sans réinventer la roue chaque trimestre.
+              Chez Reekko, on croit que chaque entreprise B2B mérite d'avoir une
+              infrastructure d'acquisition qui fonctionne en continu, sans
+              dépendre d'une seule personne, sans réinventer la roue chaque
+              trimestre.
             </p>
             <p className="text-zinc-400 leading-relaxed">
               C'est pour ça qu'on a développé le Framework Reekko : une méthode
-              éprouvée pour construire un système d'acquisition automatisé,
-              mesurable et scalable, adapté à chaque entreprise B2B.
+              éprouvée pour construire un moteur d'acquisition automatisé,
+              mesurable et reproductible, adapté à chaque entreprise B2B.
             </p>
           </div>
         </div>
@@ -170,14 +172,14 @@ export default function AProposPage() {
       <section className="py-20 bg-zinc-900/30 border-t border-zinc-800/50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">
-            Travaillons ensemble
+            Votre acquisition mérite mieux
           </h2>
           <p className="text-zinc-400 text-lg mb-8">
-            Vous avez un projet d'acquisition B2B ? On serait ravis d'en
-            discuter avec vous.
+            Votre acquisition mérite mieux qu'un tableur de prospects et des
+            relances manuelles. Parlons-en.
           </p>
           <Button size="lg" href="/contact">
-            Prendre contact
+            Réserver un appel stratégique
             <ArrowRight className="w-5 h-5" />
           </Button>
         </div>

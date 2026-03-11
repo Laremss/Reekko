@@ -122,7 +122,7 @@ const faq = [
   },
   {
     q: 'Quels budgets faut-il prévoir ?',
-    r: 'Notre offre est un sprint à prix fixe, transparent dès le premier échange. Nous ne pratiquons pas les retainers opaques. Réservez un appel pour obtenir un chiffrage adapté à votre situation.',
+    r: 'Le tarif est défini sur mesure selon vos besoins, la complexité du projet et les canaux à activer. Nous privilégions la transparence : tout est chiffré dès le premier échange, sans retainer opaque ni engagement long terme par défaut. Réservez un appel pour obtenir une proposition adaptée à votre situation.',
   },
   {
     q: 'Intervenez-vous uniquement sur Rennes ou aussi en dehors ?',

@@ -44,7 +44,7 @@ const features = [
     icon: Users,
     title: 'Génération de leads',
     description:
-      'Mise en place d\'un flux régulier de génération d\'opportunités commerciales qualifiées.',
+      'Construction d\'un flux constant de prospects qualifiés, sans prospection manuelle au quotidien.',
   },
   {
     icon: BarChart2,
@@ -127,8 +127,9 @@ export default function ServicesPage() {
             </span>
           </h1>
           <p className="text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10">
-            Un accompagnement court et intensif pour concevoir et mettre en place
-            un système d'acquisition automatisé, opérationnel en quelques semaines.
+            En 4 à 6 semaines, on conçoit et déploie votre moteur d'acquisition
+            automatisé. Vous repartez avec un pipeline qui tourne sans
+            intervention manuelle.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" href="/contact">
@@ -183,7 +184,7 @@ export default function ServicesPage() {
               Tout ce dont vous avez besoin
             </h2>
             <p className="text-zinc-400">
-              Une liste exhaustive de ce qui est inclus dans le sprint.
+              Pas de mauvaise surprise. Voici exactement ce qui est compris dans le sprint.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
