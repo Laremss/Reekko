@@ -62,11 +62,14 @@ export default function SolutionSection() {
           </p>
         </AnimateOnScroll>
 
-        {/* Steps — stagger individuel */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {steps.map((step, index) => (
-            <AnimateOnScroll key={index} delay={150 + index * 100}>
-              <div className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8 hover:border-indigo-800/50 hover:bg-zinc-900/60 transition-all duration-300 h-full">
+        {/* Steps */}
+        <AnimateOnScroll delay={150}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8 hover:border-indigo-800/50 hover:bg-zinc-900/60 transition-all duration-300"
+              >
                 {/* Number + Icon Row */}
                 <div className="flex items-start justify-between mb-6">
                   <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center group-hover:bg-indigo-500/15 transition-colors">
@@ -96,9 +99,9 @@ export default function SolutionSection() {
                   ))}
                 </div>
               </div>
-            </AnimateOnScroll>
-          ))}
-        </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
 
         {/* Bottom hint */}
         <AnimateOnScroll delay={300} className="mt-16 text-center">

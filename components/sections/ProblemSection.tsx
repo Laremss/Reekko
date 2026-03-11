@@ -44,11 +44,14 @@ export default function ProblemSection() {
           </p>
         </AnimateOnScroll>
 
-        {/* Problem Cards — stagger individuel */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {problems.map((problem, index) => (
-            <AnimateOnScroll key={index} delay={index * 150}>
-              <div className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8 hover:border-red-800/50 hover:bg-zinc-900/70 transition-all duration-300 h-full">
+        {/* Problem Cards */}
+        <AnimateOnScroll delay={150}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {problems.map((problem, index) => (
+              <div
+                key={index}
+                className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8 hover:border-red-800/50 hover:bg-zinc-900/70 transition-all duration-300"
+              >
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-6 group-hover:bg-red-500/20 transition-colors">
                   <problem.icon className="w-5 h-5 text-red-400" />
@@ -66,9 +69,9 @@ export default function ProblemSection() {
                   {problem.description}
                 </p>
               </div>
-            </AnimateOnScroll>
-          ))}
-        </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
 
         {/* Transition */}
         <AnimateOnScroll delay={300} className="mt-20 text-center">

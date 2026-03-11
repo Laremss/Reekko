@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { cn } from '@/lib/utils'
 
 interface AnimateOnScrollProps {
@@ -15,16 +15,20 @@ export default function AnimateOnScroll({
   delay = 0,
 }: AnimateOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     const el = ref.current
     if (!el) return
 
+    el.style.opacity = '0'
+    el.style.transform = 'translateY(16px)'
+    el.style.transition = `opacity 0.6s ease-out ${delay}ms, transform 0.6s ease-out ${delay}ms`
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true)
+          el.style.opacity = '1'
+          el.style.transform = 'translateY(0)'
           observer.unobserve(el)
         }
       },
@@ -33,18 +37,10 @@ export default function AnimateOnScroll({
 
     observer.observe(el)
     return () => observer.disconnect()
-  }, [])
+  }, [delay])
 
   return (
-    <div
-      ref={ref}
-      className={cn(className)}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0)' : 'translateY(20px)',
-        transition: `opacity 0.6s ease-out ${delay}ms, transform 0.6s ease-out ${delay}ms`,
-      }}
-    >
+    <div ref={ref} className={cn(className)}>
       {children}
     </div>
   )
