@@ -49,7 +49,7 @@ export default function SolutionSection() {
         <AnimateOnScroll className="text-center mb-20">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
             Le Framework Reekko :
-            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent animate-gradient-text">
               {' '}4 étapes
             </span>{' '}
             vers un moteur
@@ -62,14 +62,11 @@ export default function SolutionSection() {
           </p>
         </AnimateOnScroll>
 
-        {/* Steps */}
-        <AnimateOnScroll delay={150}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8 hover:border-indigo-800/50 hover:bg-zinc-900/60 transition-all duration-300"
-              >
+        {/* Steps — stagger individuel */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {steps.map((step, index) => (
+            <AnimateOnScroll key={index} delay={150 + index * 100}>
+              <div className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8 hover:border-indigo-800/50 hover:bg-zinc-900/60 transition-all duration-300 h-full">
                 {/* Number + Icon Row */}
                 <div className="flex items-start justify-between mb-6">
                   <div className="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center group-hover:bg-indigo-500/15 transition-colors">
@@ -99,15 +96,15 @@ export default function SolutionSection() {
                   ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </AnimateOnScroll>
+            </AnimateOnScroll>
+          ))}
+        </div>
 
         {/* Bottom hint */}
         <AnimateOnScroll delay={300} className="mt-16 text-center">
-          <p className="text-zinc-500 text-sm">
+          <p className="text-zinc-400 text-base">
             Ce framework a été conçu pour être mis en place rapidement,{' '}
-            <span className="text-zinc-300">en quelques semaines, pas en mois.</span>
+            <span className="text-white font-medium">en quelques semaines, pas en mois.</span>
           </p>
         </AnimateOnScroll>
       </div>

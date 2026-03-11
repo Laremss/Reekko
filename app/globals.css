@@ -81,6 +81,11 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  .animate-gradient-text {
+    background-size: 200% auto;
+    animation: gradientShift 5s ease-in-out infinite;
+  }
 }
 
 /* Hero entrance animation */
@@ -97,6 +102,13 @@
 
 .animate-fade-in-up {
   animation: fadeInUp 0.7s ease-out both;
+}
+
+/* Animated gradient text */
+@keyframes gradientShift {
+  0%   { background-position: 0% center; }
+  50%  { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 /* MDX / Prose overrides */

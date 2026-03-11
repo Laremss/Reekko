@@ -1,5 +1,6 @@
 import { Star, Quote } from 'lucide-react'
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
+import CountUp from '@/components/ui/CountUp'
 
 const stats = [
   { value: '15+', label: 'Entreprises accompagnées' },
@@ -51,7 +52,7 @@ export default function CredibilitySection() {
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
             Les résultats
-            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent animate-gradient-text">
               {' '}parlent d'eux-mêmes
             </span>
           </h2>
@@ -75,7 +76,7 @@ export default function CredibilitySection() {
               return (
                 <div key={index} className={`px-6 py-10 text-center ${sep}`}>
                   <div className="text-4xl sm:text-5xl font-black text-white mb-2 tabular-nums">
-                    {stat.value}
+                    <CountUp value={stat.value} />
                   </div>
                   <div className="text-sm text-zinc-500">{stat.label}</div>
                 </div>

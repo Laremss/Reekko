@@ -1,6 +1,7 @@
 import { ArrowRight, Zap } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
+import CountUp from '@/components/ui/CountUp'
 
 export default function HeroSection() {
   return (
@@ -36,7 +37,7 @@ export default function HeroSection() {
         >
           Automatisez votre
           <br />
-          <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400 bg-clip-text text-transparent animate-gradient-text">
             acquisition B2B.
           </span>
         </h1>
@@ -72,15 +73,21 @@ export default function HeroSection() {
         >
           <div className="grid grid-cols-3 max-w-xl mx-auto">
             <div className="text-center px-4 py-8">
-              <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">15+</div>
+              <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">
+                <CountUp value="15+" />
+              </div>
               <div className="text-xs sm:text-sm text-zinc-500 mt-1">Entreprises accompagnées</div>
             </div>
             <div className="text-center px-4 py-8">
-              <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">3×</div>
+              <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">
+                <CountUp value="3×" />
+              </div>
               <div className="text-xs sm:text-sm text-zinc-500 mt-1">ROI moyen</div>
             </div>
             <div className="text-center px-4 py-8">
-              <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">−40%</div>
+              <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">
+                <CountUp value="−40%" />
+              </div>
               <div className="text-xs sm:text-sm text-zinc-500 mt-1">Coût par lead</div>
             </div>
           </div>
