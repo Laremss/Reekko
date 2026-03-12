@@ -109,9 +109,10 @@ export default function Header() {
       {/* Mobile Menu Panel */}
       <div
         className={cn(
-          'fixed top-0 right-0 bottom-0 z-50 w-72 bg-zinc-950 border-l border-zinc-800/50 transform transition-transform duration-300 ease-in-out md:hidden',
-          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+          'fixed top-0 right-0 bottom-0 z-[60] w-72 bg-zinc-950 border-l border-zinc-800/50 transform transition-transform duration-300 ease-in-out md:hidden',
+          isMobileMenuOpen ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none'
         )}
+        aria-hidden={!isMobileMenuOpen}
       >
         <div className="flex items-center justify-between p-4 border-b border-zinc-800/50">
           <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
