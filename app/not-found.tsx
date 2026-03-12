@@ -4,7 +4,7 @@ import { ArrowLeft, Home } from 'lucide-react'
 import Button from '@/components/ui/Button'
 
 export const metadata: Metadata = {
-  title: '404 — Page introuvable',
+  title: '404 | Page introuvable',
   description: 'La page que vous cherchez n\'existe pas.',
   robots: { index: false, follow: false },
 }

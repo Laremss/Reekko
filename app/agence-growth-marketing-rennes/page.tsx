@@ -7,7 +7,7 @@ const siteUrl = 'https://www.reekko.com'
 const pageUrl = `${siteUrl}/agence-growth-marketing-rennes`
 
 export const metadata: Metadata = {
-  title: 'Agence Growth Marketing Rennes — Acquisition B2B automatisée | Reekko',
+  title: 'Agence Growth Marketing Rennes | Acquisition B2B automatisée | Reekko',
   description:
     'Reekko, agence growth marketing basée à Rennes. Systèmes d\'acquisition B2B automatisés pour startups et PME bretonnes. Résultats mesurables en 4 semaines.',
   keywords: [
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: pageUrl,
-    title: 'Agence Growth Marketing Rennes — Acquisition B2B | Reekko',
+    title: 'Agence Growth Marketing Rennes | Acquisition B2B | Reekko',
     description:
       'Systèmes d\'acquisition B2B automatisés pour entreprises rennaises et bretonnes. Premiers résultats en 4 semaines.',
     images: [{ url: '/og?title=Agence+Growth+Marketing+Rennes&sub=Acquisition+B2B+automatisée', width: 1200, height: 630 }],
@@ -37,7 +37,7 @@ const localSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': pageUrl,
-  name: 'Reekko — Agence Growth Marketing Rennes',
+  name: 'Reekko | Agence Growth Marketing Rennes',
   description:
     "Agence growth marketing B2B basée à Rennes. Spécialisée dans l'acquisition automatisée et la prospection B2B pour startups et PME.",
   url: siteUrl,
@@ -167,7 +167,7 @@ export default function RennesPage() {
           {/* Badge local */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-sm font-medium mb-8">
             <MapPin className="w-3.5 h-3.5" />
-            <span>Agence Growth Marketing — Rennes, Bretagne</span>
+            <span>Agence Growth Marketing | Rennes, Bretagne</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold tracking-tight text-white leading-[1.08] mb-6">

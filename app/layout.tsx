@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     template: '%s | Reekko',
-    default: 'Reekko — Automatisez votre acquisition B2B',
+    default: 'Reekko | Automatisez votre acquisition B2B',
   },
   description:
     "Reekko conçoit des systèmes d'acquisition automatisés pour aider les entreprises B2B à générer davantage d'opportunités commerciales grâce au growth marketing.",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     locale: 'fr_FR',
     url: siteUrl,
     siteName: 'Reekko',
-    title: 'Reekko — Automatisez votre acquisition B2B',
+    title: 'Reekko | Automatisez votre acquisition B2B',
     description:
       "Reekko conçoit des systèmes d'acquisition automatisés pour aider les entreprises B2B à générer davantage d'opportunités commerciales.",
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         url: '/og',
         width: 1200,
         height: 630,
-        alt: 'Reekko — Growth Marketing & Automatisation B2B',
+        alt: 'Reekko | Growth Marketing & Automatisation B2B',
       },
     ],
   },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@reekko',
     creator: '@reekko',
-    title: 'Reekko — Automatisez votre acquisition B2B',
+    title: 'Reekko | Automatisez votre acquisition B2B',
     description:
       "Systèmes d'acquisition automatisés pour entreprises B2B. Growth marketing & lead generation.",
     images: ['/og'],

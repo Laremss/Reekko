@@ -4,7 +4,7 @@ import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
 
 export const metadata: Metadata = {
-  title: 'À propos — Reekko, expert en acquisition B2B',
+  title: 'À propos | Reekko, expert en acquisition B2B',
   description:
     'Découvrez Reekko, l\'agence spécialisée en growth marketing et automatisation de l\'acquisition B2B. Notre mission, nos valeurs et notre équipe.',
   alternates: {

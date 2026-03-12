@@ -7,7 +7,7 @@ import CredibilitySection from '@/components/sections/CredibilitySection'
 import CTASection from '@/components/sections/CTASection'
 
 export const metadata: Metadata = {
-  title: 'Reekko — Automatisez votre acquisition B2B',
+  title: 'Reekko | Automatisez votre acquisition B2B',
   description:
     "Reekko conçoit des systèmes d'acquisition automatisés pour aider les startups, SaaS et agences B2B à générer davantage d'opportunités commerciales grâce au growth marketing.",
   alternates: {
