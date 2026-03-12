@@ -4,7 +4,7 @@ import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
 
 export const metadata: Metadata = {
-  title: 'Notre Méthode — Framework d\'acquisition B2B',
+  title: 'Notre Méthode | Framework d\'acquisition B2B',
   description:
     'Découvrez le Framework Reekko : 4 étapes pour transformer votre acquisition B2B en un système automatisé, efficace et scalable.',
   alternates: {

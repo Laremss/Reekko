@@ -13,7 +13,7 @@ import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
 
 export const metadata: Metadata = {
-  title: 'Services — Acquisition Automation Sprint',
+  title: 'Services | Acquisition Automation Sprint',
   description:
     "Découvrez l'Acquisition Automation Sprint de Reekko : un accompagnement intensif pour mettre en place votre système d'acquisition B2B automatisé en quelques semaines.",
   alternates: {

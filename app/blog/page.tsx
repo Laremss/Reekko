@@ -6,7 +6,7 @@ import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
 
 export const metadata: Metadata = {
-  title: 'Blog — Growth Marketing & Acquisition B2B',
+  title: 'Blog | Growth Marketing & Acquisition B2B',
   description:
     'Ressources, stratégies et conseils pour automatiser votre acquisition B2B, maîtriser le growth marketing et générer plus de leads qualifiés.',
   alternates: {
@@ -73,7 +73,7 @@ export default function BlogPage() {
               </div>
             )}
 
-            {/* Grid — tous les articles */}
+            {/* Grid : tous les articles */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {posts.map((post) => (
                 <BlogCard key={post.slug} post={post} featured />
