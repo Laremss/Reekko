@@ -95,19 +95,19 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-zinc-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-zinc-500 text-sm">
+          <p className="text-zinc-400 text-sm">
             © {currentYear} Reekko. Tous droits réservés.
           </p>
           <div className="flex items-center gap-6">
             <Link
               href="/mentions-legales"
-              className="text-zinc-500 hover:text-zinc-300 text-sm transition-colors"
+              className="text-zinc-400 hover:text-zinc-200 text-sm transition-colors"
             >
               Mentions légales
             </Link>
             <Link
               href="/politique-de-confidentialite"
-              className="text-zinc-500 hover:text-zinc-300 text-sm transition-colors"
+              className="text-zinc-400 hover:text-zinc-200 text-sm transition-colors"
             >
               Confidentialité
             </Link>
