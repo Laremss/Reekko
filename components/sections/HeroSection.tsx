@@ -30,10 +30,9 @@ export default function HeroSection() {
           <span>Growth Marketing & Automatisation B2B</span>
         </div>
 
-        {/* Headline */}
+        {/* Headline — pas d'animation : c'est l'élément LCP, doit être visible immédiatement */}
         <h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.05] mb-6 animate-fade-in-up"
-          style={{ animationDelay: '100ms' }}
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.05] mb-6"
         >
           Automatisez votre
           <br />

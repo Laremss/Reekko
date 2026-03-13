@@ -20,6 +20,19 @@ export default function ParallaxGrid({ opacity = 0.05 }: ParallaxGridProps) {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
+
+    // Sur mobile (touch) : pas de curseur → on affiche une grille CSS statique et on arrête
+    const isTouch = window.matchMedia('(hover: none)').matches
+    if (isTouch) {
+      canvas.style.display = 'none'
+      const section = canvas.parentElement
+      if (section) {
+        section.style.backgroundImage = `linear-gradient(rgba(255,255,255,${opacity}) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,${opacity}) 1px, transparent 1px)`
+        section.style.backgroundSize = `${GRID}px ${GRID}px`
+      }
+      return
+    }
+
     const ctx = canvas.getContext('2d')
     if (!ctx) return
     const section = canvas.parentElement
