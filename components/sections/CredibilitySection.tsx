@@ -1,11 +1,12 @@
 import { Star, Quote } from 'lucide-react'
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
+import CountUp from '@/components/ui/CountUp'
 
 const stats = [
-  { value: '15+', label: 'Entreprises accompagnées' },
-  { value: '×3', label: 'ROI moyen constaté' },
-  { value: '−40%', label: 'Réduction du coût par lead' },
-  { value: '4 sem.', label: 'Délai de mise en place' },
+  { value: '15+', label: 'Entreprises accompagnées', duration: 1200 },
+  { value: '×3', label: 'ROI moyen constaté', duration: 1000 },
+  { value: '−40%', label: 'Réduction du coût par lead', duration: 1500 },
+  { value: '4 sem.', label: 'Délai de mise en place', duration: 900 },
 ]
 
 const testimonials = [
@@ -74,9 +75,11 @@ export default function CredibilitySection() {
                       : ''
               return (
                 <div key={index} className={`px-6 py-10 text-center ${sep}`}>
-                  <div className="text-4xl sm:text-5xl font-black text-white mb-2 tabular-nums">
-                    {stat.value}
-                  </div>
+                  <CountUp
+                    value={stat.value}
+                    duration={stat.duration}
+                    className="text-4xl sm:text-5xl font-black text-white mb-2 tabular-nums block"
+                  />
                   <div className="text-sm text-zinc-500">{stat.label}</div>
                 </div>
               )
