@@ -295,14 +295,14 @@ export default function ContactPage() {
                 Contact direct
               </h3>
               <a
-                href="mailto:contact.reekko@gmail.com"
+                href="mailto:contact@reekko.com"
                 className="flex items-center gap-3 rounded-xl border border-zinc-800/60 bg-zinc-900/30 p-4 hover:border-zinc-700/60 hover:bg-zinc-900/50 transition-all group"
               >
                 <div className="w-9 h-9 rounded-lg bg-zinc-800/60 flex items-center justify-center group-hover:bg-zinc-700/60 transition-colors">
                   <Mail className="w-4 h-4 text-zinc-400" />
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-zinc-300">contact.reekko@gmail.com</div>
+                  <div className="text-sm font-medium text-zinc-300">contact@reekko.com</div>
                   <div className="text-xs text-zinc-600">Réponse sous 24h</div>
                 </div>
               </a>

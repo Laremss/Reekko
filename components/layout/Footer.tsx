@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Linkedin, Mail, Zap } from 'lucide-react'
+import { Twitter, Linkedin, Mail, Zap } from 'lucide-react'
 
 const footerLinks = {
   navigation: [
@@ -38,6 +38,15 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3">
               <a
+                href="https://twitter.com/reekko"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-lg border border-zinc-800 flex items-center justify-center text-zinc-500 hover:text-white hover:border-zinc-600 hover:bg-zinc-800/60 transition-all"
+                aria-label="Twitter / X"
+              >
+                <Twitter size={15} />
+              </a>
+              <a
                 href="https://linkedin.com/company/reekko"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -47,7 +56,7 @@ export default function Footer() {
                 <Linkedin size={15} />
               </a>
               <a
-                href="mailto:contact.reekko@gmail.com"
+                href="mailto:contact@reekko.com"
                 className="w-9 h-9 rounded-lg border border-zinc-800 flex items-center justify-center text-zinc-500 hover:text-white hover:border-zinc-600 hover:bg-zinc-800/60 transition-all"
                 aria-label="Email"
               >
