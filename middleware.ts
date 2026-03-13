@@ -10,10 +10,9 @@ export function middleware(request: NextRequest) {
     // Pas d'unsafe-inline : le nonce suffit pour les scripts légitimes
     `script-src 'self' 'nonce-${nonce}' 'strict-dynamic'`,
     `style-src 'self' 'unsafe-inline'`,
-    `img-src 'self' data: blob:`,
+    `img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com`,
     `font-src 'self'`,
     `connect-src 'self' https://formspree.io https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com`,
-    `img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com`,
     `frame-src 'none'`,
     `object-src 'none'`,
     `base-uri 'self'`,
