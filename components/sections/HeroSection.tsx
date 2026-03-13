@@ -1,6 +1,7 @@
 import { ArrowRight, Zap } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
+import CountUp from '@/components/ui/CountUp'
 
 export default function HeroSection() {
   return (
@@ -72,21 +73,27 @@ export default function HeroSection() {
         >
           <div className="grid grid-cols-3 max-w-xl mx-auto rounded-2xl border border-zinc-800/60 bg-zinc-900/40 backdrop-blur-sm divide-x divide-zinc-800/60">
             <div className="text-center px-4 py-7">
-              <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">
-                15+
-              </div>
+              <CountUp
+                value="15+"
+                className="text-3xl sm:text-4xl font-black text-white tabular-nums"
+                duration={1400}
+              />
               <div className="text-xs sm:text-sm text-zinc-500 mt-1">Entreprises accompagnées</div>
             </div>
             <div className="text-center px-4 py-7">
-              <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">
-                ×3
-              </div>
+              <CountUp
+                value="×3"
+                className="text-3xl sm:text-4xl font-black text-white tabular-nums"
+                duration={1200}
+              />
               <div className="text-xs sm:text-sm text-zinc-500 mt-1">ROI moyen</div>
             </div>
             <div className="text-center px-4 py-7">
-              <div className="text-3xl sm:text-4xl font-black text-white tabular-nums">
-                −40%
-              </div>
+              <CountUp
+                value="−40%"
+                className="text-3xl sm:text-4xl font-black text-white tabular-nums"
+                duration={1600}
+              />
               <div className="text-xs sm:text-sm text-zinc-500 mt-1">Coût par lead</div>
             </div>
           </div>
