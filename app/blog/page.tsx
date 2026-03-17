@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { getAllPosts, getAllCategories } from '@/lib/blog'
-import BlogCard from '@/components/blog/BlogCard'
+import BlogFilter from '@/components/blog/BlogFilter'
 import { ArrowRight, BookOpen } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
@@ -54,32 +54,7 @@ export default function BlogPage() {
             <p className="text-zinc-600 text-sm mt-2">Revenez bientôt !</p>
           </div>
         ) : (
-          <>
-            {/* Category filter */}
-            {categories.length > 1 && (
-              <div className="flex items-center flex-wrap gap-2 mb-10">
-                <span className="text-sm text-zinc-500 mr-1">Filtrer :</span>
-                <button className="px-3 py-1.5 rounded-full text-xs font-medium bg-indigo-500/15 text-indigo-300 border border-indigo-500/25">
-                  Tout
-                </button>
-                {categories.map((cat) => (
-                  <button
-                    key={cat}
-                    className="px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-800/60 text-zinc-400 border border-zinc-700/40 hover:border-zinc-600/60 hover:text-zinc-300 transition-colors"
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            )}
-
-            {/* Grid : tous les articles */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {posts.map((post) => (
-                <BlogCard key={post.slug} post={post} featured />
-              ))}
-            </div>
-          </>
+          <BlogFilter posts={posts} categories={categories} />
         )}
 
         {/* CTA */}
