@@ -7,7 +7,7 @@ const siteUrl = 'https://www.reekko.com'
 const pageUrl = `${siteUrl}/agence-growth-marketing-rennes`
 
 export const metadata: Metadata = {
-  title: 'Agence Growth Marketing Rennes | Acquisition B2B automatisée | Reekko',
+  title: 'Agence Growth Marketing Rennes | Acquisition B2B',
   description:
     'Reekko, agence growth marketing basée à Rennes. Systèmes d\'acquisition B2B automatisés pour startups et PME bretonnes. Résultats mesurables en 4 semaines.',
   keywords: [
