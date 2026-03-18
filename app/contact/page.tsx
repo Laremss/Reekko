@@ -264,7 +264,7 @@ export default function ContactPage() {
               {/* Cal.com embed */}
               <div className="rounded-xl overflow-hidden mb-5">
                 <iframe
-                  src="https://cal.com/remi-bitouze-yddgcx?embed=true&theme=dark&layout=month_view"
+                  src="https://cal.eu/remi-bitouze-yddgcx/30min?embed=true&theme=dark"
                   frameBorder="0"
                   style={{ width: '100%', height: '580px', border: 'none' }}
                   title="Réserver un appel stratégique"
