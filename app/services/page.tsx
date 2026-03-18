@@ -3,11 +3,13 @@ import {
   ArrowRight,
   CheckCircle,
   Zap,
-  BarChart2,
-  Mail,
   Users,
   Target,
-  Search,
+  Rocket,
+  ChevronDown,
+  Clock,
+  Settings,
+  BarChart2,
 } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
@@ -21,42 +23,62 @@ export const metadata: Metadata = {
   },
 }
 
-const features = [
+const forWho = [
   {
-    icon: Search,
-    title: 'Audit d\'acquisition',
+    icon: Rocket,
+    title: 'Startups B2B en traction',
     description:
-      'Analyse complète de votre acquisition actuelle pour identifier les opportunités de croissance et les points de friction.',
-  },
-  {
-    icon: Target,
-    title: 'Stratégie growth',
-    description:
-      'Définition d\'une stratégie d\'acquisition B2B adaptée à votre marché, vos cibles et vos ressources.',
-  },
-  {
-    icon: Mail,
-    title: 'Automatisations de prospection',
-    description:
-      'Mise en place de séquences email, LinkedIn automation et workflows de nurturing entièrement automatisés.',
+      'Vous avez validé votre offre. Vous avez besoin d\'un pipeline outbound structuré pour scaler sans recruter une équipe commerciale.',
+    tags: ['Seed / Série A', '0-3M ARR', 'Pas encore de process outbound'],
   },
   {
     icon: Users,
-    title: 'Génération de leads',
+    title: 'Équipes commerciales surchargées',
     description:
-      'Construction d\'un flux constant de prospects qualifiés, sans prospection manuelle au quotidien.',
+      'Votre équipe passe ses journées à prospecter manuellement. Il est temps d\'automatiser le volume pour la laisser se concentrer sur le closing.',
+    tags: ['2-10 commerciaux', 'Outbound manuel', 'Quota difficile à tenir'],
   },
   {
-    icon: BarChart2,
-    title: 'Tracking & reporting',
+    icon: Target,
+    title: 'Dirigeants encore sur l\'acquisition',
     description:
-      'Dashboard de suivi des performances avec KPIs et métriques clés pour piloter votre acquisition.',
+      'Vous gérez encore l\'acquisition vous-même. Vous voulez un système qui génère des rendez-vous sans que vous ayez à intervenir au quotidien.',
+    tags: ['Fondateur actif', 'Dépendance au bouche-à-oreille', 'Croissance à structurer'],
+  },
+]
+
+const timeline = [
+  {
+    phase: '01',
+    weeks: 'Semaine 1',
+    title: 'Audit & Stratégie',
+    icon: Target,
+    description: 'Analyse de votre acquisition actuelle, définition de l\'ICP, identification des segments à fort potentiel et choix des canaux prioritaires.',
+    deliverables: ['Audit complet', 'ICP documenté', 'Plan d\'action'],
   },
   {
+    phase: '02',
+    weeks: 'Semaine 2-3',
+    title: 'Construction',
+    icon: Settings,
+    description: 'Configuration des outils, rédaction des séquences, enrichissement des bases de données et mise en place de l\'architecture technique.',
+    deliverables: ['Séquences rédigées', 'Outils configurés', 'Base qualifiée'],
+  },
+  {
+    phase: '03',
+    weeks: 'Semaine 3-4',
+    title: 'Déploiement',
     icon: Zap,
-    title: 'Optimisation continue',
-    description:
-      'Recommandations d\'optimisation basées sur les données pour améliorer les taux de conversion.',
+    description: 'Lancement des campagnes, premiers envois contrôlés, intégration CRM et mise en place du dashboard de suivi des performances.',
+    deliverables: ['Campagnes live', 'CRM intégré', 'Dashboard actif'],
+  },
+  {
+    phase: '04',
+    weeks: 'Semaine 5-6',
+    title: 'Optimisation & Transfert',
+    icon: BarChart2,
+    description: 'Analyse des premiers résultats, tests A/B, ajustements du copywriting et transfert de compétences à votre équipe.',
+    deliverables: ['Rapport de performance', 'Formation équipe', 'Documentation'],
   },
 ]
 
@@ -89,7 +111,7 @@ const faqs = [
   {
     question: 'Quels outils utilisez-vous ?',
     answer:
-      'Nous adaptons les outils à votre situation et votre budget. Nous travaillons avec les principaux outils du marché : Apollo, Lemlist, La Growth Machine, HubSpot, Pipedrive, Clay, et bien d\'autres selon vos besoins.',
+      'Nous adaptons les outils à votre situation et votre budget. Nous travaillons avec les principaux outils du marché : Apollo, Lemlist, La Growth Machine, HubSpot, Pipedrive, et bien d\'autres selon vos besoins.',
   },
   {
     question: 'Quels résultats peut-on espérer ?',
@@ -123,227 +145,303 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-    <div className="min-h-screen bg-zinc-950 pt-16">
-      {/* Hero */}
-      <section className="relative pt-10 pb-20 sm:pt-14 sm:pb-28 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 right-1/4 w-[500px] h-[400px] rounded-full bg-indigo-600/10 blur-[100px]" />
-          <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-violet-600/8 blur-[80px]" />
-        </div>
-        <ParallaxGrid opacity={0.05} strength={12} />
+      <div className="min-h-screen bg-zinc-950 pt-16">
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-6 animate-fade-in-up" style={{ animationDelay: '0ms' }}>
-            <Zap className="w-3.5 h-3.5 fill-indigo-300" />
-            <span>Notre offre principale</span>
+        {/* Hero */}
+        <section className="relative pt-10 pb-20 sm:pt-14 sm:pb-28 overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-0 right-1/4 w-[500px] h-[400px] rounded-full bg-indigo-600/10 blur-[100px]" />
+            <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-violet-600/8 blur-[80px]" />
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-            Acquisition
-            <br />
-            <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent animate-gradient-text">
-              Automation Sprint
-            </span>
-          </h1>
-          <p className="text-lg font-light text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10 animate-fade-in-up" style={{ animationDelay: '220ms' }}>
-            En 4 à 6 semaines, on conçoit et déploie votre moteur d'acquisition
-            automatisé. Vous repartez avec un pipeline qui tourne sans
-            intervention manuelle.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '350ms' }}>
+          <ParallaxGrid opacity={0.05} strength={12} />
+
+          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-6 animate-fade-in-up" style={{ animationDelay: '0ms' }}>
+              <Zap className="w-3.5 h-3.5 fill-indigo-300" />
+              <span>Notre offre principale</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight mb-6 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              Acquisition
+              <br />
+              <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent animate-gradient-text">
+                Automation Sprint
+              </span>
+            </h1>
+            <p className="text-lg font-light text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10 animate-fade-in-up" style={{ animationDelay: '220ms' }}>
+              En 4 à 6 semaines, on conçoit et déploie votre moteur d&apos;acquisition
+              automatisé. Vous repartez avec un pipeline qui tourne sans
+              intervention manuelle.
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '350ms' }}>
+              <Button size="lg" href="/contact">
+                Démarrer votre sprint
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+              <Button variant="outline" size="lg" href="/methode">
+                Voir la méthode
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Pour qui */}
+        <section className="py-20 border-t border-zinc-800/50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Ce sprint est fait pour vous si...
+              </h2>
+              <p className="text-zinc-400 max-w-xl mx-auto">
+                Trois profils, une situation commune : une acquisition qui n&apos;est pas encore à la hauteur du potentiel.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {forWho.map((profile, index) => (
+                <div
+                  key={index}
+                  className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-7 hover:border-zinc-700/60 hover:bg-zinc-900/60 transition-all duration-300 flex flex-col"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-5">
+                    <profile.icon className="w-5 h-5 text-indigo-400" />
+                  </div>
+                  <h3 className="text-base font-semibold text-white mb-3">
+                    {profile.title}
+                  </h3>
+                  <p className="text-sm text-zinc-400 leading-relaxed mb-5 flex-1">
+                    {profile.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {profile.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs px-2.5 py-1 rounded-full bg-zinc-800/80 border border-zinc-700/50 text-zinc-500"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Timeline */}
+        <section className="py-20 bg-zinc-900/30">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Comment ça se passe
+              </h2>
+              <p className="text-zinc-400 max-w-xl mx-auto">
+                4 à 6 semaines structurées pour aller de zéro à un système d&apos;acquisition opérationnel.
+              </p>
+            </div>
+
+            <div className="relative">
+              {/* Ligne verticale de connexion - desktop */}
+              <div className="hidden lg:block absolute left-[calc(50%-1px)] top-8 bottom-8 w-px bg-gradient-to-b from-indigo-500/30 via-violet-500/20 to-transparent" />
+
+              <div className="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:gap-y-10">
+                {timeline.map((step, index) => (
+                  <div
+                    key={index}
+                    className={`relative flex gap-5 lg:gap-6 ${
+                      index % 2 === 0 ? 'lg:pr-10' : 'lg:pl-10 lg:mt-16'
+                    }`}
+                  >
+                    {/* Numéro */}
+                    <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-700/60 flex items-center justify-center relative z-10">
+                      <span className="text-xs font-bold text-indigo-400 font-mono">{step.phase}</span>
+                    </div>
+
+                    <div className="flex-1 pb-6 border-b border-zinc-800/40 lg:border-0">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-xs text-zinc-500 font-medium flex items-center gap-1">
+                          <Clock className="w-3 h-3" />
+                          {step.weeks}
+                        </span>
+                      </div>
+                      <h3 className="text-base font-semibold text-white mb-2">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-zinc-400 leading-relaxed mb-3">
+                        {step.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {step.deliverables.map((d) => (
+                          <span
+                            key={d}
+                            className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300"
+                          >
+                            <CheckCircle className="w-3 h-3" />
+                            {d}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Inclusions */}
+        <section className="py-20 border-t border-zinc-800/50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Tout ce dont vous avez besoin
+              </h2>
+              <p className="text-zinc-400">
+                Pas de mauvaise surprise. Voici exactement ce qui est compris dans le sprint.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {inclusions.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 rounded-xl bg-zinc-800/30 border border-zinc-700/30 px-5 py-3.5"
+                >
+                  <CheckCircle className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+                  <span className="text-sm text-zinc-300">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing */}
+        <section className="py-20 bg-zinc-900/30">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Investissement
+              </h2>
+              <p className="text-zinc-400 max-w-xl mx-auto">
+                Un tarif transparent, calibré selon la complexité de votre
+                acquisition. Pas de mauvaise surprise.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {/* Sprint Complet - order-first on mobile */}
+              <div className="order-1 sm:order-2 rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/8 to-violet-500/5 p-8 relative overflow-hidden">
+                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-indigo-500/10 blur-2xl pointer-events-none" />
+                <div className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-3">
+                  Sprint Complet · Recommandé
+                </div>
+                <div className="text-4xl font-black text-white mb-1">
+                  Sur devis
+                </div>
+                <p className="text-sm text-zinc-400 mb-6">
+                  Approche multicanale complète : email, LinkedIn et contenu
+                  outbound, pour un pipeline à pleine capacité.
+                </p>
+                <ul className="space-y-2.5 mb-8">
+                  {['Tout le Sprint Standard', 'Multicanal email + LinkedIn', 'Enrichissement et qualification des données', 'Optimisation continue 90 jours', 'Formation équipe commerciale'].map((item) => (
+                    <li key={item} className="flex items-center gap-2.5 text-sm text-zinc-300">
+                      <CheckCircle className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Button href="/contact" className="w-full">
+                  Démarrer votre sprint
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </div>
+
+              {/* Sprint Standard */}
+              <div className="order-2 sm:order-1 rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8">
+                <div className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3">
+                  Sprint Standard
+                </div>
+                <div className="text-4xl font-black text-white mb-1">
+                  Sur devis
+                </div>
+                <p className="text-sm text-zinc-500 mb-6">
+                  Adapté aux entreprises souhaitant structurer leur acquisition
+                  sur 1 à 2 canaux (email ou LinkedIn).
+                </p>
+                <ul className="space-y-2.5 mb-8">
+                  {['Audit + stratégie', 'Mise en place de 1 canal outbound', 'Séquences et copywriting', 'Intégration CRM', 'Dashboard de suivi'].map((item) => (
+                    <li key={item} className="flex items-center gap-2.5 text-sm text-zinc-300">
+                      <CheckCircle className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <Button href="/contact" variant="outline" className="w-full">
+                  Obtenir un devis
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+
+            <p className="text-center text-xs text-zinc-600 mt-6">
+              Premier appel stratégique gratuit et sans engagement.
+              On analyse votre situation avant tout chiffrage.
+            </p>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-20">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-14">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Questions fréquentes
+              </h2>
+            </div>
+            <div className="space-y-3">
+              {faqs.map((faq, index) => (
+                <details
+                  key={index}
+                  className="group rounded-xl border border-zinc-800/60 bg-zinc-900/40 overflow-hidden"
+                >
+                  <summary className="flex items-center justify-between px-6 py-5 cursor-pointer list-none hover:bg-zinc-800/20 transition-colors duration-200">
+                    <h3 className="text-sm font-semibold text-white pr-4 leading-snug">
+                      {faq.question}
+                    </h3>
+                    <ChevronDown className="w-4 h-4 text-zinc-500 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" />
+                  </summary>
+                  <div className="px-6 pb-5">
+                    <p className="text-sm text-zinc-400 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-20 bg-zinc-900/30 border-t border-zinc-800/50">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">
+              Prêt à démarrer votre sprint ?
+            </h2>
+            <p className="text-zinc-400 text-lg mb-8">
+              Premier appel stratégique gratuit et sans engagement. On analyse
+              votre situation et on vous propose un plan d&apos;action concret.
+              <br />
+              <span className="text-zinc-500 text-base">
+                Curieux de voir comment ça fonctionne ?{' '}
+                <a href="/methode" className="text-indigo-400 hover:text-indigo-300 transition-colors underline underline-offset-2">
+                  Découvrez la méthode en détail.
+                </a>
+              </span>
+            </p>
             <Button size="lg" href="/contact">
-              Démarrer votre sprint
+              Réserver un appel gratuit
               <ArrowRight className="w-5 h-5" />
             </Button>
-            <Button variant="outline" size="lg" href="/methode">
-              Voir la méthode
-            </Button>
           </div>
-        </div>
-      </section>
-
-      {/* Features */}
-      <section className="py-20 border-t border-zinc-800/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Ce que comprend le sprint
-            </h2>
-            <p className="text-zinc-400 max-w-xl mx-auto">
-              Un accompagnement complet de bout en bout pour mettre en place votre
-              système d'acquisition.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-7 hover:border-zinc-700/60 transition-all duration-300"
-              >
-                <div className="w-11 h-11 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-5">
-                  <feature.icon className="w-5 h-5 text-indigo-400" />
-                </div>
-                <h3 className="text-base font-semibold text-white mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-sm text-zinc-400 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Inclusions */}
-      <section className="py-20 bg-zinc-900/30">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Tout ce dont vous avez besoin
-            </h2>
-            <p className="text-zinc-400">
-              Pas de mauvaise surprise. Voici exactement ce qui est compris dans le sprint.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {inclusions.map((item, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-3 rounded-xl bg-zinc-800/30 border border-zinc-700/30 px-5 py-3.5"
-              >
-                <CheckCircle className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-                <span className="text-sm text-zinc-300">{item}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing */}
-      <section className="py-20 border-t border-zinc-800/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Investissement
-            </h2>
-            <p className="text-zinc-400 max-w-xl mx-auto">
-              Un tarif transparent, calibré selon la complexité de votre
-              acquisition. Pas de mauvaise surprise.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {/* Sprint Standard */}
-            <div className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8">
-              <div className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3">
-                Sprint Standard
-              </div>
-              <div className="text-4xl font-black text-white mb-1">
-                Sur devis
-              </div>
-              <p className="text-sm text-zinc-500 mb-6">
-                Adapté aux entreprises souhaitant structurer leur acquisition
-                sur 1 à 2 canaux (email ou LinkedIn).
-              </p>
-              <ul className="space-y-2.5 mb-8">
-                {['Audit + stratégie', 'Mise en place de 1 canal outbound', 'Séquences et copywriting', 'Intégration CRM', 'Dashboard de suivi'].map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm text-zinc-300">
-                    <CheckCircle className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Button href="/contact" variant="outline" className="w-full">
-                Obtenir un devis
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            </div>
-
-            {/* Sprint Avancé */}
-            <div className="rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/8 to-violet-500/5 p-8 relative overflow-hidden">
-              <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-indigo-500/10 blur-2xl pointer-events-none" />
-              <div className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-3">
-                Sprint Complet · Recommandé
-              </div>
-              <div className="text-4xl font-black text-white mb-1">
-                Sur devis
-              </div>
-              <p className="text-sm text-zinc-400 mb-6">
-                Approche multicanale complète : email, LinkedIn et contenu
-                outbound, pour un pipeline à pleine capacité.
-              </p>
-              <ul className="space-y-2.5 mb-8">
-                {['Tout le Sprint Standard', 'Multicanal email + LinkedIn', 'Enrichissement et qualification des données', 'Optimisation continue 90 jours', 'Formation équipe commerciale'].map((item) => (
-                  <li key={item} className="flex items-center gap-2.5 text-sm text-zinc-300">
-                    <CheckCircle className="w-4 h-4 text-indigo-400 flex-shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <Button href="/contact" className="w-full">
-                Démarrer votre sprint
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-            </div>
-          </div>
-
-          <p className="text-center text-xs text-zinc-600 mt-6">
-            Premier appel stratégique gratuit et sans engagement.
-            On analyse votre situation avant tout chiffrage.
-          </p>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Questions fréquentes
-            </h2>
-          </div>
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="rounded-xl border border-zinc-800/60 bg-zinc-900/40 p-6"
-              >
-                <h3 className="text-base font-semibold text-white mb-3">
-                  {faq.question}
-                </h3>
-                <p className="text-sm text-zinc-400 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 bg-zinc-900/30 border-t border-zinc-800/50">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">
-            Prêt à démarrer votre sprint ?
-          </h2>
-          <p className="text-zinc-400 text-lg mb-8">
-            Premier appel stratégique gratuit et sans engagement. On analyse
-            votre situation et on vous propose un plan d&apos;action concret.
-            <br />
-            <span className="text-zinc-500 text-base">
-              Curieux de voir comment ça fonctionne ?{' '}
-              <a href="/methode" className="text-indigo-400 hover:text-indigo-300 transition-colors underline underline-offset-2">
-                Découvrez la méthode en détail.
-              </a>
-            </span>
-          </p>
-          <Button size="lg" href="/contact">
-            Réserver un appel gratuit
-            <ArrowRight className="w-5 h-5" />
-          </Button>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
     </>
   )
 }

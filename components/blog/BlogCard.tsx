@@ -102,18 +102,22 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
   if (featured) {
     return (
       <Link href={`/blog/${post.slug}`} className="group block">
-        <article className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 overflow-hidden hover:border-zinc-700/60 hover:bg-zinc-900/60 transition-all duration-300 h-full">
+        <article className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 overflow-hidden hover:border-zinc-700/60 hover:bg-zinc-900/60 transition-all duration-300 h-full relative">
+
+          {/* Shimmer desktop hover */}
+          <div className="hidden md:block absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out bg-gradient-to-r from-transparent via-white/[0.03] to-transparent pointer-events-none z-20" />
+
           {/* Cover */}
           <div className={`aspect-video bg-gradient-to-br ${style.gradient} relative overflow-hidden`}>
             {/* Grid */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:32px_32px]" />
 
-            {/* Central glow */}
-            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full ${style.orb} blur-3xl`} />
+            {/* Central glow - intensifies on hover */}
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full ${style.orb} blur-3xl transition-all duration-500 group-hover:w-56 group-hover:h-56`} />
 
             {/* Concentric rings */}
-            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border ${style.ring1}`} />
-            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 rounded-full border ${style.ring2}`} />
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full border ${style.ring1} transition-all duration-500 group-hover:w-40 group-hover:h-40`} />
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-52 h-52 rounded-full border ${style.ring2} transition-all duration-700 group-hover:w-64 group-hover:h-64`} />
             <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full border ${style.ring2} opacity-50`} />
 
             {/* Large icon */}
@@ -128,6 +132,12 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
               <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${style.badgeBg} ${style.badgeText} border ${style.badgeBorder} backdrop-blur-sm`}>
                 {post.category}
               </span>
+            </div>
+
+            {/* Reading time overlay - slides up on hover, desktop only */}
+            <div className="hidden md:flex absolute bottom-0 left-0 right-0 items-center justify-center gap-2 py-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/60 to-transparent">
+              <Clock className="w-3.5 h-3.5 text-white/70" />
+              <span className="text-xs text-white/70 font-medium">{post.readingTime}</span>
             </div>
           </div>
 
