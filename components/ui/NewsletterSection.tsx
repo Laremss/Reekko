@@ -9,8 +9,8 @@ export default function NewsletterSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email.trim())) {
+    const trimmed = email.trim()
+    if (!trimmed || !trimmed.includes('@') || trimmed.indexOf('@') === trimmed.length - 1) {
       setStatus('error')
       return
     }
@@ -62,7 +62,7 @@ export default function NewsletterSection() {
         <input
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => { setEmail(e.target.value); if (status === 'error') setStatus('idle') }}
           placeholder="votre@email.pro"
           required
           className="flex-1 rounded-lg border border-zinc-700/60 bg-zinc-800/40 px-4 py-2.5 text-sm text-zinc-200 placeholder-zinc-600 focus:border-indigo-500/60 focus:outline-none focus:ring-1 focus:ring-indigo-500/40 transition-colors"
