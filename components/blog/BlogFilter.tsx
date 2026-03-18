@@ -69,7 +69,7 @@ export default function BlogFilter({ posts, categories }: BlogFilterProps) {
   return (
     <>
       {/* Barre de recherche + filtres catégorie */}
-      <div className="flex flex-col sm:flex-row gap-4 mb-10">
+      <div className="flex flex-col sm:flex-row gap-4 mt-6 mb-12">
 
         {/* Recherche */}
         <div className="relative flex-1 max-w-sm">
