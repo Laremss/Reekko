@@ -23,7 +23,7 @@ export default function NewsletterSection() {
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
           body: JSON.stringify({
             email: email.trim(),
-            _subject: 'Newsletter Reekko — Nouvelle inscription',
+            _subject: 'Newsletter Reekko - Nouvelle inscription',
             type: 'newsletter',
           }),
         }
@@ -55,7 +55,7 @@ export default function NewsletterSection() {
         </h3>
       </div>
       <p className="text-zinc-400 text-sm mb-6">
-        Conseils pratiques, guides et ressources — directement dans votre boîte.{' '}
+        Conseils pratiques, guides et ressources, directement dans votre boîte.{' '}
         <span className="text-zinc-500">Zéro spam, désabonnement en un clic.</span>
       </p>
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">

@@ -263,14 +263,14 @@ export default function ServicesPage() {
             <div className="rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/8 to-violet-500/5 p-8 relative overflow-hidden">
               <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-indigo-500/10 blur-2xl pointer-events-none" />
               <div className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-3">
-                Sprint Complet — Recommandé
+                Sprint Complet · Recommandé
               </div>
               <div className="text-4xl font-black text-white mb-1">
                 Sur devis
               </div>
               <p className="text-sm text-zinc-400 mb-6">
-                Approche multicanale complète — email, LinkedIn et contenu
-                outbound — pour un pipeline à pleine capacité.
+                Approche multicanale complète : email, LinkedIn et contenu
+                outbound, pour un pipeline à pleine capacité.
               </p>
               <ul className="space-y-2.5 mb-8">
                 {['Tout le Sprint Standard', 'Multicanal email + LinkedIn', 'Enrichissement de données (Clay)', 'Optimisation continue 90 jours', 'Formation équipe commerciale'].map((item) => (
@@ -288,8 +288,8 @@ export default function ServicesPage() {
           </div>
 
           <p className="text-center text-xs text-zinc-600 mt-6">
-            Premier appel stratégique gratuit et sans engagement — on analyse
-            votre situation avant tout chiffrage.
+            Premier appel stratégique gratuit et sans engagement.
+            On analyse votre situation avant tout chiffrage.
           </p>
         </div>
       </section>

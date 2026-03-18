@@ -12,7 +12,7 @@ const stats = [
 const testimonials = [
   {
     quote:
-      'On cherchait à sortir de la prospection 100% manuelle. En 5 semaines, Reekko a mis en place un système complet — ciblage, séquences email et LinkedIn, CRM intégré. On génère maintenant 8 à 12 rendez-vous qualifiés par mois sans y toucher.',
+      'On cherchait à sortir de la prospection 100% manuelle. En 5 semaines, Reekko a mis en place un système complet : ciblage, séquences email et LinkedIn, CRM intégré. On génère maintenant 8 à 12 rendez-vous qualifiés par mois sans y toucher.',
     author: 'Thomas M.',
     role: 'CEO & Co-fondateur',
     company: 'SaaS RH · 45 collaborateurs',
@@ -30,7 +30,7 @@ const testimonials = [
   },
   {
     quote:
-      'Méthode claire, déploiement rapide. On savait exactement où on en était à chaque étape. Pas de sur-promesse — les résultats sont là dès le premier mois. On a réduit notre coût par lead de 45% et nos commerciaux se concentrent enfin sur la vente.',
+      'Méthode claire, déploiement rapide. On savait exactement où on en était à chaque étape. Pas de sur-promesse, les résultats sont là dès le premier mois. On a réduit notre coût par lead de 45% et nos commerciaux se concentrent enfin sur la vente.',
     author: 'Marc D.',
     role: 'Directeur Commercial',
     company: 'Cabinet de conseil · 20 collaborateurs',
