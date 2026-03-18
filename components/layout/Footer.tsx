@@ -12,7 +12,8 @@ const footerLinks = {
   ],
   ressources: [
     { href: '/blog/growth-marketing', label: 'Qu\'est-ce que le growth marketing ?' },
-    { href: '/blog/automatiser-prospection-b2b', label: 'Automatiser sa prospection B2B' },
+    { href: '/blog/cold-emailing-b2b', label: 'Guide cold emailing B2B' },
+    { href: '/blog/prospection-linkedin-b2b', label: 'Prospection LinkedIn B2B' },
     { href: '/blog/strategies-acquisition-b2b', label: 'Stratégies d\'acquisition B2B' },
   ],
 }
@@ -24,9 +25,9 @@ export default function Footer() {
     <footer className="bg-zinc-950 border-t border-zinc-800/50">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Brand */}
-          <div className="lg:col-span-2">
+          <div className="col-span-2 lg:col-span-2">
             <Link href="/" className="flex items-center gap-2.5 mb-5 group w-fit">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/25 group-hover:shadow-indigo-500/40 transition-shadow">
                 <Zap className="w-4.5 h-4.5 text-white fill-white" />

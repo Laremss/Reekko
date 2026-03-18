@@ -77,7 +77,7 @@ export default function HeroSection() {
                 className="text-3xl sm:text-4xl font-black text-white tabular-nums"
                 duration={1400}
               />
-              <div className="text-xs sm:text-sm text-zinc-500 mt-1">Entreprises accompagnées</div>
+              <div className="text-xs sm:text-sm text-zinc-400 font-medium mt-1">Entreprises accompagnées</div>
             </div>
             <div className="text-center px-4 py-7">
               <CountUp
@@ -85,7 +85,7 @@ export default function HeroSection() {
                 className="text-3xl sm:text-4xl font-black text-white tabular-nums"
                 duration={1200}
               />
-              <div className="text-xs sm:text-sm text-zinc-500 mt-1">ROI moyen</div>
+              <div className="text-xs sm:text-sm text-zinc-400 font-medium mt-1">ROI moyen constaté</div>
             </div>
             <div className="text-center px-4 py-7">
               <CountUp
@@ -93,7 +93,7 @@ export default function HeroSection() {
                 className="text-3xl sm:text-4xl font-black text-white tabular-nums"
                 duration={1600}
               />
-              <div className="text-xs sm:text-sm text-zinc-500 mt-1">Coût par lead</div>
+              <div className="text-xs sm:text-sm text-zinc-400 font-medium mt-1">Réduction du coût par lead</div>
             </div>
           </div>
         </div>

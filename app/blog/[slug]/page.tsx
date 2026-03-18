@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
@@ -8,6 +9,7 @@ import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import { formatDate } from '@/lib/utils'
 import TableOfContents from '@/components/blog/TableOfContents'
 import ShareButtons from '@/components/blog/ShareButtons'
+import NewsletterSection from '@/components/ui/NewsletterSection'
 import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
 import {
@@ -135,6 +137,18 @@ const mdxComponents = {
   td: ({ children }: any) => (
     <td className="py-3 px-4 text-zinc-400">{children}</td>
   ),
+  img: ({ src, alt }: any) => (
+    <span className="block my-8 rounded-xl overflow-hidden border border-zinc-800/60">
+      <Image
+        src={src}
+        alt={alt ?? ''}
+        width={800}
+        height={450}
+        className="w-full h-auto"
+        loading="lazy"
+      />
+    </span>
+  ),
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -148,6 +162,16 @@ export default async function BlogPostPage({ params }: Props) {
   const headings = extractHeadings(post.content)
   const postUrl = `https://www.reekko.com/blog/${post.slug}`
   const relatedPosts = getAllPosts().filter((p) => p.slug !== slug).slice(0, 2)
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.reekko.com' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.reekko.com/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: postUrl },
+    ],
+  }
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -180,6 +204,10 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -278,6 +306,11 @@ export default async function BlogPostPage({ params }: Props) {
                   <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
                   Retour au blog
                 </Link>
+              </div>
+
+              {/* Newsletter */}
+              <div className="mt-12">
+                <NewsletterSection />
               </div>
 
               {/* Related posts */}

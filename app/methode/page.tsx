@@ -213,13 +213,25 @@ export default function MethodePage() {
             Prêt à démarrer votre sprint ?
           </h2>
           <p className="text-zinc-400 text-lg mb-8">
-            Réservez un appel gratuit pour découvrir comment cette méthode peut
-            transformer votre acquisition.
+            Cette méthode se concrétise dans un accompagnement de 4 à 6 semaines.
+            Réservez un appel pour analyser votre situation ensemble.
+            <br />
+            <span className="text-zinc-500 text-base">
+              Vous voulez d&apos;abord voir ce qui est inclus ?{' '}
+              <a href="/services" className="text-indigo-400 hover:text-indigo-300 transition-colors underline underline-offset-2">
+                Découvrez le détail du sprint.
+              </a>
+            </span>
           </p>
-          <Button size="lg" href="/contact">
-            Réserver un appel stratégique
-            <ArrowRight className="w-5 h-5" />
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button size="lg" href="/contact">
+              Réserver un appel stratégique
+              <ArrowRight className="w-5 h-5" />
+            </Button>
+            <Button variant="outline" size="lg" href="/services">
+              Voir le sprint
+            </Button>
+          </div>
         </div>
       </section>
     </div>

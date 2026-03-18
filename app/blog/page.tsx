@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { getAllPosts, getAllCategories } from '@/lib/blog'
 import BlogFilter from '@/components/blog/BlogFilter'
+import NewsletterSection from '@/components/ui/NewsletterSection'
 import { ArrowRight, BookOpen } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
@@ -57,8 +58,13 @@ export default function BlogPage() {
           <BlogFilter posts={posts} categories={categories} />
         )}
 
+        {/* Newsletter */}
+        <div className="mt-16">
+          <NewsletterSection />
+        </div>
+
         {/* CTA */}
-        <div className="mt-20 rounded-2xl border border-zinc-800/60 bg-zinc-900/30 p-10 text-center">
+        <div className="mt-10 rounded-2xl border border-zinc-800/60 bg-zinc-900/30 p-10 text-center">
           <h2 className="text-2xl font-bold text-white mb-3">
             Passez à l'action
           </h2>

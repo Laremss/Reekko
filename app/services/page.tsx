@@ -219,6 +219,81 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Pricing */}
+      <section className="py-20 border-t border-zinc-800/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              Investissement
+            </h2>
+            <p className="text-zinc-400 max-w-xl mx-auto">
+              Un tarif transparent, calibré selon la complexité de votre
+              acquisition. Pas de mauvaise surprise.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Sprint Standard */}
+            <div className="rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8">
+              <div className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3">
+                Sprint Standard
+              </div>
+              <div className="text-4xl font-black text-white mb-1">
+                Sur devis
+              </div>
+              <p className="text-sm text-zinc-500 mb-6">
+                Adapté aux entreprises souhaitant structurer leur acquisition
+                sur 1 à 2 canaux (email ou LinkedIn).
+              </p>
+              <ul className="space-y-2.5 mb-8">
+                {['Audit + stratégie', 'Mise en place de 1 canal outbound', 'Séquences et copywriting', 'Intégration CRM', 'Dashboard de suivi'].map((item) => (
+                  <li key={item} className="flex items-center gap-2.5 text-sm text-zinc-300">
+                    <CheckCircle className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Button href="/contact" variant="outline" className="w-full">
+                Obtenir un devis
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
+
+            {/* Sprint Avancé */}
+            <div className="rounded-2xl border border-indigo-500/30 bg-gradient-to-br from-indigo-500/8 to-violet-500/5 p-8 relative overflow-hidden">
+              <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-indigo-500/10 blur-2xl pointer-events-none" />
+              <div className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-3">
+                Sprint Complet — Recommandé
+              </div>
+              <div className="text-4xl font-black text-white mb-1">
+                Sur devis
+              </div>
+              <p className="text-sm text-zinc-400 mb-6">
+                Approche multicanale complète — email, LinkedIn et contenu
+                outbound — pour un pipeline à pleine capacité.
+              </p>
+              <ul className="space-y-2.5 mb-8">
+                {['Tout le Sprint Standard', 'Multicanal email + LinkedIn', 'Enrichissement de données (Clay)', 'Optimisation continue 90 jours', 'Formation équipe commerciale'].map((item) => (
+                  <li key={item} className="flex items-center gap-2.5 text-sm text-zinc-300">
+                    <CheckCircle className="w-4 h-4 text-indigo-400 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <Button href="/contact" className="w-full">
+                Démarrer votre sprint
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
+
+          <p className="text-center text-xs text-zinc-600 mt-6">
+            Premier appel stratégique gratuit et sans engagement — on analyse
+            votre situation avant tout chiffrage.
+          </p>
+        </div>
+      </section>
+
       {/* FAQ */}
       <section className="py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -249,11 +324,18 @@ export default function ServicesPage() {
       <section className="py-20 bg-zinc-900/30 border-t border-zinc-800/50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-5">
-            Prêt à démarrer ?
+            Prêt à démarrer votre sprint ?
           </h2>
           <p className="text-zinc-400 text-lg mb-8">
             Premier appel stratégique gratuit et sans engagement. On analyse
-            votre situation et on vous propose un plan d'action concret.
+            votre situation et on vous propose un plan d&apos;action concret.
+            <br />
+            <span className="text-zinc-500 text-base">
+              Curieux de voir comment ça fonctionne ?{' '}
+              <a href="/methode" className="text-indigo-400 hover:text-indigo-300 transition-colors underline underline-offset-2">
+                Découvrez la méthode en détail.
+              </a>
+            </span>
           </p>
           <Button size="lg" href="/contact">
             Réserver un appel gratuit

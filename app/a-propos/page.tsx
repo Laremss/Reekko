@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { ArrowRight, Target, Heart, Zap, Users } from 'lucide-react'
+import { ArrowRight, Target, Heart, Zap, Users, Linkedin, ExternalLink } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
 
@@ -82,31 +82,55 @@ export default function AProposPage() {
         </div>
       </section>
 
-      {/* Story */}
+      {/* Founder */}
       <section className="py-20 border-t border-zinc-800/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg prose-invert max-w-none">
-            <h2 className="text-2xl font-bold text-white mb-6">
-              Pourquoi Reekko ?
-            </h2>
-            <p className="text-zinc-400 leading-relaxed mb-5">
-              Trop d'entreprises B2B brillantes échouent à croître non pas parce
-              que leur produit est mauvais, mais parce qu'elles n'ont pas de
-              moteur commercial structuré. Elles dépendent de la chance,
-              du bouche-à-oreille ou d'actions ponctuelles qui ne tiennent pas
-              dans le temps.
-            </p>
-            <p className="text-zinc-400 leading-relaxed mb-5">
-              Chez Reekko, on croit que chaque entreprise B2B mérite d'avoir une
-              infrastructure d'acquisition qui fonctionne en continu, sans
-              dépendre d'une seule personne, sans réinventer la roue chaque
-              trimestre.
-            </p>
-            <p className="text-zinc-400 leading-relaxed">
-              C'est pour ça qu'on a développé le Framework Reekko : une méthode
-              éprouvée pour construire un moteur d'acquisition automatisé,
-              mesurable et reproductible, adapté à chaque entreprise B2B.
-            </p>
+          <div className="flex flex-col sm:flex-row gap-8 items-start">
+            {/* Avatar */}
+            <div className="flex-shrink-0">
+              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-indigo-500/30 to-violet-500/30 border border-indigo-500/20 flex items-center justify-center text-white text-2xl font-bold">
+                RB
+              </div>
+            </div>
+            {/* Content */}
+            <div className="flex-1">
+              <div className="flex items-center gap-3 flex-wrap mb-1">
+                <h2 className="text-xl font-bold text-white">Rémi Bitouzé</h2>
+                <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300">
+                  Fondateur — Reekko
+                </span>
+              </div>
+              <a
+                href="https://www.linkedin.com/in/remi-bitouze"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-zinc-500 hover:text-indigo-400 text-sm transition-colors mb-5"
+              >
+                <Linkedin className="w-3.5 h-3.5" aria-hidden="true" />
+                linkedin.com/in/remi-bitouze
+                <ExternalLink className="w-3 h-3" aria-hidden="true" />
+              </a>
+              <div className="space-y-4 text-zinc-400 leading-relaxed text-[15px]">
+                <p>
+                  J&apos;ai créé Reekko après avoir constaté le même problème en
+                  accompagnant des dizaines d&apos;entreprises B2B : un produit solide,
+                  une équipe compétente, mais une acquisition qui repose sur le
+                  bouche-à-oreille et des actions ponctuelles. Résultat : un pipeline
+                  irrégulier, des mois creuxet une croissance qui stagne.
+                </p>
+                <p>
+                  La solution n&apos;est pas de travailler plus — c&apos;est de construire un
+                  système qui travaille à votre place. C&apos;est précisément ce que fait
+                  Reekko : concevoir et déployer des moteurs d&apos;acquisition automatisés,
+                  mesurables et reproductibles, adaptés à chaque entreprise B2B.
+                </p>
+                <p>
+                  Le Framework Reekko est le fruit de cette expérience : une méthode
+                  en 4 étapes pour passer d&apos;une prospection artisanale à un pipeline
+                  qui génère des rendez-vous qualifiés en continu.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -175,13 +199,19 @@ export default function AProposPage() {
             Votre acquisition mérite mieux
           </h2>
           <p className="text-zinc-400 text-lg mb-8">
-            Votre acquisition mérite mieux qu'un tableur de prospects et des
-            relances manuelles. Parlons-en.
+            Un tableur de prospects et des relances manuelles, c&apos;est derrière vous.
+            Découvrez comment on construit votre moteur commercial ou discutons
+            directement de votre situation.
           </p>
-          <Button size="lg" href="/contact">
-            Réserver un appel stratégique
-            <ArrowRight className="w-5 h-5" />
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button size="lg" href="/contact">
+              Discutons de votre projet
+              <ArrowRight className="w-5 h-5" />
+            </Button>
+            <Button variant="outline" size="lg" href="/methode">
+              Voir la méthode
+            </Button>
+          </div>
         </div>
       </section>
     </div>
