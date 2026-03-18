@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Clock, Calendar, TrendingUp, Zap, Target } from 'lucide-react'
+import { ArrowRight, Clock, Calendar, TrendingUp, Send, Target, Wrench } from 'lucide-react'
 import { type BlogPostMeta } from '@/lib/blog'
 import { formatDate } from '@/lib/utils'
 
@@ -37,8 +37,8 @@ function getCategoryStyle(category: string): CategoryStyle {
       badgeText: 'text-violet-300',
       Icon: TrendingUp,
     },
-    Automatisation: {
-      gradient: 'from-emerald-950 via-[#0a1410] to-cyan-950',
+    'Prospection & Outbound': {
+      gradient: 'from-emerald-950 via-[#0a1410] to-teal-950',
       orb: 'bg-emerald-500/40',
       ring1: 'border-emerald-500/25',
       ring2: 'border-emerald-400/10',
@@ -48,7 +48,7 @@ function getCategoryStyle(category: string): CategoryStyle {
       badgeBg: 'bg-emerald-500/15',
       badgeBorder: 'border-emerald-500/20',
       badgeText: 'text-emerald-300',
-      Icon: Zap,
+      Icon: Send,
     },
     'Stratégie B2B': {
       gradient: 'from-indigo-950 via-[#0c0e1a] to-blue-950',
@@ -62,6 +62,19 @@ function getCategoryStyle(category: string): CategoryStyle {
       badgeBorder: 'border-indigo-500/20',
       badgeText: 'text-indigo-300',
       Icon: Target,
+    },
+    Outils: {
+      gradient: 'from-amber-950 via-[#1a1205] to-orange-950',
+      orb: 'bg-amber-500/40',
+      ring1: 'border-amber-500/25',
+      ring2: 'border-amber-400/10',
+      iconBg: 'bg-amber-500/20',
+      iconBorder: 'border-amber-500/40',
+      iconColor: 'text-amber-300',
+      badgeBg: 'bg-amber-500/15',
+      badgeBorder: 'border-amber-500/20',
+      badgeText: 'text-amber-300',
+      Icon: Wrench,
     },
   }
 

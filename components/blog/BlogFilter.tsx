@@ -2,6 +2,14 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { Search, X } from 'lucide-react'
+
+const CATEGORY_COLORS: Record<string, string> = {
+  'Growth Marketing':      'bg-violet-500/15 text-violet-300 border-violet-500/25',
+  'Stratégie B2B':         'bg-indigo-500/15 text-indigo-300 border-indigo-500/25',
+  'Prospection & Outbound':'bg-emerald-500/15 text-emerald-300 border-emerald-500/25',
+  Outils:                  'bg-amber-500/15 text-amber-300 border-amber-500/25',
+}
+const DEFAULT_ACTIVE = 'bg-indigo-500/15 text-indigo-300 border-indigo-500/25'
 import BlogCard from '@/components/blog/BlogCard'
 import type { BlogPostMeta } from '@/lib/blog'
 
@@ -93,7 +101,7 @@ export default function BlogFilter({ posts, categories }: BlogFilterProps) {
               onClick={() => setActive('Tout')}
               className={
                 active === 'Tout'
-                  ? 'px-3 py-1.5 rounded-full text-xs font-medium bg-indigo-500/15 text-indigo-300 border border-indigo-500/25'
+                  ? `px-3 py-1.5 rounded-full text-xs font-medium border ${DEFAULT_ACTIVE}`
                   : 'px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-800/60 text-zinc-400 border border-zinc-700/40 hover:border-zinc-600/60 hover:text-zinc-300 transition-colors'
               }
             >
@@ -106,7 +114,7 @@ export default function BlogFilter({ posts, categories }: BlogFilterProps) {
                 onClick={() => setActive(cat)}
                 className={
                   active === cat
-                    ? 'px-3 py-1.5 rounded-full text-xs font-medium bg-indigo-500/15 text-indigo-300 border border-indigo-500/25'
+                    ? `px-3 py-1.5 rounded-full text-xs font-medium border ${CATEGORY_COLORS[cat] ?? DEFAULT_ACTIVE}`
                     : 'px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-800/60 text-zinc-400 border border-zinc-700/40 hover:border-zinc-600/60 hover:text-zinc-300 transition-colors'
                 }
               >
