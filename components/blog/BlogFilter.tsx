@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Search, X } from 'lucide-react'
 import BlogCard from '@/components/blog/BlogCard'
 import type { BlogPostMeta } from '@/lib/blog'
@@ -11,8 +11,14 @@ interface BlogFilterProps {
 }
 
 export default function BlogFilter({ posts, categories }: BlogFilterProps) {
-  const [active, setActive]   = useState<string>('Tout')
-  const [query,  setQuery]    = useState<string>('')
+  const [active, setActive] = useState<string>('Tout')
+  const [query,  setQuery]  = useState<string>('')
+
+  // Articles réellement affichés (mis à jour après le fade-out)
+  const [displayed, setDisplayed] = useState<BlogPostMeta[]>(posts)
+  // 'idle' | 'out' | 'in'
+  const [anim, setAnim] = useState<'idle' | 'out' | 'in'>('idle')
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([])
 
   const filtered = posts.filter((p) => {
     const matchCat   = active === 'Tout' || p.category === active
@@ -23,6 +29,34 @@ export default function BlogFilter({ posts, categories }: BlogFilterProps) {
       || p.excerpt?.toLowerCase().includes(q)
     return matchCat && matchQuery
   })
+
+  // Quand le filtre change → fade-out → swap → fade-in
+  useEffect(() => {
+    timers.current.forEach(clearTimeout)
+    timers.current = []
+
+    setAnim('out')
+
+    timers.current.push(
+      setTimeout(() => {
+        setDisplayed(filtered)
+        setAnim('in')
+      }, 180)
+    )
+
+    timers.current.push(
+      setTimeout(() => setAnim('idle'), 180 + 400)
+    )
+
+    return () => timers.current.forEach(clearTimeout)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [active, query])
+
+  const gridStyle: React.CSSProperties = {
+    transition: 'opacity 180ms ease, transform 180ms ease',
+    opacity:    anim === 'out' ? 0 : 1,
+    transform:  anim === 'out' ? 'translateY(6px)' : 'translateY(0)',
+  }
 
   return (
     <>
@@ -84,28 +118,38 @@ export default function BlogFilter({ posts, categories }: BlogFilterProps) {
       </div>
 
       {/* Grille d'articles */}
-      {filtered.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((post) => (
-            <BlogCard key={post.slug} post={post} featured />
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-16">
-          <p className="text-zinc-500">
-            Aucun article trouvé
-            {query && <> pour <span className="text-zinc-300">"{query}"</span></>}.
-          </p>
-          {(query || active !== 'Tout') && (
-            <button
-              onClick={() => { setQuery(''); setActive('Tout') }}
-              className="mt-3 text-sm text-indigo-400 hover:text-indigo-300 transition-colors"
-            >
-              Réinitialiser les filtres
-            </button>
-          )}
-        </div>
-      )}
+      <div style={gridStyle}>
+        {displayed.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {displayed.map((post, i) => (
+              <div
+                key={post.slug}
+                style={{
+                  animationDelay: anim === 'in' ? `${i * 40}ms` : '0ms',
+                }}
+                className={anim === 'in' ? 'animate-fade-in-up' : ''}
+              >
+                <BlogCard post={post} featured />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-16">
+            <p className="text-zinc-500">
+              Aucun article trouvé
+              {query && <> pour <span className="text-zinc-300">"{query}"</span></>}.
+            </p>
+            {(query || active !== 'Tout') && (
+              <button
+                onClick={() => { setQuery(''); setActive('Tout') }}
+                className="mt-3 text-sm text-indigo-400 hover:text-indigo-300 transition-colors"
+              >
+                Réinitialiser les filtres
+              </button>
+            )}
+          </div>
+        )}
+      </div>
     </>
   )
 }
