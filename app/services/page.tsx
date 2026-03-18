@@ -7,7 +7,6 @@ import {
   Target,
   Rocket,
   ChevronDown,
-  Clock,
   Settings,
   BarChart2,
 } from 'lucide-react'
@@ -48,38 +47,10 @@ const forWho = [
 ]
 
 const timeline = [
-  {
-    phase: '01',
-    weeks: 'Semaine 1',
-    title: 'Audit & Stratégie',
-    icon: Target,
-    description: 'Analyse de votre acquisition actuelle, définition de l\'ICP, identification des segments à fort potentiel et choix des canaux prioritaires.',
-    deliverables: ['Audit complet', 'ICP documenté', 'Plan d\'action'],
-  },
-  {
-    phase: '02',
-    weeks: 'Semaine 2-3',
-    title: 'Construction',
-    icon: Settings,
-    description: 'Configuration des outils, rédaction des séquences, enrichissement des bases de données et mise en place de l\'architecture technique.',
-    deliverables: ['Séquences rédigées', 'Outils configurés', 'Base qualifiée'],
-  },
-  {
-    phase: '03',
-    weeks: 'Semaine 3-4',
-    title: 'Déploiement',
-    icon: Zap,
-    description: 'Lancement des campagnes, premiers envois contrôlés, intégration CRM et mise en place du dashboard de suivi des performances.',
-    deliverables: ['Campagnes live', 'CRM intégré', 'Dashboard actif'],
-  },
-  {
-    phase: '04',
-    weeks: 'Semaine 5-6',
-    title: 'Optimisation & Transfert',
-    icon: BarChart2,
-    description: 'Analyse des premiers résultats, tests A/B, ajustements du copywriting et transfert de compétences à votre équipe.',
-    deliverables: ['Rapport de performance', 'Formation équipe', 'Documentation'],
-  },
+  { phase: '01', title: 'Audit & Stratégie', icon: Target },
+  { phase: '02', title: 'Construction', icon: Settings },
+  { phase: '03', title: 'Déploiement', icon: Zap },
+  { phase: '04', title: 'Optimisation & Transfert', icon: BarChart2 },
 ]
 
 const inclusions = [
@@ -228,61 +199,45 @@ export default function ServicesPage() {
 
         {/* Timeline */}
         <section className="py-20 bg-zinc-900/30">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-14">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-10">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
                 Comment ça se passe
               </h2>
               <p className="text-zinc-400 max-w-xl mx-auto">
-                4 à 6 semaines structurées pour aller de zéro à un système d&apos;acquisition opérationnel.
+                4 à 6 semaines structurées, de l&apos;audit au système opérationnel.
               </p>
             </div>
 
-            <div className="relative">
-              {/* Ligne verticale de connexion - desktop */}
-              <div className="hidden lg:block absolute left-[calc(50%-1px)] top-8 bottom-8 w-px bg-gradient-to-b from-indigo-500/30 via-violet-500/20 to-transparent" />
-
-              <div className="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-2 lg:gap-x-12 lg:gap-y-10">
-                {timeline.map((step, index) => (
-                  <div
-                    key={index}
-                    className={`relative flex gap-5 lg:gap-6 ${
-                      index % 2 === 0 ? 'lg:pr-10' : 'lg:pl-10 lg:mt-16'
-                    }`}
-                  >
-                    {/* Numéro */}
-                    <div className="flex-shrink-0 w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-700/60 flex items-center justify-center relative z-10">
-                      <span className="text-xs font-bold text-indigo-400 font-mono">{step.phase}</span>
-                    </div>
-
-                    <div className="flex-1 pb-6 border-b border-zinc-800/40 lg:border-0">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-xs text-zinc-500 font-medium flex items-center gap-1">
-                          <Clock className="w-3 h-3" />
-                          {step.weeks}
-                        </span>
-                      </div>
-                      <h3 className="text-base font-semibold text-white mb-2">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm text-zinc-400 leading-relaxed mb-3">
-                        {step.description}
-                      </p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {step.deliverables.map((d) => (
-                          <span
-                            key={d}
-                            className="inline-flex items-center gap-1 text-xs px-2.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300"
-                          >
-                            <CheckCircle className="w-3 h-3" />
-                            {d}
-                          </span>
-                        ))}
-                      </div>
+            {/* 4 phases horizontales */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+              {timeline.map((step, index) => (
+                <div key={index} className="flex flex-col items-center text-center gap-3">
+                  {/* Connecteur */}
+                  <div className="relative w-full flex items-center justify-center">
+                    {index > 0 && (
+                      <div className="absolute right-1/2 top-1/2 -translate-y-1/2 w-full h-px bg-gradient-to-l from-indigo-500/30 to-transparent" />
+                    )}
+                    <div className="relative z-10 w-11 h-11 rounded-2xl bg-zinc-900 border border-zinc-700/60 flex items-center justify-center flex-shrink-0">
+                      <step.icon className="w-4.5 h-4.5 text-indigo-400" />
                     </div>
                   </div>
-                ))}
-              </div>
+                  <div>
+                    <div className="text-xs font-bold text-indigo-400 font-mono mb-1">{step.phase}</div>
+                    <div className="text-xs font-medium text-zinc-300 leading-snug">{step.title}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <a
+                href="/methode"
+                className="inline-flex items-center gap-1.5 text-sm text-indigo-400 hover:text-indigo-300 transition-colors"
+              >
+                Découvrir la méthode en détail
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
         </section>
@@ -332,9 +287,10 @@ export default function ServicesPage() {
                 <div className="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-3">
                   Sprint Complet · Recommandé
                 </div>
-                <div className="text-4xl font-black text-white mb-1">
-                  Sur devis
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="text-4xl font-black text-white">à partir de 6 500€</span>
                 </div>
+                <p className="text-xs text-zinc-500 mb-4">HT · selon périmètre et outils</p>
                 <p className="text-sm text-zinc-400 mb-6">
                   Approche multicanale complète : email, LinkedIn et contenu
                   outbound, pour un pipeline à pleine capacité.
@@ -358,9 +314,10 @@ export default function ServicesPage() {
                 <div className="text-xs font-semibold text-zinc-500 uppercase tracking-wider mb-3">
                   Sprint Standard
                 </div>
-                <div className="text-4xl font-black text-white mb-1">
-                  Sur devis
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="text-4xl font-black text-white">à partir de 3 500€</span>
                 </div>
+                <p className="text-xs text-zinc-600 mb-4">HT · selon périmètre et outils</p>
                 <p className="text-sm text-zinc-500 mb-6">
                   Adapté aux entreprises souhaitant structurer leur acquisition
                   sur 1 à 2 canaux (email ou LinkedIn).
@@ -380,10 +337,15 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <p className="text-center text-xs text-zinc-600 mt-6">
-              Premier appel stratégique gratuit et sans engagement.
-              On analyse votre situation avant tout chiffrage.
-            </p>
+            <div className="text-center mt-6 space-y-1">
+              <p className="text-xs text-zinc-600">
+                Premier appel stratégique gratuit et sans engagement.
+                On analyse votre situation avant tout chiffrage.
+              </p>
+              <p className="text-xs text-zinc-700">
+                Besoin d&apos;un seul service ? Audit, copywriting ou configuration d&apos;outils : on s&apos;adapte à votre besoin.
+              </p>
+            </div>
           </div>
         </section>
 
@@ -407,7 +369,7 @@ export default function ServicesPage() {
                     </h3>
                     <ChevronDown className="w-4 h-4 text-zinc-500 flex-shrink-0 transition-transform duration-300 group-open:rotate-180" />
                   </summary>
-                  <div className="px-6 pb-5">
+                  <div className="px-6 pt-1 pb-6">
                     <p className="text-sm text-zinc-400 leading-relaxed">
                       {faq.answer}
                     </p>
