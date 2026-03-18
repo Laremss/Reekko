@@ -98,16 +98,16 @@ const phases = [
       'Optimisation des messages, ciblages et séquences',
       'Documentation et transfert de compétences à l\'équipe',
     ],
-    accent: 'bg-cyan-500/40',
-    iconBg: 'bg-cyan-500/10',
-    iconBorder: 'border-cyan-500/20',
-    iconColor: 'text-cyan-400',
-    numberColor: 'text-cyan-950',
-    subtitleColor: 'text-cyan-300',
-    durationBg: 'bg-cyan-500/10 border-cyan-500/20 text-cyan-400',
-    checkColor: 'text-cyan-400',
-    hoverBorder: 'hover:border-cyan-500/20',
-    hoverBg: 'hover:bg-cyan-950/10',
+    accent: 'bg-blue-500/40',
+    iconBg: 'bg-blue-500/10',
+    iconBorder: 'border-blue-500/20',
+    iconColor: 'text-blue-400',
+    numberColor: 'text-blue-950',
+    subtitleColor: 'text-blue-300',
+    durationBg: 'bg-blue-500/10 border-blue-500/20 text-blue-400',
+    checkColor: 'text-blue-400',
+    hoverBorder: 'hover:border-blue-500/20',
+    hoverBg: 'hover:bg-blue-950/10',
   },
 ]
 
@@ -236,11 +236,11 @@ export default function MethodePage() {
 
                       {/* Left: Icon + Number */}
                       <div className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-3">
-                        <div className={`w-14 h-14 rounded-2xl ${phase.iconBg} border ${phase.iconBorder} flex items-center justify-center flex-shrink-0`}>
+                        <div className={`w-14 h-14 rounded-2xl ${phase.iconBg} border ${phase.iconBorder} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
                           <phase.icon className={`w-6 h-6 ${phase.iconColor}`} />
                         </div>
                         <div>
-                          <div className={`text-5xl font-black leading-none ${phase.numberColor} select-none`}>
+                          <div className={`text-5xl font-black leading-none ${phase.numberColor} select-none group-hover:scale-110 transition-transform duration-300 origin-left`}>
                             {phase.number}
                           </div>
                           <div className={`inline-flex mt-2 text-xs font-medium px-2.5 py-0.5 rounded-full border ${phase.durationBg}`}>
