@@ -13,7 +13,7 @@ export function middleware(request: NextRequest) {
     `img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com`,
     `font-src 'self'`,
     `connect-src 'self' https://formspree.io https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://region1.google-analytics.com https://reekko.matomo.cloud`,
-    `frame-src 'none'`,
+    `frame-src https://cal.com`,
     `object-src 'none'`,
     `base-uri 'self'`,
     `form-action 'self' https://formspree.io`,

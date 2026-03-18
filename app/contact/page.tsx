@@ -261,22 +261,14 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Calendly embed placeholder */}
-              <div className="rounded-xl border border-zinc-700/40 bg-zinc-900/60 p-6 text-center mb-5">
-                <Calendar className="w-10 h-10 text-zinc-600 mx-auto mb-3" />
-                <p className="text-sm text-zinc-500 mb-4">
-                  Intégrez votre lien Calendly ici pour permettre la prise
-                  de rendez-vous directe.
-                </p>
-                <Button
-                  href="https://calendly.com/reekko"
-                  external
-                  variant="outline"
-                  size="sm"
-                >
-                  Ouvrir Calendly
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
+              {/* Cal.com embed */}
+              <div className="rounded-xl overflow-hidden mb-5">
+                <iframe
+                  src="https://cal.com/remi-bitouze-yddgcx?embed=true&theme=dark&layout=month_view"
+                  frameBorder="0"
+                  style={{ width: '100%', height: '580px', border: 'none' }}
+                  title="Réserver un appel stratégique"
+                />
               </div>
 
               <ul className="space-y-2.5">
