@@ -29,6 +29,12 @@ export default function Header() {
     setIsMobileMenuOpen(false)
   }, [pathname])
 
+  const scrollToTopIfSamePage = (href: string) => {
+    if (pathname === href) {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden'
@@ -52,7 +58,7 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
+          <Link href="/" className="flex items-center gap-2.5 group" onClick={() => scrollToTopIfSamePage('/')}>
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30 group-hover:shadow-indigo-500/50 transition-shadow">
               <Zap className="w-4 h-4 text-white fill-white" />
             </div>
@@ -67,6 +73,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => scrollToTopIfSamePage(link.href)}
                 className={cn(
                   'px-4 py-2 text-sm rounded-lg transition-colors duration-200',
                   pathname === link.href
@@ -117,7 +124,7 @@ export default function Header() {
         inert={!isMobileMenuOpen || undefined}
       >
         <div className="flex items-center justify-between p-4 border-b border-zinc-800/50">
-          <Link href="/" className="flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+          <Link href="/" className="flex items-center gap-2" onClick={() => { setIsMobileMenuOpen(false); scrollToTopIfSamePage('/') }}>
             <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
               <Zap className="w-3.5 h-3.5 text-white fill-white" />
             </div>
@@ -137,6 +144,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={() => { setIsMobileMenuOpen(false); scrollToTopIfSamePage(link.href) }}
               className={cn(
                 'px-4 py-3 text-sm rounded-lg transition-colors',
                 pathname === link.href
