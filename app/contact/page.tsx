@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Calendar, Mail, MessageSquare, CheckCircle, ArrowRight, Linkedin } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
+import CalEmbed from '@/components/ui/CalEmbed'
 
 const benefits = [
   'Analyse de votre acquisition actuelle',
@@ -261,13 +262,12 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Cal.com embed */}
-              <div className="rounded-xl overflow-hidden mb-5">
-                <iframe
-                  src="https://cal.eu/remi-bitouze-yddgcx/30min?embed=true&theme=dark"
-                  frameBorder="0"
-                  style={{ width: '100%', height: '580px', border: 'none' }}
-                  title="Réserver un appel stratégique"
+              {/* Cal.eu embed */}
+              <div className="mb-5">
+                <CalEmbed
+                  calLink="remi-bitouze-yddgcx/30min"
+                  origin="https://cal.eu"
+                  height={620}
                 />
               </div>
 
