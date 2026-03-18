@@ -7,7 +7,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   'Growth Marketing':      'bg-violet-500/15 text-violet-300 border-violet-500/25',
   'Stratégie B2B':         'bg-indigo-500/15 text-indigo-300 border-indigo-500/25',
   'Prospection & Outbound':'bg-emerald-500/15 text-emerald-300 border-emerald-500/25',
-  Outils:                  'bg-amber-500/15 text-amber-300 border-amber-500/25',
+  Outils:                  'bg-teal-500/15 text-teal-300 border-teal-500/25',
 }
 const DEFAULT_ACTIVE = 'bg-indigo-500/15 text-indigo-300 border-indigo-500/25'
 import BlogCard from '@/components/blog/BlogCard'
