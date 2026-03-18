@@ -5,24 +5,24 @@ import { ArrowRight, Mail, CheckCircle } from 'lucide-react'
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState('')
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'invalid' | 'error'>('idle')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const trimmed = email.trim()
     if (!trimmed || !trimmed.includes('@') || trimmed.indexOf('@') === trimmed.length - 1) {
-      setStatus('error')
+      setStatus('invalid')
       return
     }
     setStatus('loading')
     try {
       const res = await fetch(
-        `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_ID}`,
+        `https://formspree.io/f/${process.env.NEXT_PUBLIC_FORMSPREE_NEWSLETTER_ID}`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
           body: JSON.stringify({
-            email: email.trim(),
+            email: trimmed,
             _subject: 'Newsletter Reekko - Nouvelle inscription',
             type: 'newsletter',
           }),
@@ -62,7 +62,10 @@ export default function NewsletterSection() {
         <input
           type="email"
           value={email}
-          onChange={(e) => { setEmail(e.target.value); if (status === 'error') setStatus('idle') }}
+          onChange={(e) => {
+            setEmail(e.target.value)
+            if (status === 'invalid' || status === 'error') setStatus('idle')
+          }}
           placeholder="votre@email.pro"
           required
           className="flex-1 rounded-lg border border-zinc-700/60 bg-zinc-800/40 px-4 py-2.5 text-sm text-zinc-200 placeholder-zinc-600 focus:border-indigo-500/60 focus:outline-none focus:ring-1 focus:ring-indigo-500/40 transition-colors"
@@ -76,8 +79,11 @@ export default function NewsletterSection() {
           {status !== 'loading' && <ArrowRight className="w-4 h-4" aria-hidden="true" />}
         </button>
       </form>
-      {status === 'error' && (
+      {status === 'invalid' && (
         <p className="text-xs text-red-400 mt-2">Adresse email invalide. Réessayez.</p>
+      )}
+      {status === 'error' && (
+        <p className="text-xs text-red-400 mt-2">Une erreur est survenue. Réessayez dans un instant.</p>
       )}
     </div>
   )
