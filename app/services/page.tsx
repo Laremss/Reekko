@@ -273,7 +273,7 @@ export default function ServicesPage() {
                 outbound, pour un pipeline à pleine capacité.
               </p>
               <ul className="space-y-2.5 mb-8">
-                {['Tout le Sprint Standard', 'Multicanal email + LinkedIn', 'Enrichissement de données (Clay)', 'Optimisation continue 90 jours', 'Formation équipe commerciale'].map((item) => (
+                {['Tout le Sprint Standard', 'Multicanal email + LinkedIn', 'Enrichissement et qualification des données', 'Optimisation continue 90 jours', 'Formation équipe commerciale'].map((item) => (
                   <li key={item} className="flex items-center gap-2.5 text-sm text-zinc-300">
                     <CheckCircle className="w-4 h-4 text-indigo-400 flex-shrink-0" />
                     {item}
