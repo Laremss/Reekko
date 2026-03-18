@@ -262,14 +262,42 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Cal.eu embed */}
-              <div className="mb-5">
-                <CalEmbed
-                  calLink="remi-bitouze-yddgcx/30min"
-                  origin="https://cal.eu"
-                  height={620}
-                />
-              </div>
+              {/* Cal.eu booking CTA */}
+              <a
+                href="https://cal.eu/remi-bitouze-yddgcx/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative flex flex-col w-full rounded-2xl border border-indigo-500/25 bg-gradient-to-br from-indigo-500/10 to-violet-500/5 hover:from-indigo-500/15 hover:to-violet-500/10 hover:border-indigo-500/40 transition-all duration-300 p-6 mb-5 overflow-hidden"
+              >
+                {/* Glow */}
+                <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-indigo-500/10 blur-2xl group-hover:bg-indigo-500/20 transition-all duration-500 pointer-events-none" />
+
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center">
+                      <Calendar className="w-5 h-5 text-indigo-400" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold text-white">Appel stratégique</div>
+                      <div className="text-xs text-zinc-400">30 min · Gratuit · Sans engagement</div>
+                    </div>
+                  </div>
+                  <ArrowRight className="w-5 h-5 text-indigo-400 group-hover:translate-x-1 transition-transform duration-200" />
+                </div>
+
+                <div className="grid grid-cols-2 gap-2 mb-4">
+                  {['Lun — Ven', 'Matin & après-midi', 'Visio ou téléphone', 'Réponse sous 24h'].map((item) => (
+                    <div key={item} className="flex items-center gap-1.5 text-xs text-zinc-400">
+                      <CheckCircle className="w-3.5 h-3.5 text-indigo-400 flex-shrink-0" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="w-full rounded-xl bg-indigo-500 group-hover:bg-indigo-400 transition-colors py-3 text-center text-sm font-semibold text-white">
+                  Choisir un créneau →
+                </div>
+              </a>
 
               <ul className="space-y-2.5">
                 {benefits.map((benefit, i) => (
