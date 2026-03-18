@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(node -e \"const r = require\\(''./node_modules/next-mdx-remote/package.json''\\); console.log\\(''next-mdx-remote:'', r.version\\); const react = require\\(''./node_modules/react/package.json''\\); console.log\\(''react:'', react.version\\); const next = require\\(''./node_modules/next/package.json''\\); console.log\\(''next:'', next.version\\);\")"
+      "Bash(node -e \"const r = require\\(''./node_modules/next-mdx-remote/package.json''\\); console.log\\(''next-mdx-remote:'', r.version\\); const react = require\\(''./node_modules/react/package.json''\\); console.log\\(''react:'', react.version\\); const next = require\\(''./node_modules/next/package.json''\\); console.log\\(''next:'', next.version\\);\")",
+      "Bash(del \"C:\\\\Users\\\\remib\\\\Reekko Site\\\\public\\\\robots.txt\")"
     ]
   }
 }

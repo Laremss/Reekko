@@ -304,7 +304,7 @@ export default function ServicesPage() {
                   ))}
                 </ul>
                 <Button href="/contact" className="w-full">
-                  Démarrer votre sprint
+                  Obtenir un devis
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </div>
@@ -337,14 +337,24 @@ export default function ServicesPage() {
               </div>
             </div>
 
-            <div className="text-center mt-6 space-y-1">
-              <p className="text-xs text-zinc-600">
-                Premier appel stratégique gratuit et sans engagement.
-                On analyse votre situation avant tout chiffrage.
-              </p>
-              <p className="text-xs text-zinc-700">
-                Besoin d&apos;un seul service ? Audit, copywriting ou configuration d&apos;outils : on s&apos;adapte à votre besoin.
-              </p>
+            <p className="text-center mt-6 text-xs text-zinc-500">
+              Premier appel stratégique gratuit et sans engagement.
+              On analyse votre situation avant tout chiffrage.
+            </p>
+
+            {/* À la carte */}
+            <div className="mt-8 rounded-xl border border-zinc-700/40 bg-zinc-900/60 px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold text-white mb-1">Besoin d&apos;un seul service ?</p>
+                <p className="text-sm text-zinc-400">Audit, copywriting ou configuration d&apos;outils — on s&apos;adapte à votre besoin sans package imposé.</p>
+              </div>
+              <a
+                href="/contact"
+                className="flex-shrink-0 inline-flex items-center gap-1.5 text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors whitespace-nowrap"
+              >
+                En discuter
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
             </div>
           </div>
         </section>
