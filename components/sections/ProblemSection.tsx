@@ -13,7 +13,7 @@ const problems = [
     icon: TrendingDown,
     title: 'Chaque lead coûte plus cher qu\'avant.',
     description:
-      "Les canaux saturent, les CPL grimpent, les funnels ne sont pas optimisés. Vous investissez davantage pour obtenir moins — sans savoir précisément où fuient vos euros d'acquisition.",
+      "Les canaux saturent, le coût par lead grimpe, les funnels ne sont pas optimisés. Vous investissez davantage pour obtenir moins. Sans savoir précisément où fuient vos euros d'acquisition.",
     highlight: 'ROI en baisse',
   },
   {
@@ -39,8 +39,8 @@ export default function ProblemSection() {
             </span>
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto leading-relaxed">
-            Trois signaux que votre acquisition actuelle n&apos;est pas encore
-            un système — et vous coûte plus qu&apos;elle ne rapporte.
+            Vous n&apos;êtes pas seul. La plupart des entreprises B2B qu&apos;on rencontre
+            se reconnaissent dans au moins deux de ces trois situations.
           </p>
         </AnimateOnScroll>
 
@@ -50,10 +50,10 @@ export default function ProblemSection() {
             {problems.map((problem, index) => (
               <div
                 key={index}
-                className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8 hover:border-red-800/50 hover:bg-zinc-900/70 transition-all duration-300"
+                className="group relative rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8 hover:border-red-800/50 hover:bg-zinc-900/70 hover:-translate-y-1 transition-all duration-300"
               >
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-6 group-hover:bg-red-500/20 transition-colors">
+                <div className="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/20 flex items-center justify-center mb-6 group-hover:bg-red-500/20 group-hover:scale-110 transition-all duration-300">
                   <problem.icon className="w-5 h-5 text-red-400" />
                 </div>
 
@@ -76,8 +76,8 @@ export default function ProblemSection() {
         {/* Transition */}
         <AnimateOnScroll delay={300} className="mt-20 text-center">
           <p className="text-zinc-400 text-base">
-            Et si votre pipeline se remplissait de lui-même, chaque semaine,{' '}
-            <span className="text-white font-medium">sans intervention de votre part ?</span>
+            Et si votre pipeline se remplissait chaque semaine{' '}
+            <span className="text-white font-medium">sans que votre équipe ait à prospecter manuellement ?</span>
           </p>
         </AnimateOnScroll>
       </div>

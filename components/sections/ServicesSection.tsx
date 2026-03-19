@@ -52,7 +52,7 @@ export default function ServicesSection() {
                     Sprint · 4–6 semaines
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
-                    Acquisition Automation Sprint
+                    Growth Sprint
                   </h3>
                   <p className="text-zinc-400 leading-relaxed max-w-lg">
                     Un accompagnement court et intensif pour concevoir et déployer
