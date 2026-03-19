@@ -87,7 +87,7 @@ const faqs = [
   {
     question: 'Quels résultats peut-on espérer ?',
     answer:
-      'Les résultats varient selon votre marché et votre offre, mais nos clients constatent en moyenne une multiplication par 3 de leur ROI d\'acquisition et une réduction de 60% de leur coût par lead dans les 90 jours suivant le sprint.',
+      'Les résultats dépendent de votre marché, de votre offre et de la qualité de votre ICP. Les clients qui suivent le processus complet constatent une réduction de leur coût par lead et une augmentation du volume de prospects qualifiés, généralement visible à partir du deuxième mois après le sprint.',
   },
   {
     question: 'Y a-t-il un suivi après le sprint ?',
@@ -139,9 +139,9 @@ export default function ServicesPage() {
               </span>
             </h1>
             <p className="text-lg font-light text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10 animate-fade-in-up" style={{ animationDelay: '220ms' }}>
-              En 4 à 6 semaines, on conçoit et déploie votre moteur d&apos;acquisition
-              automatisé. Vous repartez avec un pipeline qui tourne sans
-              intervention manuelle.
+              En 4 à 6 semaines, on conçoit et déploie votre système de prospection.
+              Votre équipe se concentre sur les conversations.
+              Le système prospecte à votre place.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '350ms' }}>
               <Button size="lg" href="/contact">
@@ -346,7 +346,7 @@ export default function ServicesPage() {
             <div className="mt-8 rounded-xl border border-zinc-700/40 bg-zinc-900/60 px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <p className="text-sm font-semibold text-white mb-1">Besoin d&apos;un seul service ?</p>
-                <p className="text-sm text-zinc-400">Audit, copywriting ou configuration d&apos;outils — on s&apos;adapte à votre besoin sans package imposé.</p>
+                <p className="text-sm text-zinc-400">Audit, copywriting ou configuration d&apos;outils : on s&apos;adapte à votre besoin sans package imposé.</p>
               </div>
               <a
                 href="/contact"

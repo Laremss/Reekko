@@ -6,7 +6,7 @@ import ParallaxGrid from '@/components/ui/ParallaxGrid'
 export const metadata: Metadata = {
   title: 'Notre Méthode | Framework d\'acquisition B2B',
   description:
-    'Découvrez le Framework Reekko : 4 étapes pour transformer votre acquisition B2B en un système automatisé, efficace et scalable.',
+    'Découvrez le Framework Reekko : 4 étapes pour passer d\'une prospection manuelle à un système structuré qui génère des RDV sans prospection quotidienne.',
   alternates: {
     canonical: 'https://www.reekko.com/methode',
   },
@@ -115,7 +115,7 @@ export default function MethodePage() {
           </h1>
           <p className="text-lg font-light text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-10 animate-fade-in-up" style={{ animationDelay: '220ms' }}>
             Un accompagnement structuré pour passer d&apos;une prospection
-            artisanale à un pipeline qui tourne en continu.
+            manuelle et épuisante à un système qui travaille à votre place.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '350ms' }}>
             <Button size="lg" href="/contact">

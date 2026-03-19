@@ -14,7 +14,7 @@ const caseStudies = [
     sector: 'SaaS RH',
     size: '40 collaborateurs',
     situation: 'Prospection 100% manuelle. 2 à 3 rendez-vous irréguliers par mois, sans process outbound.',
-    result: '9 RDV qualifiés générés automatiquement chaque mois, sans intervention de l\'équipe.',
+    result: '9 RDV qualifiés générés chaque mois. L\'équipe répond aux conversations, elle ne prospecte plus.',
     duration: '5 semaines',
     metric: '+9 RDV/mois',
   },

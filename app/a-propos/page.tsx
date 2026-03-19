@@ -71,7 +71,7 @@ export default function AProposPage() {
             Reekko, construite
             <br />
             <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent animate-gradient-text">
-              pour que votre acquisition tourne sans vous
+              construite pour libérer votre équipe de la prospection
             </span>
           </h1>
           <p className="text-lg font-light text-zinc-400 max-w-2xl leading-relaxed animate-fade-in-up" style={{ animationDelay: '220ms' }}>
@@ -104,8 +104,8 @@ export default function AProposPage() {
             </p>
             <p className="text-zinc-400 leading-relaxed">
               C&apos;est pour ça qu&apos;on a développé le Framework Reekko : une méthode
-              éprouvée pour construire un moteur d&apos;acquisition automatisé,
-              mesurable et reproductible, adapté à chaque entreprise B2B.
+              structurée pour construire un système de prospection qui tourne
+              sans prospection manuelle au quotidien, mesurable et reproductible.
             </p>
           </div>
         </div>
@@ -175,8 +175,8 @@ export default function AProposPage() {
             Votre acquisition mérite mieux
           </h2>
           <p className="text-zinc-400 text-lg mb-8">
-            Un tableur de prospects et des relances manuelles, c&apos;est derrière vous.
-            Découvrez comment on construit votre moteur commercial ou discutons
+            La prospection manuelle et les relances artisanales, c&apos;est derrière vous.
+            Découvrez comment on construit votre système ou discutons
             directement de votre situation.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

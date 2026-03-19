@@ -65,13 +65,13 @@ export default function ServicesSection() {
                 <div className="flex-shrink-0 text-center sm:text-right">
                   <div className="inline-block rounded-2xl border border-indigo-500/25 bg-indigo-500/10 px-6 py-4">
                     <div className="text-xs text-indigo-400 font-medium mb-1">
-                      Résultat attendu
+                      Ce que ça change
                     </div>
                     <div className="text-lg font-bold text-white">
-                      8 à 12 RDV qualifiés
+                      Système actif
                     </div>
                     <div className="text-xs text-zinc-500 mt-0.5">
-                      par mois en automatique
+                      en 4 à 6 semaines
                     </div>
                   </div>
                 </div>

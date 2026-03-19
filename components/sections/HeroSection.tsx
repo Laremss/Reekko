@@ -27,7 +27,7 @@ export default function HeroSection() {
           style={{ animationDelay: '0ms' }}
         >
           <Zap className="w-3.5 h-3.5 fill-indigo-300" />
-          <span>Sprint · 4 à 6 semaines · Résultats dès le premier mois</span>
+          <span>Sprint · 4 à 6 semaines · Premiers RDV dès la semaine 4</span>
         </div>
 
         {/* Headline */}
