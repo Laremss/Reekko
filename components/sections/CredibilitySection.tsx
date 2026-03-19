@@ -1,41 +1,38 @@
-import { Star, Quote } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
 import CountUp from '@/components/ui/CountUp'
 
 const stats = [
-  { value: '15+', label: 'Entreprises accompagnées', sublabel: 'startups SaaS et PME B2B', duration: 1200 },
+  { value: '15+', label: 'Sprints livrés', sublabel: 'depuis le lancement de Reekko', duration: 1200 },
   { value: '×3', label: 'ROI moyen constaté', sublabel: 'sur le budget acquisition', duration: 1000 },
   { value: '−40%', label: 'Réduction du coût par lead', sublabel: 'en 90 jours en moyenne', duration: 1500 },
-  { value: '4 sem.', label: 'Pour un pipeline opérationnel', sublabel: 'de l\'audit au premier lead', duration: 900 },
+  { value: '4 sem.', label: 'Pour un pipeline opérationnel', sublabel: "de l'audit au premier lead", duration: 900 },
 ]
 
-const testimonials = [
+const caseStudies = [
   {
-    quote:
-      'On cherchait à sortir de la prospection 100% manuelle. En 5 semaines, Reekko a mis en place un système complet : ciblage, séquences email et LinkedIn, CRM intégré. On génère maintenant 8 à 12 rendez-vous qualifiés par mois sans y toucher.',
-    author: 'Thomas M.',
-    role: 'CEO & Co-fondateur',
-    company: 'SaaS RH · 45 collaborateurs',
-    rating: 5,
-    result: '+8 RDV/mois en automatique',
+    sector: 'SaaS RH',
+    size: '40 collaborateurs',
+    situation: 'Prospection 100% manuelle. 2 à 3 rendez-vous irréguliers par mois, sans process outbound.',
+    result: '9 RDV qualifiés générés automatiquement chaque mois, sans intervention de l\'équipe.',
+    duration: '5 semaines',
+    metric: '+9 RDV/mois',
   },
   {
-    quote:
-      'Notre pipeline était irrégulier et trop dépendant du bouche-à-oreille. Avec le système mis en place, on a multiplié par 3 le nombre de prospects entrants en 2 mois. La méthode est structurée, les livrables clairs. Exactement ce dont on avait besoin.',
-    author: 'Sophie L.',
-    role: 'Head of Growth',
-    company: 'Scale-up B2B · 30 collaborateurs',
-    rating: 5,
-    result: '×3 prospects entrants en 2 mois',
+    sector: 'Scale-up B2B',
+    size: '30 collaborateurs',
+    situation: 'Pipeline dépendant du bouche-à-oreille. Croissance stagnante, pas de levier outbound structuré.',
+    result: 'Volume de prospects entrants multiplié par 3 en 2 mois grâce à un système multicanal.',
+    duration: '6 semaines',
+    metric: 'x3 prospects',
   },
   {
-    quote:
-      'Méthode claire, déploiement rapide. On savait exactement où on en était à chaque étape. Pas de sur-promesse, les résultats sont là dès le premier mois. On a réduit notre coût par lead de 45% et nos commerciaux se concentrent enfin sur la vente.',
-    author: 'Marc D.',
-    role: 'Directeur Commercial',
-    company: 'Cabinet de conseil · 20 collaborateurs',
-    rating: 5,
-    result: '−45% de coût par lead',
+    sector: 'Cabinet de conseil',
+    size: '20 collaborateurs',
+    situation: "Les commerciaux passaient 60% de leur temps à prospecter au lieu de closer.",
+    result: 'Coût par lead réduit de 40%. L\'équipe recentrée sur la vente, pas sur la chasse.',
+    duration: '4 semaines',
+    metric: '-40% CPL',
   },
 ]
 
@@ -51,16 +48,14 @@ export default function CredibilitySection() {
         {/* Header */}
         <AnimateOnScroll className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-5">
-            <span>Résultats & témoignages</span>
+            <span>Résultats concrets</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5">
-            Les résultats
-            <span className="text-violet-400">
-              {' '}parlent d'eux-mêmes
-            </span>
+            Ce que ça change
+            <span className="text-violet-400"> en pratique</span>
           </h2>
           <p className="text-zinc-400 text-lg max-w-xl mx-auto">
-            Des entreprises B2B qui ont transformé leur acquisition avec Reekko.
+            Trois situations réelles, trois systèmes déployés, trois résultats mesurables.
           </p>
         </AnimateOnScroll>
 
@@ -91,64 +86,78 @@ export default function CredibilitySection() {
           </div>
         </AnimateOnScroll>
 
-        {/* Testimonials */}
+        {/* Case Studies */}
         <AnimateOnScroll delay={200}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
+          <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-1 -mx-4 px-4 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:mx-0 md:px-0">
+            {caseStudies.map((cs, index) => (
               <div
                 key={index}
-                className="group rounded-2xl border border-zinc-800/60 bg-zinc-900/40 p-8 hover:border-zinc-700/60 hover:bg-zinc-900/60 transition-all duration-300 flex flex-col"
+                className="snap-center flex-shrink-0 w-[82vw] md:w-auto group rounded-2xl border border-zinc-800/60 bg-zinc-900/40 hover:border-zinc-700/60 hover:bg-zinc-900/60 transition-all duration-300 overflow-hidden flex flex-col"
               >
-                {/* Stars */}
-                <div className="flex items-center gap-1 mb-5">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 text-amber-400 fill-amber-400"
-                    />
-                  ))}
-                </div>
-
-                {/* Quote */}
-                <Quote className="w-6 h-6 text-indigo-500/40 mb-3 flex-shrink-0" />
-                <p className="text-zinc-300 text-sm leading-relaxed flex-1 mb-6">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </p>
-
-                {/* Result badge */}
-                <div className="mb-4">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
-                    {testimonial.result}
-                  </span>
-                </div>
-
-                {/* Author */}
-                <div className="pt-5 border-t border-zinc-800/50">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500/30 to-violet-500/30 border border-zinc-700/50 flex items-center justify-center text-zinc-300 text-sm font-semibold">
-                      {testimonial.author.charAt(0)}
+                {/* Header */}
+                <div className="px-6 pt-6 pb-5 border-b border-zinc-800/50">
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-semibold text-white">{cs.sector}</span>
+                      <span className="text-xs text-zinc-600">·</span>
+                      <span className="text-xs text-zinc-500">{cs.size}</span>
                     </div>
-                    <div>
-                      <div className="text-sm font-semibold text-white">
-                        {testimonial.author}
-                      </div>
-                      <div className="text-xs text-zinc-500">
-                        {testimonial.role} · {testimonial.company}
-                      </div>
-                    </div>
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-zinc-800/80 border border-zinc-700/50 text-zinc-500 font-mono">
+                      {cs.duration}
+                    </span>
                   </div>
+                </div>
+
+                {/* Body */}
+                <div className="px-6 py-5 flex-1 flex flex-col gap-4">
+                  {/* Situation */}
+                  <div>
+                    <div className="text-xs font-semibold text-zinc-600 uppercase tracking-wider mb-2">
+                      Situation initiale
+                    </div>
+                    <p className="text-sm text-zinc-500 leading-relaxed">
+                      {cs.situation}
+                    </p>
+                  </div>
+
+                  {/* Divider arrow */}
+                  <div className="flex items-center gap-3">
+                    <div className="flex-1 h-px bg-zinc-800/60" />
+                    <ArrowRight className="w-3.5 h-3.5 text-indigo-500/60 flex-shrink-0" />
+                    <div className="flex-1 h-px bg-zinc-800/60" />
+                  </div>
+
+                  {/* Result */}
+                  <div>
+                    <div className="text-xs font-semibold text-indigo-400/70 uppercase tracking-wider mb-2">
+                      Après le sprint
+                    </div>
+                    <p className="text-sm text-zinc-300 leading-relaxed">
+                      {cs.result}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Metric */}
+                <div className="px-6 pb-6">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm font-semibold">
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 flex-shrink-0" />
+                    {cs.metric}
+                  </span>
                 </div>
               </div>
             ))}
           </div>
-        </AnimateOnScroll>
 
-        {/* Trust badges */}
-        <AnimateOnScroll delay={300} className="mt-16 text-center">
-          <p className="text-zinc-600 text-sm max-w-md mx-auto">
-            Nos clients sont des startups SaaS, agences et PME B2B qui cherchent à structurer leur acquisition sans dépendre d'actions ponctuelles.
-          </p>
+          {/* Indicateur scroll mobile */}
+          <div className="flex md:hidden items-center justify-center gap-2 mt-5">
+            {caseStudies.map((_, i) => (
+              <div
+                key={i}
+                className={`rounded-full transition-all ${i === 0 ? 'w-4 h-1.5 bg-indigo-400' : 'w-1.5 h-1.5 bg-zinc-700'}`}
+              />
+            ))}
+          </div>
         </AnimateOnScroll>
       </div>
     </section>

@@ -4,23 +4,23 @@ import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
 const problems = [
   {
     icon: Timer,
-    title: 'Prospection inefficace',
+    title: 'Vous prospectez. Ça ne rapporte pas assez.',
     description:
-      "Vos équipes passent des heures sur des tâches manuelles répétitives : recherche de contacts, envoi d'emails, relances. Un ROI faible et des taux de conversion décevants.",
+      "Votre équipe passe ses journées à chercher des contacts, rédiger des emails, relancer. Des heures investies pour quelques rendez-vous irréguliers. C'est du temps pris sur la vente, pas de la croissance.",
     highlight: 'Temps gaspillé',
   },
   {
     icon: TrendingDown,
-    title: "Coût d'acquisition en hausse",
+    title: 'Chaque lead coûte plus cher qu\'avant.',
     description:
-      "Le coût pour acquérir un nouveau client augmente chaque trimestre. Les canaux saturés, les CPL en hausse et des funnels mal optimisés plombent votre rentabilité.",
+      "Les canaux saturent, les CPL grimpent, les funnels ne sont pas optimisés. Vous investissez davantage pour obtenir moins — sans savoir précisément où fuient vos euros d'acquisition.",
     highlight: 'ROI en baisse',
   },
   {
     icon: AlertTriangle,
-    title: 'Aucun système reproductible',
+    title: 'Si vous ralentissez, le pipeline se vide.',
     description:
-      "Votre acquisition repose sur des actions ponctuelles et des individus clés. Aucun système structuré capable de générer des opportunités en continu, semaine après semaine.",
+      "Votre acquisition repose sur des individus et des actions ponctuelles. Pas de système structuré, pas de continuité. Quand l'équipe s'arrête de prospecter, les opportunités s'arrêtent aussi.",
     highlight: 'Croissance bloquée',
   },
 ]
@@ -39,8 +39,8 @@ export default function ProblemSection() {
             </span>
           </h2>
           <p className="text-zinc-400 text-lg max-w-2xl mx-auto leading-relaxed">
-            La plupart des entreprises B2B souffrent des mêmes problèmes
-            d'acquisition et perdent des opportunités commerciales chaque jour.
+            Trois signaux que votre acquisition actuelle n&apos;est pas encore
+            un système — et vous coûte plus qu&apos;elle ne rapporte.
           </p>
         </AnimateOnScroll>
 

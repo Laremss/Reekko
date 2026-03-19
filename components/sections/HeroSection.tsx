@@ -27,17 +27,17 @@ export default function HeroSection() {
           style={{ animationDelay: '0ms' }}
         >
           <Zap className="w-3.5 h-3.5 fill-indigo-300" />
-          <span>Growth Marketing & Automatisation B2B</span>
+          <span>Sprint · 4 à 6 semaines · Résultats dès le premier mois</span>
         </div>
 
-        {/* Headline : pas d'animation, c'est l'élément LCP, doit être visible immédiatement */}
+        {/* Headline */}
         <h1
           className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight text-white leading-[1.05] mb-6"
         >
-          Automatisez votre
+          Arrêtez de prospecter
           <br />
           <span className="animate-gradient-text">
-            acquisition B2B.
+            manuellement.
           </span>
         </h1>
 
@@ -46,9 +46,9 @@ export default function HeroSection() {
           className="text-lg sm:text-xl font-light text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up"
           style={{ animationDelay: '220ms' }}
         >
-          Reekko construit le moteur commercial qui remplace votre prospection
-          manuelle et génère des rendez-vous qualifiés en continu, sans y
-          passer vos soirées.
+          Reekko conçoit et déploie votre moteur d&apos;acquisition B2B en 4 à 6 semaines.
+          Séquences actives, leads qualifiés, rendez-vous générés.{' '}
+          <span className="text-zinc-300 font-normal">Sans intervention quotidienne de votre part.</span>
         </p>
 
         {/* CTAs */}
@@ -73,11 +73,11 @@ export default function HeroSection() {
           <div className="grid grid-cols-3 max-w-xl mx-auto rounded-2xl border border-zinc-800/60 bg-zinc-900/40 backdrop-blur-sm divide-x divide-zinc-800/60">
             <div className="text-center px-4 py-7">
               <CountUp
-                value="15+"
+                value="5 sem."
                 className="text-3xl sm:text-4xl font-black text-white tabular-nums"
-                duration={1400}
+                duration={1000}
               />
-              <div className="text-xs sm:text-sm text-zinc-400 font-medium mt-1">Entreprises accompagnées</div>
+              <div className="text-xs sm:text-sm text-zinc-400 font-medium mt-1">Pour un pipeline actif</div>
             </div>
             <div className="text-center px-4 py-7">
               <CountUp
@@ -93,7 +93,7 @@ export default function HeroSection() {
                 className="text-3xl sm:text-4xl font-black text-white tabular-nums"
                 duration={1600}
               />
-              <div className="text-xs sm:text-sm text-zinc-400 font-medium mt-1">Réduction du coût par lead</div>
+              <div className="text-xs sm:text-sm text-zinc-400 font-medium mt-1">Coût par lead réduit</div>
             </div>
           </div>
         </div>

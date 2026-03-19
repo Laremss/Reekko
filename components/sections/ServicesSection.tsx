@@ -68,10 +68,10 @@ export default function ServicesSection() {
                       Résultat attendu
                     </div>
                     <div className="text-lg font-bold text-white">
-                      Pipeline qualifié
+                      8 à 12 RDV qualifiés
                     </div>
                     <div className="text-xs text-zinc-500 mt-0.5">
-                      en 4 à 6 semaines
+                      par mois en automatique
                     </div>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ export default function ServicesSection() {
                   href="/services"
                   className="w-full sm:w-auto"
                 >
-                  En savoir plus
+                  Voir le détail du sprint
                 </Button>
                 <p className="text-zinc-500 text-sm sm:ml-auto">
                   Premier appel 100% gratuit

@@ -28,10 +28,10 @@ export default function CTASection() {
 
           {/* Headline */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
-            Prêt à automatiser
+            30 minutes pour construire
             <br />
             <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400 bg-clip-text text-transparent animate-gradient-text">
-              votre acquisition ?
+              votre plan d&apos;acquisition
             </span>
           </h2>
 
@@ -58,8 +58,8 @@ export default function CTASection() {
               Réserver un appel stratégique
               <ArrowRight className="w-5 h-5" />
             </Button>
-            <Button variant="outline" size="lg" href="/services" className="text-base">
-              Voir nos services
+            <Button variant="outline" size="lg" href="/methode" className="text-base">
+              Voir la méthode
             </Button>
           </div>
 
