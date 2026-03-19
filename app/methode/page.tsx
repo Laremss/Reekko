@@ -26,16 +26,6 @@ const phases = [
       'Identification des personas et de l\'ICP',
       'Rapport de diagnostic avec opportunités prioritaires',
     ],
-    accent: 'bg-violet-500/40',
-    iconBg: 'bg-violet-500/10',
-    iconBorder: 'border-violet-500/20',
-    iconColor: 'text-violet-400',
-    numberColor: 'text-violet-950',
-    subtitleColor: 'text-violet-300',
-    durationBg: 'bg-violet-500/10 border-violet-500/20 text-violet-400',
-    checkColor: 'text-violet-400',
-    hoverBorder: 'hover:border-violet-500/20',
-    hoverBg: 'hover:bg-violet-950/10',
   },
   {
     number: '02',
@@ -50,16 +40,6 @@ const phases = [
       'Création des messages et séquences de prospection',
       'Plan de déploiement détaillé et priorisé',
     ],
-    accent: 'bg-purple-500/40',
-    iconBg: 'bg-purple-500/10',
-    iconBorder: 'border-purple-500/20',
-    iconColor: 'text-purple-400',
-    numberColor: 'text-purple-950',
-    subtitleColor: 'text-purple-300',
-    durationBg: 'bg-purple-500/10 border-purple-500/20 text-purple-400',
-    checkColor: 'text-purple-400',
-    hoverBorder: 'hover:border-purple-500/20',
-    hoverBg: 'hover:bg-purple-950/10',
   },
   {
     number: '03',
@@ -74,16 +54,6 @@ const phases = [
       'Enrichissement et qualification des bases de données',
       'Intégration CRM et mise en place du tracking',
     ],
-    accent: 'bg-indigo-500/40',
-    iconBg: 'bg-indigo-500/10',
-    iconBorder: 'border-indigo-500/20',
-    iconColor: 'text-indigo-400',
-    numberColor: 'text-indigo-950',
-    subtitleColor: 'text-indigo-300',
-    durationBg: 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400',
-    checkColor: 'text-indigo-400',
-    hoverBorder: 'hover:border-indigo-500/20',
-    hoverBg: 'hover:bg-indigo-950/10',
   },
   {
     number: '04',
@@ -98,16 +68,6 @@ const phases = [
       'Optimisation des messages, ciblages et séquences',
       'Documentation et transfert de compétences à l\'équipe',
     ],
-    accent: 'bg-blue-500/40',
-    iconBg: 'bg-blue-500/10',
-    iconBorder: 'border-blue-500/20',
-    iconColor: 'text-blue-400',
-    numberColor: 'text-blue-950',
-    subtitleColor: 'text-blue-300',
-    durationBg: 'bg-blue-500/10 border-blue-500/20 text-blue-400',
-    checkColor: 'text-blue-400',
-    hoverBorder: 'hover:border-blue-500/20',
-    hoverBg: 'hover:bg-blue-950/10',
   },
 ]
 
@@ -226,24 +186,24 @@ export default function MethodePage() {
           <div className="space-y-5">
             {phases.map((phase, index) => (
               <div key={index}>
-                <div className={`group rounded-2xl border border-zinc-800/60 ${phase.hoverBorder} bg-zinc-900/40 ${phase.hoverBg} overflow-hidden transition-all duration-300 flex`}>
+                <div className="group rounded-2xl border border-zinc-800/60 hover:border-indigo-500/25 bg-zinc-900/40 hover:bg-indigo-950/10 overflow-hidden transition-all duration-300 flex">
 
                   {/* Accent bar gauche */}
-                  <div className={`w-1 flex-shrink-0 ${phase.accent} opacity-60 group-hover:opacity-100 transition-opacity duration-300`} />
+                  <div className="w-1 flex-shrink-0 bg-gradient-to-b from-indigo-500/60 to-violet-500/40 opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
 
                   <div className="flex-1 p-8 sm:p-10">
                     <div className="flex flex-col sm:flex-row sm:items-start gap-6">
 
                       {/* Left: Icon + Number */}
                       <div className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-3">
-                        <div className={`w-14 h-14 rounded-2xl ${phase.iconBg} border ${phase.iconBorder} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}>
-                          <phase.icon className={`w-6 h-6 ${phase.iconColor}`} />
+                        <div className="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                          <phase.icon className="w-6 h-6 text-indigo-400" />
                         </div>
                         <div>
-                          <div className={`text-5xl font-black leading-none ${phase.numberColor} select-none group-hover:scale-110 transition-transform duration-300 origin-left`}>
+                          <div className="text-6xl font-black leading-none text-white/10 group-hover:text-white/20 select-none transition-all duration-300 origin-left group-hover:scale-110">
                             {phase.number}
                           </div>
-                          <div className={`inline-flex mt-2 text-xs font-medium px-2.5 py-0.5 rounded-full border ${phase.durationBg}`}>
+                          <div className="inline-flex mt-2 text-xs font-medium px-2.5 py-0.5 rounded-full border bg-indigo-500/10 border-indigo-500/20 text-indigo-400">
                             {phase.duration}
                           </div>
                         </div>
@@ -251,8 +211,7 @@ export default function MethodePage() {
 
                       {/* Right: Content */}
                       <div className="flex-1">
-                        {/* Subtitle as headline */}
-                        <p className={`text-sm font-medium ${phase.subtitleColor} mb-1 italic`}>
+                        <p className="text-sm font-medium text-indigo-300/80 mb-1 italic">
                           {phase.subtitle}
                         </p>
                         <h2 className="text-2xl font-bold text-white mb-3">
@@ -268,14 +227,14 @@ export default function MethodePage() {
                         <ul className="space-y-2 mb-4">
                           {phase.deliverables.map((item, i) => (
                             <li key={i} className="flex items-start gap-2.5">
-                              <CheckCircle className={`w-4 h-4 ${phase.checkColor} flex-shrink-0 mt-0.5`} />
+                              <CheckCircle className="w-4 h-4 text-indigo-400 flex-shrink-0 mt-0.5" />
                               <span className="text-sm text-zinc-300">{item}</span>
                             </li>
                           ))}
                         </ul>
                         <a
                           href="/services"
-                          className={`inline-flex items-center gap-1 text-xs ${phase.subtitleColor} opacity-70 hover:opacity-100 transition-opacity`}
+                          className="inline-flex items-center gap-1 text-xs text-indigo-400/60 hover:text-indigo-400 transition-colors"
                         >
                           Voir le détail complet du sprint
                           <ArrowRight className="w-3 h-3" />
