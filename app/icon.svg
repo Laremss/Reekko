@@ -1,11 +1,10 @@
 <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+    <linearGradient id="reekko-bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
       <stop stop-color="#6366f1"/>
       <stop offset="1" stop-color="#7c3aed"/>
     </linearGradient>
   </defs>
-  <rect width="100" height="100" rx="22" fill="url(#bg)"/>
-  <!-- Zap icon (lucide), centré et mis à l'échelle -->
+  <rect width="100" height="100" rx="22" fill="url(#reekko-bg)"/>
   <polygon points="53,18 21,56 50,56 47,82 79,44 50,44 53,18" fill="white"/>
 </svg>
