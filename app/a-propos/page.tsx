@@ -1,3 +1,5 @@
+import BlockList from '@/components/remolder/BlockList'
+import { getPublishedData } from '@/lib/remolder/data'
 import type { Metadata } from 'next'
 import { ArrowRight, Target, Heart, Zap, Users } from 'lucide-react'
 import Button from '@/components/ui/Button'
@@ -52,7 +54,10 @@ const expertise = [
   'A/B Testing',
 ]
 
-export default function AProposPage() {
+
+export const dynamic = 'force-dynamic'
+
+function AProposPage() {
   return (
     <div className="min-h-screen bg-zinc-950 pt-16">
       {/* Hero */}
@@ -193,3 +198,19 @@ export default function AProposPage() {
     </div>
   )
 }
+
+export default async function RemolderPage() {
+  const __published = await getPublishedData("/a-propos")
+  if (__published) {
+    return (
+      <>
+      <div className="min-h-screen bg-zinc-950 pt-16">
+        <BlockList blocks={__published.blocks} tokens={__published.tokens} />
+      </div>
+      </>
+    )
+  }
+  // Repli sûr : composition d'origine, inchangée.
+  return <AProposPage />
+}
+

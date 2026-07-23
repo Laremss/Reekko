@@ -1,3 +1,5 @@
+import BlockList from '@/components/remolder/BlockList'
+import { getPublishedData } from '@/lib/remolder/data'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, MapPin, Zap, Target, TrendingUp, CheckCircle, Calendar } from 'lucide-react'
@@ -143,7 +145,10 @@ const faqSchema = {
   })),
 }
 
-export default function RennesPage() {
+
+export const dynamic = 'force-dynamic'
+
+function RennesPage() {
   return (
     <>
       <script
@@ -372,3 +377,17 @@ export default function RennesPage() {
     </>
   )
 }
+
+export default async function RemolderPage() {
+  const __published = await getPublishedData("/agence-growth-marketing-rennes")
+  if (__published) {
+    return (
+      <>
+        <BlockList blocks={__published.blocks} tokens={__published.tokens} />
+      </>
+    )
+  }
+  // Repli sûr : composition d'origine, inchangée.
+  return <RennesPage />
+}
+

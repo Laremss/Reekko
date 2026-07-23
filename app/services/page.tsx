@@ -1,3 +1,5 @@
+import BlockList from '@/components/remolder/BlockList'
+import { getPublishedData } from '@/lib/remolder/data'
 import type { Metadata } from 'next'
 import {
   ArrowRight,
@@ -109,7 +111,10 @@ const faqSchema = {
   })),
 }
 
-export default function ServicesPage() {
+
+export const dynamic = 'force-dynamic'
+
+function ServicesPage() {
   return (
     <>
       <script
@@ -417,3 +422,17 @@ export default function ServicesPage() {
     </>
   )
 }
+
+export default async function RemolderPage() {
+  const __published = await getPublishedData("/services")
+  if (__published) {
+    return (
+      <>
+        <BlockList blocks={__published.blocks} tokens={__published.tokens} />
+      </>
+    )
+  }
+  // Repli sûr : composition d'origine, inchangée.
+  return <ServicesPage />
+}
+

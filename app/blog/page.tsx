@@ -1,3 +1,5 @@
+import BlockList from '@/components/remolder/BlockList'
+import { getPublishedData } from '@/lib/remolder/data'
 import type { Metadata } from 'next'
 import { getAllPosts, getAllCategories } from '@/lib/blog'
 import BlogFilter from '@/components/blog/BlogFilter'
@@ -15,7 +17,10 @@ export const metadata: Metadata = {
   },
 }
 
-export default function BlogPage() {
+
+export const dynamic = 'force-dynamic'
+
+function BlogPage() {
   const posts = getAllPosts()
   const categories = getAllCategories()
 
@@ -81,3 +86,19 @@ export default function BlogPage() {
     </div>
   )
 }
+
+export default async function RemolderPage() {
+  const __published = await getPublishedData("/blog")
+  if (__published) {
+    return (
+      <>
+      <div className="min-h-screen bg-zinc-950 pt-16">
+        <BlockList blocks={__published.blocks} tokens={__published.tokens} />
+      </div>
+      </>
+    )
+  }
+  // Repli sûr : composition d'origine, inchangée.
+  return <BlogPage />
+}
+
