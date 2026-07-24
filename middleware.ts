@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
     `object-src 'none'`,
     `base-uri 'self'`,
     `form-action 'self' https://formspree.io`,
-    `frame-ancestors 'none'`,
+    `frame-ancestors 'self' https://remolder.com https://www.remolder.com https://*.remolder.com https://*.vercel.app http://localhost:3001 `,
     `upgrade-insecure-requests`,
   ].join('; ')
 

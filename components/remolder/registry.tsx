@@ -5,7 +5,6 @@ import CTASection from '@/components/sections/CTASection'
 import HeroSection from '@/components/sections/HeroSection'
 import ProblemSection from '@/components/sections/ProblemSection'
 import SolutionSection from '@/components/sections/SolutionSection'
-import AProposReekkoConstruite from '@/components/remolder/sections/AProposReekkoConstruite'
 import AProposPourquoiReekko from '@/components/remolder/sections/AProposPourquoiReekko'
 import AProposValeurs from '@/components/remolder/sections/AProposValeurs'
 import AProposExpertise from '@/components/remolder/sections/AProposExpertise'
@@ -19,7 +18,6 @@ import AgenceGrowthMarketingRennesGrowthMarketingB2b from '@/components/remolder
 import AgenceGrowthMarketingRennesQuestionsFrequentes from '@/components/remolder/sections/AgenceGrowthMarketingRennesQuestionsFrequentes'
 import AgenceGrowthMarketingRennesSection8 from '@/components/remolder/sections/AgenceGrowthMarketingRennesSection8'
 import BlogBlogGrowthMarketing from '@/components/remolder/sections/BlogBlogGrowthMarketing'
-import BlogPassezAction from '@/components/remolder/sections/BlogPassezAction'
 import ContactParlons from '@/components/remolder/sections/ContactParlons'
 import ContactReserverAppel from '@/components/remolder/sections/ContactReserverAppel'
 import MentionsLegalesMentionsLegales from '@/components/remolder/sections/MentionsLegalesMentionsLegales'
@@ -39,7 +37,6 @@ export const BLOCK_REGISTRY: Record<string, ComponentType<any>> = {
   Hero: HeroSection,
   Problem: ProblemSection,
   Solution: SolutionSection,
-  AProposReekkoConstruite,
   AProposPourquoiReekko,
   AProposValeurs,
   AProposExpertise,
@@ -53,7 +50,6 @@ export const BLOCK_REGISTRY: Record<string, ComponentType<any>> = {
   AgenceGrowthMarketingRennesQuestionsFrequentes,
   AgenceGrowthMarketingRennesSection8,
   BlogBlogGrowthMarketing,
-  BlogPassezAction,
   ContactParlons,
   ContactReserverAppel,
   MentionsLegalesMentionsLegales,
