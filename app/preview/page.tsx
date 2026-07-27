@@ -2,6 +2,7 @@
 // Rendu depuis l'état DRAFT (Supabase). Toujours dynamique (jamais mis en cache).
 import { getPreviewData } from '@/lib/remolder/data'
 import PreviewRoot from '@/components/remolder/PreviewRoot'
+import RemolderBridge from '@/components/remolder/RemolderBridge'
 
 export const dynamic = 'force-dynamic'
 
@@ -33,6 +34,7 @@ export default async function PreviewPage({
   // pas aux blocs — la home gère son propre espacement, les autres pages non.
   return (
     <div className={(path || '/') !== '/' ? 'pt-16' : undefined}>
+      <RemolderBridge initialTokens={data.tokens} />
       <PreviewRoot initialBlocks={data.blocks} initialTokens={data.tokens} />
     </div>
   )
