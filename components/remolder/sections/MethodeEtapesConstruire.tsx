@@ -34,7 +34,7 @@ export default function EtapesConstruire(props: EtapesConstruireProps = {}) {
     primaryButtonHref,
     secondaryButtonLabel,
     secondaryButtonHref,
-  } = { ...ETAPESCONSTRUIRE_DEFAULTS, ...props }
+  } = { ...ETAPESCONSTRUIRE_DEFAULTS, ...props } as typeof ETAPESCONSTRUIRE_DEFAULTS
 
   return (
     <section className="relative pt-10 pb-20 sm:pt-14 sm:pb-28 overflow-hidden">

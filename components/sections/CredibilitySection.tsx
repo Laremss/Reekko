@@ -23,7 +23,7 @@ interface CredibilitySectionProps {
   }>
 }
 
-const CREDIBILITYSECTION_DEFAULTS: CredibilitySectionProps = {
+const CREDIBILITYSECTION_DEFAULTS = {
   badgeLabel: 'Résultats concrets',
   headingMain: 'Ce que ça change',
   headingHighlight: 'en pratique',
@@ -70,7 +70,7 @@ export default function CredibilitySection(props: CredibilitySectionProps = {}) 
     description,
     stats,
     caseStudies,
-  } = { ...CREDIBILITYSECTION_DEFAULTS, ...props }
+  } = { ...CREDIBILITYSECTION_DEFAULTS, ...props } as typeof CREDIBILITYSECTION_DEFAULTS
 
   return (
     <section className="py-24 sm:py-32 bg-zinc-950 relative overflow-hidden">

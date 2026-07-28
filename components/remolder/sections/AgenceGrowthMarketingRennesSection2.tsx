@@ -31,7 +31,7 @@ const SECTION2_DEFAULTS = {
 };
 
 export default function Section2(props: Section2Props = {}) {
-  const { faqItems } = { ...SECTION2_DEFAULTS, ...props };
+  const { faqItems } = { ...SECTION2_DEFAULTS, ...props } as typeof SECTION2_DEFAULTS;
 
   const faq = faqItems;
   const faqSchema = {

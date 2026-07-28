@@ -22,7 +22,7 @@ const EXPERTISE_DEFAULTS = {
 };
 
 export default function Expertise(props: ExpertiseProps = {}) {
-  const { title, description, skills } = { ...EXPERTISE_DEFAULTS, ...props };
+  const { title, description, skills } = { ...EXPERTISE_DEFAULTS, ...props } as typeof EXPERTISE_DEFAULTS;
 
   return (
     <section className="py-20">

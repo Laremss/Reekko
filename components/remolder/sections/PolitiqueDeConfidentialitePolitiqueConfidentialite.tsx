@@ -11,7 +11,7 @@ const POLITIQUECONFIDENTIALITE_DEFAULTS = {
 };
 
 export default function PolitiqueConfidentialite(props: PolitiqueConfidentialiteProps = {}) {
-  const { badgeLabel, mainTitle, lastUpdateText } = { ...POLITIQUECONFIDENTIALITE_DEFAULTS, ...props };
+  const { badgeLabel, mainTitle, lastUpdateText } = { ...POLITIQUECONFIDENTIALITE_DEFAULTS, ...props } as typeof POLITIQUECONFIDENTIALITE_DEFAULTS;
 
   return (
     <div className="mb-12">

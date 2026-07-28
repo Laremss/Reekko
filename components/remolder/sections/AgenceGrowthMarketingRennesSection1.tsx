@@ -58,7 +58,7 @@ export default function Section1(props: Section1Props = {}) {
     areaServed,
     serviceTypes,
     priceRange,
-  } = { ...SECTION1_DEFAULTS, ...props }
+  } = { ...SECTION1_DEFAULTS, ...props } as typeof SECTION1_DEFAULTS
 
   const fullPageUrl = `${siteUrl}${pageUrlPath}`
 

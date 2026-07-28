@@ -25,7 +25,7 @@ interface ReserverAppelProps {
   contactDirectLabel?: string
 }
 
-const RESERVERAPPEL_DEFAULTS: ReserverAppelProps = {
+const RESERVERAPPEL_DEFAULTS = {
   bookingTitle: 'Réserver un appel',
   bookingSubtitle: '30 min · Gratuit · Sans engagement',
   bookingLink: 'https://cal.eu/remi-bitouze-yddgcx/30min',
@@ -290,7 +290,7 @@ export default function ReserverAppel(props: ReserverAppelProps = {}) {
     bookingMainTitle,
     bookingMainSubtitle,
     contactDirectLabel,
-  } = { ...RESERVERAPPEL_DEFAULTS, ...props }
+  } = { ...RESERVERAPPEL_DEFAULTS, ...props } as typeof RESERVERAPPEL_DEFAULTS
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">

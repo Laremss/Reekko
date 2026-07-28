@@ -35,7 +35,7 @@ interface EditeurSiteProps {
   labelPolitiqueConfidentialite?: string
 }
 
-const EDITEURSITE_DEFAULTS: EditeurSiteProps = {
+const EDITEURSITE_DEFAULTS = {
   sectionTitle1: '1. Éditeur du site',
   raisonSociale: 'Reekko',
   formeJuridique: 'Entreprise individuelle (auto-entrepreneur)',
@@ -104,7 +104,7 @@ export default function EditeurSite(props: EditeurSiteProps = {}) {
     mailtoContact,
     urlPolitiqueConfidentialite,
     labelPolitiqueConfidentialite,
-  } = { ...EDITEURSITE_DEFAULTS, ...props }
+  } = { ...EDITEURSITE_DEFAULTS, ...props } as typeof EDITEURSITE_DEFAULTS
 
   return (
     <div className="prose-custom space-y-10">

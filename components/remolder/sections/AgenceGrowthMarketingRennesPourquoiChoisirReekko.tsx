@@ -40,7 +40,7 @@ const iconMap: { [key: number]: React.ComponentType<{ className: string }> } = {
 }
 
 export default function PourquoiChoisirReekko(props: PourquoiChoisirReekkoProps = {}) {
-  const { titre, sousTitre, description, avantages } = { ...POURQUOICHOISIRREEKKO_DEFAULTS, ...props }
+  const { titre, sousTitre, description, avantages } = { ...POURQUOICHOISIRREEKKO_DEFAULTS, ...props } as typeof POURQUOICHOISIRREEKKO_DEFAULTS
 
   return (
     <section className="py-20 sm:py-28 bg-zinc-950 border-t border-zinc-800/50">

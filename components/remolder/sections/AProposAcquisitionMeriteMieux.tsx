@@ -28,7 +28,7 @@ const ACQUISITIONMERITEMIEUX_DEFAULTS = {
 }
 
 export default function AcquisitionMeriteMieux(props: AcquisitionMeriteMieuxProps = {}) {
-  const { titre, description, boutonPrimaire, boutonSecondaire } = { ...ACQUISITIONMERITEMIEUX_DEFAULTS, ...props }
+  const { titre, description, boutonPrimaire, boutonSecondaire } = { ...ACQUISITIONMERITEMIEUX_DEFAULTS, ...props } as typeof ACQUISITIONMERITEMIEUX_DEFAULTS
 
   return (
     <section className="py-20 bg-zinc-900/30 border-t border-zinc-800/50">

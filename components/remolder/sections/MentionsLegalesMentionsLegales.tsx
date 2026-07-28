@@ -6,14 +6,14 @@ interface MentionsLegalesProps {
   updateDate?: string
 }
 
-const MENTIONSLEGALES_DEFAULTS: MentionsLegalesProps = {
+const MENTIONSLEGALES_DEFAULTS = {
   subtitle: 'Informations légales',
   title: 'Mentions légales',
   updateDate: 'Dernière mise à jour : mars 2026',
 }
 
 export default function MentionsLegales(props: MentionsLegalesProps = {}) {
-  const { subtitle, title, updateDate } = { ...MENTIONSLEGALES_DEFAULTS, ...props }
+  const { subtitle, title, updateDate } = { ...MENTIONSLEGALES_DEFAULTS, ...props } as typeof MENTIONSLEGALES_DEFAULTS
 
   return (
     <div className="mb-12">

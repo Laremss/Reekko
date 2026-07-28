@@ -58,10 +58,7 @@ const HEROSECTION_DEFAULTS = {
 }
 
 export default function HeroSection(props: HeroSectionProps = {}) {
-  const { badge, headline, headlineGradient, subheadlineMain, subheadlineEmphasis, ctaPrimary, ctaSecondary, stats } = {
-    ...HEROSECTION_DEFAULTS,
-    ...props,
-  }
+  const { badge, headline, headlineGradient, subheadlineMain, subheadlineEmphasis, ctaPrimary, ctaSecondary, stats } = { ...HEROSECTION_DEFAULTS, ...props } as typeof HEROSECTION_DEFAULTS
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-zinc-950 pt-16">

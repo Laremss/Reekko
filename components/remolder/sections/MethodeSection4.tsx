@@ -27,7 +27,7 @@ const SECTION4_DEFAULTS = {
 }
 
 export default function Section4(props: Section4Props = {}) {
-  const { title, description, descriptionHighlight, highlightLinkText, highlightLinkHref, primaryButtonLabel, primaryButtonHref, secondaryButtonLabel, secondaryButtonHref } = { ...SECTION4_DEFAULTS, ...props }
+  const { title, description, descriptionHighlight, highlightLinkText, highlightLinkHref, primaryButtonLabel, primaryButtonHref, secondaryButtonLabel, secondaryButtonHref } = { ...SECTION4_DEFAULTS, ...props } as typeof SECTION4_DEFAULTS
 
   return (
     <section className="py-20 bg-zinc-900/30 border-t border-zinc-800/50">

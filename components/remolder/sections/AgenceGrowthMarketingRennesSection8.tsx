@@ -16,7 +16,7 @@ interface Section8Props {
   }>
 }
 
-const SECTION8_DEFAULTS: Section8Props = {
+const SECTION8_DEFAULTS = {
   badgeText: 'Appel stratégique gratuit · 30 min',
   headingStart: 'Prêt à structurer votre acquisition',
   headingGradient: ' depuis Rennes ?',
@@ -32,7 +32,7 @@ const SECTION8_DEFAULTS: Section8Props = {
 }
 
 export default function Section8(props: Section8Props = {}) {
-  const { badgeText, headingStart, headingGradient, description, buttonLabel, buttonHref, resourcesTitle, resources } = { ...SECTION8_DEFAULTS, ...props }
+  const { badgeText, headingStart, headingGradient, description, buttonLabel, buttonHref, resourcesTitle, resources } = { ...SECTION8_DEFAULTS, ...props } as typeof SECTION8_DEFAULTS
 
   return (
     <section className="py-20 sm:py-28 bg-zinc-950 border-t border-zinc-800/50">

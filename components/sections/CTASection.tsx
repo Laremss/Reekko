@@ -15,7 +15,7 @@ interface CTASectionProps {
   socialProof?: string
 }
 
-const CTASECTION_DEFAULTS: CTASectionProps = {
+const CTASECTION_DEFAULTS = {
   badge: 'Prendre rendez-vous',
   headline: '30 minutes pour construire',
   headlineGradient: 'votre plan d\'acquisition',
@@ -34,7 +34,7 @@ const CTASECTION_DEFAULTS: CTASectionProps = {
 }
 
 export default function CTASection(props: CTASectionProps = {}) {
-  const { badge, headline, headlineGradient, description, benefits, primaryButtonLabel, primaryButtonHref, secondaryButtonLabel, secondaryButtonHref, socialProof } = { ...CTASECTION_DEFAULTS, ...props }
+  const { badge, headline, headlineGradient, description, benefits, primaryButtonLabel, primaryButtonHref, secondaryButtonLabel, secondaryButtonHref, socialProof } = { ...CTASECTION_DEFAULTS, ...props } as typeof CTASECTION_DEFAULTS
 
   return (
     <section className="py-24 sm:py-32 bg-zinc-950 relative overflow-hidden">

@@ -16,7 +16,7 @@ const BLOGGROWTHMARKETING_DEFAULTS = {
 }
 
 export default function BlogGrowthMarketing(props: BlogGrowthMarketingProps = {}) {
-  const { badge, title, titleGradient, description } = { ...BLOGGROWTHMARKETING_DEFAULTS, ...props }
+  const { badge, title, titleGradient, description } = { ...BLOGGROWTHMARKETING_DEFAULTS, ...props } as typeof BLOGGROWTHMARKETING_DEFAULTS
 
   return (
     <section className="relative pt-10 pb-12 sm:pt-14 sm:pb-16 overflow-hidden">

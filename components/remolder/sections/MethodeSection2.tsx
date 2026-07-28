@@ -11,7 +11,7 @@ interface Section2Props {
   }>
 }
 
-const SECTION2_DEFAULTS: Section2Props = {
+const SECTION2_DEFAULTS = {
   title: 'Ce que le sprint change concrètement',
   subtitle: 'Pour les équipes qui se reconnaissent dans la colonne de gauche.',
   beforeLabel: 'Sans système structuré',
@@ -37,7 +37,7 @@ const SECTION2_DEFAULTS: Section2Props = {
 }
 
 export default function Section2(props: Section2Props = {}) {
-  const { title, subtitle, beforeLabel, afterLabel, items } = { ...SECTION2_DEFAULTS, ...props }
+  const { title, subtitle, beforeLabel, afterLabel, items } = { ...SECTION2_DEFAULTS, ...props } as typeof SECTION2_DEFAULTS
 
   return (
     <section className="py-16 border-y border-zinc-800/50 bg-zinc-900/20">

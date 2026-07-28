@@ -18,7 +18,7 @@ const PARLONS_DEFAULTS = {
 }
 
 export default function Parlons(props: ParlonsProps = {}) {
-  const { badgeLabel, mainTitle, mainTitleGradient, description } = { ...PARLONS_DEFAULTS, ...props }
+  const { badgeLabel, mainTitle, mainTitleGradient, description } = { ...PARLONS_DEFAULTS, ...props } as typeof PARLONS_DEFAULTS
 
   return (
     <section className="relative pt-10 pb-16 sm:pt-12 sm:pb-24 overflow-hidden">

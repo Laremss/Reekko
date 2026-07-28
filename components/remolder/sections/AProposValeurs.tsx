@@ -10,7 +10,7 @@ interface ValeursProps {
   }>
 }
 
-const VALEURS_DEFAULTS: ValeursProps = {
+const VALEURS_DEFAULTS = {
   titre: 'Nos valeurs',
   sousTitre: 'Ce qui nous guide dans chaque accompagnement.',
   valeurs: [
@@ -42,7 +42,7 @@ const VALEURS_DEFAULTS: ValeursProps = {
 }
 
 export default function Valeurs(props: ValeursProps = {}) {
-  const { titre, sousTitre, valeurs } = { ...VALEURS_DEFAULTS, ...props }
+  const { titre, sousTitre, valeurs } = { ...VALEURS_DEFAULTS, ...props } as typeof VALEURS_DEFAULTS
 
   return (
     <section className="py-20 bg-zinc-900/30 border-y border-zinc-800/50">

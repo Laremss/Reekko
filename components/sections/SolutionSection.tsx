@@ -22,7 +22,7 @@ const phaseIcons = {
   optimisation: TrendingUp,
 }
 
-const SOLUTIONSECTION_DEFAULTS: SolutionSectionProps = {
+const SOLUTIONSECTION_DEFAULTS = {
   title: 'Une méthode en 4 phases,',
   titleHighlight: ' de l\'audit au pipeline actif',
   description: 'Pas de setup qui traîne sur 6 mois. De l\'analyse à la première séquence active :',
@@ -62,7 +62,7 @@ export default function SolutionSection(props: SolutionSectionProps = {}) {
     phases,
     discoverLinkText,
     discoverLinkHref,
-  } = { ...SOLUTIONSECTION_DEFAULTS, ...props }
+  } = { ...SOLUTIONSECTION_DEFAULTS, ...props } as typeof SOLUTIONSECTION_DEFAULTS
 
   return (
     <section className="py-24 sm:py-32 bg-zinc-950 relative overflow-hidden">

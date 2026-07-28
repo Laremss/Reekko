@@ -51,7 +51,7 @@ export default function AcquisitionB2b(props: AcquisitionB2bProps = {}) {
     statDelaiLabel,
     statRoi,
     statRoiLabel,
-  } = { ...ACQUISITIONB2B_DEFAULTS, ...props }
+  } = { ...ACQUISITIONB2B_DEFAULTS, ...props } as typeof ACQUISITIONB2B_DEFAULTS
 
   return (
     <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 bg-zinc-950 overflow-hidden">

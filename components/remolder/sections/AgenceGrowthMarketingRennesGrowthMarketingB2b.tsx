@@ -13,7 +13,7 @@ const GROWTHMARKETINGB2B_DEFAULTS = {
 };
 
 export default function GrowthMarketingB2b(props: GrowthMarketingB2bProps = {}) {
-  const { heading, headingHighlight, paragraph1, paragraph2 } = { ...GROWTHMARKETINGB2B_DEFAULTS, ...props };
+  const { heading, headingHighlight, paragraph1, paragraph2 } = { ...GROWTHMARKETINGB2B_DEFAULTS, ...props } as typeof GROWTHMARKETINGB2B_DEFAULTS;
 
   return (
     <section className="py-20 sm:py-28 bg-zinc-900/20 border-t border-zinc-800/50">

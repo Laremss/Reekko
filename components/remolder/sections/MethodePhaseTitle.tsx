@@ -12,7 +12,7 @@ interface PhaseTitleProps {
   }>
 }
 
-const PHASETITLE_DEFAULTS: PhaseTitleProps = {
+const PHASETITLE_DEFAULTS = {
   phases: [
     {
       number: '01',
@@ -74,7 +74,7 @@ const PHASETITLE_DEFAULTS: PhaseTitleProps = {
 }
 
 export default function PhaseTitle(props: PhaseTitleProps = {}) {
-  const { phases } = { ...PHASETITLE_DEFAULTS, ...props }
+  const { phases } = { ...PHASETITLE_DEFAULTS, ...props } as typeof PHASETITLE_DEFAULTS
 
   return (
     <section className="py-24 sm:py-32">

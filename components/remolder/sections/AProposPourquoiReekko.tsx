@@ -13,7 +13,7 @@ const POURQUOIREEKKO_DEFAULTS = {
 };
 
 export default function PourquoiReekko(props: PourquoiReekkoProps = {}) {
-  const { title, paragraph1, paragraph2, paragraph3 } = { ...POURQUOIREEKKO_DEFAULTS, ...props };
+  const { title, paragraph1, paragraph2, paragraph3 } = { ...POURQUOIREEKKO_DEFAULTS, ...props } as typeof POURQUOIREEKKO_DEFAULTS;
 
   return (
     <section className="py-20 border-t border-zinc-800/50">

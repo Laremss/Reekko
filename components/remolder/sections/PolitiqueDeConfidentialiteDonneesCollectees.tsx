@@ -38,7 +38,7 @@ interface DonneesCollecteesProps {
   mentionsLegalesText?: string
 }
 
-const DONNEESCOLLECTEES_DEFAULTS: DonneesCollecteesProps = {
+const DONNEESCOLLECTEES_DEFAULTS = {
   introText: "Reekko (Rémi Bitouzé, auto-entrepreneur, 12 square Louis Jouvet, 35200 Rennes) s'engage à protéger la vie privée des visiteurs de son site. La présente politique décrit quelles données sont collectées, comment elles sont utilisées et quels sont vos droits conformément au Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679).",
   section1Title: "1. Données collectées",
   formulaireContactTitle: "Formulaire de contact",
@@ -131,7 +131,7 @@ export default function DonneesCollectees(props: DonneesCollecteesProps = {}) {
     footerEmailHref,
     mentionsLegalesUrl,
     mentionsLegalesText,
-  } = { ...DONNEESCOLLECTEES_DEFAULTS, ...props }
+  } = { ...DONNEESCOLLECTEES_DEFAULTS, ...props } as typeof DONNEESCOLLECTEES_DEFAULTS
 
   return (
     <div className="space-y-10">

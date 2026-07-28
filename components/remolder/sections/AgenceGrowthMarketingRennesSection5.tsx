@@ -40,7 +40,7 @@ const SECTION5_DEFAULTS = {
 }
 
 export default function Section5(props: Section5Props = {}) {
-  const { titre, souligne, sousTitre, services, lienTexte, lienUrl } = { ...SECTION5_DEFAULTS, ...props }
+  const { titre, souligne, sousTitre, services, lienTexte, lienUrl } = { ...SECTION5_DEFAULTS, ...props } as typeof SECTION5_DEFAULTS
 
   return (
     <section className="py-20 sm:py-28 bg-zinc-950 border-t border-zinc-800/50">

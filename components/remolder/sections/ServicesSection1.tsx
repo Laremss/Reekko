@@ -39,7 +39,7 @@ const SECTION1_DEFAULTS = {
 }
 
 export default function Section1(props: Section1Props) {
-  const { faqs } = { ...SECTION1_DEFAULTS, ...props }
+  const { faqs } = { ...SECTION1_DEFAULTS, ...props } as typeof SECTION1_DEFAULTS
 
   const faqSchema = {
     '@context': 'https://schema.org',

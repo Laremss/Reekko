@@ -14,7 +14,7 @@ interface ProblemSectionProps {
   transitionHighlight?: string
 }
 
-const PROBLEMSECTION_DEFAULTS: ProblemSectionProps = {
+const PROBLEMSECTION_DEFAULTS = {
   mainTitle: 'Votre acquisition est un frein',
   mainTitleHighlight: 'à votre croissance',
   mainDescription: "Vous n'êtes pas seul. La plupart des entreprises B2B qu'on rencontre\nse reconnaissent dans au moins deux de ces trois situations.",
@@ -56,7 +56,7 @@ export default function ProblemSection(props: ProblemSectionProps = {}) {
     problems,
     transitionText,
     transitionHighlight,
-  } = { ...PROBLEMSECTION_DEFAULTS, ...props }
+  } = { ...PROBLEMSECTION_DEFAULTS, ...props } as typeof PROBLEMSECTION_DEFAULTS
 
   return (
     <section className="py-24 sm:py-32 bg-zinc-900/30 relative overflow-hidden">
