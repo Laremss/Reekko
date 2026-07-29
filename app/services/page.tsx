@@ -1,6 +1,3 @@
-import BlockList from '@/components/remolder/BlockList'
-import { committedPage } from '@/lib/remolder/data'
-import __remolderContent from '@/remolder/published.json'
 import type { Metadata } from 'next'
 import {
   ArrowRight,
@@ -114,7 +111,7 @@ const faqSchema = {
 
 
 
-function ServicesPage() {
+export default function ServicesPage() {
   return (
     <>
       <script
@@ -422,17 +419,3 @@ function ServicesPage() {
     </>
   )
 }
-
-export default function RemolderPage() {
-  const __published = committedPage(__remolderContent, "/services")
-  if (__published) {
-    return (
-      <>
-        <BlockList blocks={__published.blocks} tokens={__published.tokens} />
-      </>
-    )
-  }
-  // Repli sûr : composition d'origine, inchangée.
-  return <ServicesPage />
-}
-
