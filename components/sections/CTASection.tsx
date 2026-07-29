@@ -2,14 +2,40 @@ import { ArrowRight, Calendar, CheckCircle } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
 
-const benefits = [
-  'Premier appel 100% gratuit',
-  'Analyse de votre acquisition actuelle',
-  "Plan d'action personnalisé",
-  'Sans engagement',
-]
+interface CTASectionProps {
+  badge?: string
+  headline?: string
+  headlineGradient?: string
+  description?: string
+  benefits?: string[]
+  primaryButtonLabel?: string
+  primaryButtonHref?: string
+  secondaryButtonLabel?: string
+  secondaryButtonHref?: string
+  socialProof?: string
+}
 
-export default function CTASection() {
+const CTASECTION_DEFAULTS = {
+  badge: 'Prendre rendez-vous',
+  headline: '30 minutes pour construire',
+  headlineGradient: 'votre plan d\'acquisition',
+  description: 'Réservez un appel stratégique gratuit de 30 minutes. On analyse votre acquisition actuelle et on vous présente un plan d\'action concret.',
+  benefits: [
+    'Premier appel 100% gratuit',
+    'Analyse de votre acquisition actuelle',
+    'Plan d\'action personnalisé',
+    'Sans engagement',
+  ],
+  primaryButtonLabel: 'Réserver un appel stratégique',
+  primaryButtonHref: '/contact',
+  secondaryButtonLabel: 'Voir la méthode',
+  secondaryButtonHref: '/methode',
+  socialProof: 'Rejoint par 15+ entreprises B2B qui ont transformé leur acquisition',
+}
+
+export default function CTASection(props: CTASectionProps = {}) {
+  const { badge, headline, headlineGradient, description, benefits, primaryButtonLabel, primaryButtonHref, secondaryButtonLabel, secondaryButtonHref, socialProof } = { ...CTASECTION_DEFAULTS, ...props } as typeof CTASECTION_DEFAULTS
+
   return (
     <section className="py-24 sm:py-32 bg-zinc-950 relative overflow-hidden">
       {/* Background effects */}
@@ -23,21 +49,20 @@ export default function CTASection() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-8">
             <Calendar className="w-3.5 h-3.5" />
-            <span>Prendre rendez-vous</span>
+            <span>{badge}</span>
           </div>
 
           {/* Headline */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
-            30 minutes pour construire
+            {headline}
             <br />
             <span className="bg-gradient-to-r from-indigo-400 via-violet-400 to-purple-400 bg-clip-text text-transparent animate-gradient-text">
-              votre plan d&apos;acquisition
+              {headlineGradient}
             </span>
           </h2>
 
           <p className="text-lg text-zinc-400 max-w-xl mx-auto leading-relaxed">
-            Réservez un appel stratégique gratuit de 30 minutes. On analyse votre
-            acquisition actuelle et on vous présente un plan d'action concret.
+            {description}
           </p>
         </AnimateOnScroll>
 
@@ -54,18 +79,18 @@ export default function CTASection() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button size="lg" href="/contact" className="text-base px-8 py-4">
-              Réserver un appel stratégique
+            <Button size="lg" href={primaryButtonHref} className="text-base px-8 py-4">
+              {primaryButtonLabel}
               <ArrowRight className="w-5 h-5" />
             </Button>
-            <Button variant="outline" size="lg" href="/methode" className="text-base">
-              Voir la méthode
+            <Button variant="outline" size="lg" href={secondaryButtonHref} className="text-base">
+              {secondaryButtonLabel}
             </Button>
           </div>
 
           {/* Social proof */}
           <p className="mt-8 text-zinc-600 text-sm">
-            Rejoint par 15+ entreprises B2B qui ont transformé leur acquisition
+            {socialProof}
           </p>
         </AnimateOnScroll>
       </div>

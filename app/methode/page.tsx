@@ -1,3 +1,5 @@
+import BlockList from '@/components/remolder/BlockList'
+import { getPublishedData } from '@/lib/remolder/data'
 import type { Metadata } from 'next'
 import { Search, Lightbulb, Cog, TrendingUp, ArrowRight, CheckCircle, X } from 'lucide-react'
 import Button from '@/components/ui/Button'
@@ -90,7 +92,10 @@ const comparison = [
   },
 ]
 
-export default function MethodePage() {
+
+export const dynamic = 'force-dynamic'
+
+function MethodePage() {
   return (
     <div className="min-h-screen bg-zinc-950 pt-16">
 
@@ -287,3 +292,19 @@ export default function MethodePage() {
     </div>
   )
 }
+
+export default async function RemolderPage() {
+  const __published = await getPublishedData("/methode")
+  if (__published) {
+    return (
+      <>
+      <div className="min-h-screen bg-zinc-950 pt-16">
+        <BlockList blocks={__published.blocks} tokens={__published.tokens} />
+      </div>
+      </>
+    )
+  }
+  // Repli sûr : composition d'origine, inchangée.
+  return <MethodePage />
+}
+

@@ -1,3 +1,5 @@
+import BlockList from '@/components/remolder/BlockList'
+import { getPublishedData } from '@/lib/remolder/data'
 import type { Metadata } from 'next'
 import HeroSection from '@/components/sections/HeroSection'
 import ProblemSection from '@/components/sections/ProblemSection'
@@ -15,7 +17,10 @@ export const metadata: Metadata = {
   },
 }
 
-export default function HomePage() {
+
+export const dynamic = 'force-dynamic'
+
+function HomePage() {
   return (
     <>
       <HeroSection />
@@ -27,3 +32,17 @@ export default function HomePage() {
     </>
   )
 }
+
+export default async function RemolderPage() {
+  const __published = await getPublishedData("/")
+  if (__published) {
+    return (
+      <>
+        <BlockList blocks={__published.blocks} tokens={__published.tokens} />
+      </>
+    )
+  }
+  // Repli sûr : composition d'origine, inchangée.
+  return <HomePage />
+}
+

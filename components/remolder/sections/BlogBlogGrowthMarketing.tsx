@@ -1,0 +1,47 @@
+import { ArrowRight, BookOpen } from 'lucide-react'
+import ParallaxGrid from '@/components/ui/ParallaxGrid'
+
+interface BlogGrowthMarketingProps {
+  badge?: string
+  title?: string
+  titleGradient?: string
+  description?: string
+}
+
+const BLOGGROWTHMARKETING_DEFAULTS = {
+  badge: 'Ressources & insights',
+  title: 'Blog Growth Marketing',
+  titleGradient: '& Acquisition B2B',
+  description: 'Stratégies, outils et conseils pour automatiser votre acquisition et\ngénérer plus d\'opportunités commerciales.',
+}
+
+export default function BlogGrowthMarketing(props: BlogGrowthMarketingProps = {}) {
+  const { badge, title, titleGradient, description } = { ...BLOGGROWTHMARKETING_DEFAULTS, ...props } as typeof BLOGGROWTHMARKETING_DEFAULTS
+
+  return (
+    <section className="relative pt-10 pb-12 sm:pt-14 sm:pb-16 overflow-hidden">
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div className="absolute top-0 right-1/4 w-[500px] h-[400px] rounded-full bg-indigo-600/10 blur-[100px]" />
+              <div className="absolute bottom-0 left-1/4 w-[400px] h-[300px] rounded-full bg-violet-600/8 blur-[80px]" />
+            </div>
+            <ParallaxGrid opacity={0.05} strength={12} />
+    
+            <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/25 bg-indigo-500/10 text-indigo-300 text-xs font-medium mb-6 animate-fade-in-up" style={{ animationDelay: '0ms' }}>
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>{badge}</span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight mb-5 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+                {title}
+                <br />
+                <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent animate-gradient-text">
+                  {titleGradient}
+                </span>
+              </h1>
+              <p className="text-lg font-light text-zinc-400 max-w-xl mx-auto animate-fade-in-up" style={{ animationDelay: '220ms' }}>
+                {description}
+              </p>
+            </div>
+          </section>
+  )
+}
