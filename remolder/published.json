@@ -29,17 +29,17 @@
                 "duration": 1600
               }
             ],
-            "headline": "Soyez pas cons ",
-            "ctaPrimary": {
+            "headline1": "Arrêtez de prospecter",
+            "headline2": "manuellement.",
+            "primaryCTA": {
               "href": "/contact",
               "label": "Réserver un appel stratégique"
             },
-            "ctaSecondary": {
+            "secondaryCTA": {
               "href": "/methode",
               "label": "Découvrir la méthode"
             },
-            "subheadlineMain": "Reekko conçoit et déploie votre moteur d'acquisition B2B en 4 à 6 semaines.\nSéquences actives, leads qualifiés, rendez-vous générés.",
-            "headlineGradient": "putain.",
+            "subheadlineIntro": "Reekko conçoit et déploie votre moteur d'acquisition B2B en 4 à 6 semaines.\nSéquences actives, leads qualifiés, rendez-vous générés.",
             "subheadlineEmphasis": "Sans intervention quotidienne de votre part."
           },
           "position": 0,
