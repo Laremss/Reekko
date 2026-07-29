@@ -11,7 +11,7 @@
           "id": "04902b86-0942-48d2-aca0-075dbc062b42",
           "type": "Hero",
           "props": {
-            "badge": "TEST_CONSOLE_99ff",
+            "badge": "4 à 6 semaines",
             "stats": [
               {
                 "label": "Pour un pipeline actif",
@@ -1263,7 +1263,7 @@
       "navLinks": [
         {
           "href": "/methode",
-          "label": "Méthode"
+          "label": "Méthodejj"
         },
         {
           "href": "/services",
