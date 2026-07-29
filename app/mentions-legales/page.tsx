@@ -1,5 +1,6 @@
 import BlockList from '@/components/remolder/BlockList'
-import { getPublishedData } from '@/lib/remolder/data'
+import { committedPage } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -10,7 +11,6 @@ export const metadata: Metadata = {
 }
 
 
-export const dynamic = 'force-dynamic'
 
 function MentionsLegalesPage() {
   return (
@@ -123,8 +123,8 @@ function MentionsLegalesPage() {
   )
 }
 
-export default async function RemolderPage() {
-  const __published = await getPublishedData("/mentions-legales")
+export default function RemolderPage() {
+  const __published = committedPage(__remolderContent, "/mentions-legales")
   if (__published) {
     return (
       <>

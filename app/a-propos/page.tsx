@@ -1,5 +1,6 @@
 import BlockList from '@/components/remolder/BlockList'
-import { getPublishedData } from '@/lib/remolder/data'
+import { committedPage } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
 import type { Metadata } from 'next'
 import { ArrowRight, Target, Heart, Zap, Users } from 'lucide-react'
 import Button from '@/components/ui/Button'
@@ -55,7 +56,6 @@ const expertise = [
 ]
 
 
-export const dynamic = 'force-dynamic'
 
 function AProposPage() {
   return (
@@ -199,8 +199,8 @@ function AProposPage() {
   )
 }
 
-export default async function RemolderPage() {
-  const __published = await getPublishedData("/a-propos")
+export default function RemolderPage() {
+  const __published = committedPage(__remolderContent, "/a-propos")
   if (__published) {
     return (
       <>

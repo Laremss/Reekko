@@ -1,5 +1,6 @@
 import BlockList from '@/components/remolder/BlockList'
-import { getPublishedData } from '@/lib/remolder/data'
+import { committedPage } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
 import type { Metadata } from 'next'
 import { getAllPosts, getAllCategories } from '@/lib/blog'
 import BlogFilter from '@/components/blog/BlogFilter'
@@ -18,7 +19,6 @@ export const metadata: Metadata = {
 }
 
 
-export const dynamic = 'force-dynamic'
 
 function BlogPage() {
   const posts = getAllPosts()
@@ -87,8 +87,8 @@ function BlogPage() {
   )
 }
 
-export default async function RemolderPage() {
-  const __published = await getPublishedData("/blog")
+export default function RemolderPage() {
+  const __published = committedPage(__remolderContent, "/blog")
   if (__published) {
     return (
       <>

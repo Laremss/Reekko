@@ -1,5 +1,6 @@
 import BlockList from '@/components/remolder/BlockList'
-import { getPublishedData } from '@/lib/remolder/data'
+import { committedPage } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, MapPin, Zap, Target, TrendingUp, CheckCircle, Calendar } from 'lucide-react'
@@ -146,7 +147,6 @@ const faqSchema = {
 }
 
 
-export const dynamic = 'force-dynamic'
 
 function RennesPage() {
   return (
@@ -378,8 +378,8 @@ function RennesPage() {
   )
 }
 
-export default async function RemolderPage() {
-  const __published = await getPublishedData("/agence-growth-marketing-rennes")
+export default function RemolderPage() {
+  const __published = committedPage(__remolderContent, "/agence-growth-marketing-rennes")
   if (__published) {
     return (
       <>

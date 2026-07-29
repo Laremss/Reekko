@@ -149,6 +149,30 @@ export async function getPublishedData(path = '/'): Promise<PublishedData | null
   }
 }
 
+// [Remolder] PUBLICATION GIT-NATIVE. Le contenu publié vit dans le REPO du client
+// (`remolder/published.json`), pas en base : c'est le client qui possède ses
+// modifications, versionnées, sans dépendance à Remolder à l'exécution. Les pages
+// importent ce fichier et le passent ici — fonction PURE, rendu STATIQUE au build.
+// `null` → l'appelant retombe sur la composition d'origine (repli sûr).
+export function committedPage(payload: unknown, path = '/'): PublishedData | null {
+  const p = payload as SnapshotPayload | null | undefined
+  if (!p) return null
+  if (p.pages) {
+    const page = p.pages[path]
+    if (!page || !Array.isArray(page.blocks)) return null
+    return { blocks: page.blocks, tokens: p.tokens ?? {}, seo: page.seo }
+  }
+  if (path === '/' && Array.isArray(p.blocks)) {
+    return { blocks: p.blocks, tokens: p.tokens ?? {}, seo: p.seo }
+  }
+  return null
+}
+
+// Le chrome (en-tête/pied) committé, extrait du même payload repo.
+export function committedChrome(payload: unknown) {
+  return (payload as SnapshotPayload | null | undefined)?.chrome ?? null
+}
+
 // En-tête du site : brouillon (preview) et version publiée (prod).
 // Fallback silencieux sur null → le Header garde ses contenus d'origine.
 export async function getDraftChrome(): Promise<RemolderChrome | null> {

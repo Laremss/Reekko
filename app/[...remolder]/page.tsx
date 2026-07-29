@@ -9,10 +9,11 @@ import BlockList from '@/components/remolder/BlockList'
 import {
   buildOgMetadata,
   getPreviewData,
-  getPublishedData,
+  committedPage,
   type PageSeo,
   type PublishedData,
 } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
 
 export const dynamic = 'force-dynamic'
 
@@ -28,7 +29,7 @@ async function loadData(path: string, draft: boolean): Promise<PublishedData | n
     if (!d.pageId) return null
     return { blocks: d.blocks, tokens: d.tokens, seo: d.seo as PageSeo }
   }
-  return getPublishedData(path)
+  return committedPage(__remolderContent, path)
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

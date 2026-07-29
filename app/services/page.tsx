@@ -1,5 +1,6 @@
 import BlockList from '@/components/remolder/BlockList'
-import { getPublishedData } from '@/lib/remolder/data'
+import { committedPage } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
 import type { Metadata } from 'next'
 import {
   ArrowRight,
@@ -112,7 +113,6 @@ const faqSchema = {
 }
 
 
-export const dynamic = 'force-dynamic'
 
 function ServicesPage() {
   return (
@@ -423,8 +423,8 @@ function ServicesPage() {
   )
 }
 
-export default async function RemolderPage() {
-  const __published = await getPublishedData("/services")
+export default function RemolderPage() {
+  const __published = committedPage(__remolderContent, "/services")
   if (__published) {
     return (
       <>

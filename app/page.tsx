@@ -1,5 +1,6 @@
 import BlockList from '@/components/remolder/BlockList'
-import { getPublishedData } from '@/lib/remolder/data'
+import { committedPage } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
 import type { Metadata } from 'next'
 import HeroSection from '@/components/sections/HeroSection'
 import ProblemSection from '@/components/sections/ProblemSection'
@@ -18,7 +19,6 @@ export const metadata: Metadata = {
 }
 
 
-export const dynamic = 'force-dynamic'
 
 function HomePage() {
   return (
@@ -33,8 +33,8 @@ function HomePage() {
   )
 }
 
-export default async function RemolderPage() {
-  const __published = await getPublishedData("/")
+export default function RemolderPage() {
+  const __published = committedPage(__remolderContent, "/")
   if (__published) {
     return (
       <>
