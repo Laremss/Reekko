@@ -5,7 +5,9 @@ import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
-import { getAllPosts, getPostBySlug } from '@/lib/blog'
+import { getAllPosts, getPostBySlug, type BlogPost } from '@/lib/blog'
+import { committedCollectionEntry } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
 import { formatDate } from '@/lib/utils'
 import TableOfContents from '@/components/blog/TableOfContents'
 import ShareButtons from '@/components/blog/ShareButtons'
@@ -26,6 +28,36 @@ type Props = {
   params: Promise<{ slug: string }>
 }
 
+// [Remolder] Tags publiés = chaîne "a, b, c" (la forme des données appartient au
+// site) ; le gabarit attend un tableau. On normalise sans jamais casser.
+function toTags(v: unknown, fallback: string[]): string[] {
+  if (typeof v === 'string') return v.split(',').map((t) => t.trim()).filter(Boolean)
+  if (Array.isArray(v)) return v as string[]
+  return fallback
+}
+
+function estReadingTime(content: string): string {
+  const words = (content || '').trim().split(/\s+/).filter(Boolean).length
+  return `${Math.max(1, Math.round(words / 200))} min de lecture`
+}
+
+// [Remolder] Article résolu : version publiée (repo) superposée à la source MDX
+// d'origine. Un article édité dans le Studio prime ; sinon on garde le fichier.
+function resolvePost(slug: string): BlogPost | null {
+  const fsPost = getPostBySlug(slug)
+  const pub = committedCollectionEntry(__remolderContent, 'blog', slug)
+  if (!pub) return fsPost
+  const base = fsPost ?? ({} as BlogPost)
+  return {
+    ...base,
+    ...(pub as Partial<BlogPost>),
+    slug,
+    tags: toTags((pub as { tags?: unknown }).tags, base.tags ?? []),
+    content: (pub.content as string) ?? base.content ?? '',
+    readingTime: base.readingTime || estReadingTime((pub.content as string) ?? base.content ?? ''),
+  } as BlogPost
+}
+
 export async function generateStaticParams() {
   const posts = getAllPosts()
   return posts.map((post) => ({ slug: post.slug }))
@@ -33,7 +65,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const post = resolvePost(slug)
   if (!post) return {}
 
   return {
@@ -153,7 +185,7 @@ const mdxComponents = {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const post = resolvePost(slug)
 
   if (!post) {
     notFound()

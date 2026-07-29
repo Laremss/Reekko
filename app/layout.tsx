@@ -6,6 +6,12 @@ import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import BackToTop from '@/components/ui/BackToTop'
+import { committedChrome } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
+
+// [Remolder] Chrome publié (en-tête/pied) lu depuis le repo — même modèle
+// git-natif que les pages. `null` → Header/Footer gardent leurs valeurs d'origine.
+const __remolderChrome = committedChrome(__remolderContent)
 
 const inter = Inter({
   subsets: ['latin'],
@@ -129,9 +135,9 @@ export default async function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        <Header />
+        <Header remolder={__remolderChrome?.header as Parameters<typeof Header>[0]['remolder']} />
         <main>{children}</main>
-        <Footer />
+        <Footer remolder={__remolderChrome?.footer as Parameters<typeof Footer>[0]['remolder']} />
         <BackToTop />
         {/* Google Tag Manager */}
         <Script

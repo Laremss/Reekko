@@ -7,14 +7,26 @@ import { Menu, X, Zap } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
 
-const navLinks = [
-  { href: '/methode', label: 'Méthode' },
-  { href: '/services', label: 'Services' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/a-propos', label: 'À propos' },
-]
+const HEADER_DEFAULTS = {
+  brandName: 'Reekko',
+  navLinks: [
+    { href: '/methode', label: 'Méthode' },
+    { href: '/services', label: 'Services' },
+    { href: '/blog', label: 'Blog' },
+    { href: '/a-propos', label: 'À propos' },
+  ],
+  ctaLabel: 'Réserver un appel',
+  ctaLink: '/contact',
+  ctaLabelMobile: 'Réserver un appel stratégique',
+  ctaLinkMobile: '/contact',
+}
 
-export default function Header() {
+// [Remolder] Contenu éditable de l'en-tête. `remolder` = version publiée (passée
+// par le layout depuis remolder/published.json) fusionnée sur les valeurs
+// d'origine : sans elle, l'en-tête reste rigoureusement identique à l'original.
+export default function Header({ remolder }: { remolder?: Partial<typeof HEADER_DEFAULTS> }) {
+  const c = { ...HEADER_DEFAULTS, ...remolder }
+  const navLinks = c.navLinks
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
@@ -63,7 +75,7 @@ export default function Header() {
               <Zap className="w-4 h-4 text-white fill-white" />
             </div>
             <span className="font-bold text-white text-xl tracking-tight">
-              Reekko
+              {c.brandName}
             </span>
           </Link>
 
@@ -88,8 +100,8 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button href="/contact" size="sm">
-              Réserver un appel
+            <Button href={c.ctaLink} size="sm">
+              {c.ctaLabel}
             </Button>
           </div>
 
@@ -128,7 +140,7 @@ export default function Header() {
             <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
               <Zap className="w-3.5 h-3.5 text-white fill-white" />
             </div>
-            <span className="font-bold text-white text-lg">Reekko</span>
+            <span className="font-bold text-white text-lg">{c.brandName}</span>
           </Link>
           <button
             className="p-2 text-zinc-400 hover:text-white transition-colors rounded-lg hover:bg-zinc-800/60"
@@ -156,8 +168,8 @@ export default function Header() {
             </Link>
           ))}
           <div className="mt-4 pt-4 border-t border-zinc-800/50">
-            <Button href="/contact" className="w-full">
-              Réserver un appel stratégique
+            <Button href={c.ctaLinkMobile} className="w-full">
+              {c.ctaLabelMobile}
             </Button>
           </div>
         </nav>

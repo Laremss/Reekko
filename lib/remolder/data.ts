@@ -121,6 +121,23 @@ interface SnapshotPayload {
   blocks?: RemolderBlock[]
   seo?: PageSeo
   chrome?: { header?: RemolderChrome; footer?: RemolderFooter }
+  collections?: Record<
+    string,
+    { entries?: { slug: string; data: Record<string, unknown>; position?: number }[] }
+  >
+}
+
+// [Remolder] Entrée d'une collection (ex. un article de blog) telle que publiée
+// dans le repo. Renvoie l'objet `data` édité, ou null si l'entrée n'existe pas —
+// l'appelant retombe alors sur la source d'origine (fichier MDX). Fonction PURE.
+export function committedCollectionEntry(
+  payload: unknown,
+  collection: string,
+  slug: string,
+): Record<string, unknown> | null {
+  const entries = (payload as SnapshotPayload | null | undefined)?.collections?.[collection]?.entries
+  if (!Array.isArray(entries)) return null
+  return entries.find((e) => e.slug === slug)?.data ?? null
 }
 
 // Dernier snapshot PUBLIÉ pour une page. Retourne null si aucun / en cas
@@ -168,8 +185,12 @@ export function committedPage(payload: unknown, path = '/'): PublishedData | nul
   return null
 }
 
-// Le chrome (en-tête/pied) committé, extrait du même payload repo.
-export function committedChrome(payload: unknown) {
+// Le chrome (en-tête/pied) committé, extrait du même payload repo. Les valeurs
+// sont typées `unknown` : leur forme appartient au site (chaque en-tête a ses
+// propres champs) — le composant les fusionne sur ses propres DEFAULTS typés.
+export function committedChrome(
+  payload: unknown,
+): { header?: unknown; footer?: unknown } | null {
   return (payload as SnapshotPayload | null | undefined)?.chrome ?? null
 }
 
