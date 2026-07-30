@@ -140,6 +140,20 @@ export function committedCollectionEntry(
   return entries.find((e) => e.slug === slug)?.data ?? null
 }
 
+// [Remolder] TOUTES les entrées publiées d'une collection (ex. la liste d'articles
+// du blog), dans l'ordre, chacune = `{ slug, ...data }`. C'est ce qui rend une
+// page-liste éditable : on nourrit le composant de liste du SITE (son design est
+// conservé) avec les entrées publiées au lieu de la source d'origine (fichiers).
+// `null` → l'appelant retombe sur sa source d'origine (repli sûr). Fonction PURE.
+export function committedCollectionList(
+  payload: unknown,
+  collection: string,
+): Array<Record<string, unknown> & { slug: string }> | null {
+  const entries = (payload as SnapshotPayload | null | undefined)?.collections?.[collection]?.entries
+  if (!Array.isArray(entries) || entries.length === 0) return null
+  return entries.map((e) => ({ slug: e.slug, ...(e.data ?? {}) }))
+}
+
 // Dernier snapshot PUBLIÉ pour une page. Retourne null si aucun / en cas
 // d'erreur : l'appelant retombe alors sur la composition codée en dur —
 // une publication ne peut donc jamais casser le site.

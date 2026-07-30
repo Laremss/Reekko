@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
-import { getAllPosts, getAllCategories } from '@/lib/blog'
+import { getAllPosts, getAllCategories, type BlogPostMeta } from '@/lib/blog'
+import { committedCollectionList } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
 import BlogFilter from '@/components/blog/BlogFilter'
 import NewsletterSection from '@/components/ui/NewsletterSection'
 import { ArrowRight, BookOpen } from 'lucide-react'
@@ -17,9 +19,41 @@ export const metadata: Metadata = {
 
 
 
+// [Remolder] Liste éditable : on préfère les articles PUBLIÉS (édités dans le
+// Studio) à la source d'origine (fichiers MDX). Le design (BlogFilter/BlogCard)
+// est conservé — on ne fait que changer la source des données. Tags : publiés en
+// chaîne "a, b" → tableau ; temps de lecture recalculé si absent.
+function toTags(v: unknown, fallback: string[]): string[] {
+  if (typeof v === 'string') return v.split(',').map((t) => t.trim()).filter(Boolean)
+  if (Array.isArray(v)) return v as string[]
+  return fallback
+}
+function estReadingTime(content: string): string {
+  const words = (content || '').trim().split(/\s+/).filter(Boolean).length
+  return `${Math.max(1, Math.round(words / 200))} min de lecture`
+}
+
 export default function BlogPage() {
-  const posts = getAllPosts()
-  const categories = getAllCategories()
+  const published = committedCollectionList(__remolderContent, 'blog')
+  const posts: BlogPostMeta[] = published
+    ? published
+        .map((e) => ({
+          slug: e.slug,
+          title: (e.title as string) ?? '',
+          description: (e.description as string) ?? '',
+          date: (e.date as string) ?? '',
+          author: (e.author as string) ?? 'Rémi Bitouzé',
+          category: (e.category as string) ?? 'Growth Marketing',
+          tags: toTags(e.tags, []),
+          coverImage: (e.coverImage as string) ?? '/images/blog/default.jpg',
+          readingTime: estReadingTime((e.content as string) ?? ''),
+          excerpt: (e.excerpt as string) ?? '',
+        }))
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    : getAllPosts()
+  const categories = published
+    ? Array.from(new Set(posts.map((p) => p.category).filter(Boolean)))
+    : getAllCategories()
 
   return (
     <div className="min-h-screen bg-zinc-950 pt-16">
