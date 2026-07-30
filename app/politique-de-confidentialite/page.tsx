@@ -1,6 +1,3 @@
-import BlockList from '@/components/remolder/BlockList'
-import { committedPage } from '@/lib/remolder/data'
-import __remolderContent from '@/remolder/published.json'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -12,7 +9,7 @@ export const metadata: Metadata = {
 
 
 
-function PolitiqueConfidentialitePage() {
+export default function PolitiqueConfidentialitePage() {
   return (
     <div className="min-h-screen bg-zinc-950 pt-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
@@ -203,19 +200,3 @@ function PolitiqueConfidentialitePage() {
     </div>
   )
 }
-
-export default function RemolderPage() {
-  const __published = committedPage(__remolderContent, "/politique-de-confidentialite")
-  if (__published) {
-    return (
-      <>
-      <div className="min-h-screen bg-zinc-950 pt-16">
-        <BlockList blocks={__published.blocks} tokens={__published.tokens} />
-      </div>
-      </>
-    )
-  }
-  // Repli sûr : composition d'origine, inchangée.
-  return <PolitiqueConfidentialitePage />
-}
-
