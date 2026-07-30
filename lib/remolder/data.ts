@@ -190,10 +190,12 @@ export function committedPage(payload: unknown, path = '/'): PublishedData | nul
   if (!p) return null
   if (p.pages) {
     const page = p.pages[path]
-    if (!page || !Array.isArray(page.blocks)) return null
+    // 0 bloc = pas de contenu publié exploitable → repli sur l'original (jamais
+    // de page blanche : une entrée vide/incomplète ne doit pas masquer le code).
+    if (!page || !Array.isArray(page.blocks) || page.blocks.length === 0) return null
     return { blocks: page.blocks, tokens: p.tokens ?? {}, seo: page.seo }
   }
-  if (path === '/' && Array.isArray(p.blocks)) {
+  if (path === '/' && Array.isArray(p.blocks) && p.blocks.length > 0) {
     return { blocks: p.blocks, tokens: p.tokens ?? {}, seo: p.seo }
   }
   return null
