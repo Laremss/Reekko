@@ -58,7 +58,7 @@
                 "950": "#111248"
               }
             },
-            "headline": "Arrêtez de prospecterrr!",
+            "headline": "Arrêtez de prospecter",
             "subheadlineMain": "Reekko conçoit et déploie votre moteur d'acquisition B2B en 4 à 6 semaines.\nSéquences actives, leads qualifiés, rendez-vous générés.",
             "headlineGradient": "manuellement. ",
             "subheadlineEmphasis": "Sans intervention quotidienne de votre part."
@@ -1565,7 +1565,7 @@
     }
   },
   "version": {
-    "name": "test",
-    "at": "2026-08-10T12:16:37.991Z"
+    "name": "zz",
+    "at": "2026-08-10T12:17:36.033Z"
   }
 }
