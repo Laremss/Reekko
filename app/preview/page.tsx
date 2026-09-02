@@ -34,6 +34,9 @@ export default async function PreviewPage({
   // pas aux blocs — la home gère son propre espacement, les autres pages non.
   return (
     <div className={(path || '/') !== '/' ? 'pt-16' : undefined}>
+      {/* Le PONT d'édition : c'est lui qui répond `ready` au Studio (poignée de
+          main) et applique tokens/clics hors blocs. Sans lui, l'éditeur met ses
+          patches en file d'attente sans jamais les envoyer → l'aperçu ne bouge pas. */}
       <RemolderBridge initialTokens={data.tokens} />
       <PreviewRoot initialBlocks={data.blocks} initialTokens={data.tokens} />
     </div>

@@ -1,5 +1,8 @@
 'use client'
 
+import BlockList from '@/components/remolder/BlockList'
+import { committedPage } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
 import { useState } from 'react'
 import { Calendar, Mail, MessageSquare, CheckCircle, ArrowRight, Linkedin } from 'lucide-react'
 import Button from '@/components/ui/Button'
@@ -225,7 +228,8 @@ function ContactForm() {
   )
 }
 
-export default function ContactPage() {
+
+function ContactPage() {
   return (
     <div className="min-h-screen bg-zinc-950 pt-16">
       {/* Header */}
@@ -372,3 +376,19 @@ export default function ContactPage() {
     </div>
   )
 }
+
+export default function RemolderPage() {
+  const __data = committedPage(__remolderContent, "/contact")
+  if (__data) {
+    return (
+      <>
+      <div className="min-h-screen bg-zinc-950 pt-16">
+        <BlockList blocks={__data.blocks} tokens={__data.tokens} seo={__data.seo} />
+      </div>
+      </>
+    )
+  }
+  // Repli sûr : composition d'origine, inchangée.
+  return <ContactPage />
+}
+

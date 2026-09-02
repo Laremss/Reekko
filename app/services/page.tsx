@@ -1,3 +1,7 @@
+import BlockList from '@/components/remolder/BlockList'
+import { committedPage } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
+import { buildOgMetadata, formatTitle } from '@/lib/remolder/data'
 import type { Metadata } from 'next'
 import {
   ArrowRight,
@@ -13,7 +17,7 @@ import {
 import Button from '@/components/ui/Button'
 import ParallaxGrid from '@/components/ui/ParallaxGrid'
 
-export const metadata: Metadata = {
+const __remolderBaseMetadata: Metadata = {
   title: 'Services | Growth Sprint Reekko',
   description:
     "Découvrez le Growth Sprint Reekko : un accompagnement intensif pour mettre en place votre système d'acquisition B2B automatisé en quelques semaines.",
@@ -111,7 +115,8 @@ const faqSchema = {
 
 
 
-export default function ServicesPage() {
+
+function ServicesPage() {
   return (
     <>
       <script
@@ -419,3 +424,34 @@ export default function ServicesPage() {
     </>
   )
 }
+
+export async function generateMetadata() {
+  const __d = committedPage(__remolderContent, "/services")
+  const __seo = __d?.seo
+  if (!__seo) return __remolderBaseMetadata
+  const __site = __d?.tokens?.siteSeo
+  return {
+    ...(__remolderBaseMetadata),
+    ...(__seo.title ? { title: formatTitle(__seo.title, __site) } : {}),
+    ...(__seo.description ? { description: __seo.description } : {}),
+    ...buildOgMetadata(__seo, { title: __seo.title ?? '', description: __seo.description ?? '' }, __site),
+  }
+}
+
+export default function RemolderPage() {
+  const __data = committedPage(__remolderContent, "/services")
+  if (__data) {
+    return (
+      <>
+        <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+              />
+        <BlockList blocks={__data.blocks} tokens={__data.tokens} seo={__data.seo} />
+      </>
+    )
+  }
+  // Repli sûr : composition d'origine, inchangée.
+  return <ServicesPage />
+}
+

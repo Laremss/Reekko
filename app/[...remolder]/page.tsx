@@ -8,12 +8,12 @@ import { headers } from 'next/headers'
 import BlockList from '@/components/remolder/BlockList'
 import {
   buildOgMetadata,
+  formatTitle,
   getPreviewData,
-  committedPage,
+  getPublishedData,
   type PageSeo,
   type PublishedData,
 } from '@/lib/remolder/data'
-import __remolderContent from '@/remolder/published.json'
 
 export const dynamic = 'force-dynamic'
 
@@ -29,7 +29,7 @@ async function loadData(path: string, draft: boolean): Promise<PublishedData | n
     if (!d.pageId) return null
     return { blocks: d.blocks, tokens: d.tokens, seo: d.seo as PageSeo }
   }
-  return committedPage(__remolderContent, path)
+  return getPublishedData(path)
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -38,13 +38,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await loadData(pathOf(Remolder), draft)
   if (!data) return {}
   const seo = data.seo ?? {}
+  const site = data.tokens?.siteSeo
   return {
-    ...(seo.title ? { title: seo.title } : {}),
+    ...(seo.title ? { title: formatTitle(seo.title, site) } : {}),
     ...(seo.description ? { description: seo.description } : {}),
-    ...buildOgMetadata(seo, {
-      title: seo.title ?? '',
-      description: seo.description ?? '',
-    }),
+    ...buildOgMetadata(seo, { title: seo.title ?? '', description: seo.description ?? '' }, site),
   }
 }
 
@@ -55,7 +53,7 @@ export default async function RemolderStudioPage({ params }: Props) {
   if (!data || data.blocks.length === 0) notFound()
   return (
     <main>
-      <BlockList blocks={data.blocks} tokens={data.tokens} />
+      <BlockList blocks={data.blocks} tokens={data.tokens} seo={data.seo} />
     </main>
   )
 }

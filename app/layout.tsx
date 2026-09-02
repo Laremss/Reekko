@@ -135,9 +135,9 @@ export default async function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
-        <Header remolder={__remolderChrome?.header as Parameters<typeof Header>[0]['remolder']} />
+        <Header {...(__remolderChrome?.header ?? {})} remolder={__remolderChrome?.header as Parameters<typeof Header>[0]['remolder']} />
         <main>{children}</main>
-        <Footer remolder={__remolderChrome?.footer as Parameters<typeof Footer>[0]['remolder']} />
+        <Footer {...(__remolderChrome?.footer ?? {})} remolder={__remolderChrome?.footer as Parameters<typeof Footer>[0]['remolder']} />
         <BackToTop />
         {/* Google Tag Manager */}
         <Script
