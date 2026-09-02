@@ -12,7 +12,7 @@
 import { Fragment, useEffect, useMemo, useState } from 'react'
 import { BLOCK_REGISTRY } from './registry'
 import { brandScaleToCssVars } from '@/lib/remolder/colors'
-import { elementCssRules } from '@/lib/remolder/css'
+import { elementCssRules, sectionPadStyle, sectionHideCss } from '@/lib/remolder/css'
 import type { RemolderBlock, RemolderTokens } from '@/lib/remolder/data'
 import { getDeep, norm, resolveHit } from './bridge/resolve'
 import {
@@ -122,9 +122,19 @@ export default function PreviewRoot({ initialBlocks }: Props) {
         const anchor =
           typeof rawAnchor === 'string' && rawAnchor.trim() ? rawAnchor.trim() : undefined
         const cssRules = elementCssRules(block.id, block.props._css)
+        // Fond de la SECTION (_bg) : posé sur le wrapper du bloc, propre à
+        // chaque section (chaque section peut avoir sa couleur de fond).
+        const rawBg = block.props._bg
+        const bg = typeof rawBg === 'string' && /^#[0-9a-f]{3,8}$/i.test(rawBg) ? rawBg : undefined
+        // Réglages avancés : espacement vertical (_pad) + affichage selon
+        // l'écran (_hide). En preview la section reste toujours sélectionnable,
+        // le masquage responsive suit exactement la règle rendue en prod.
+        const pad = sectionPadStyle(block.props)
+        const hideCss = sectionHideCss(block.id, block.props)
+        const rules = [cssRules, hideCss].filter(Boolean).join('\n')
         return (
           <Fragment key={block.id}>
-            {cssRules && <style>{cssRules}</style>}
+            {rules && <style>{rules}</style>}
             <div
               id={anchor}
               data-remolder-block={block.id}
@@ -149,6 +159,8 @@ export default function PreviewRoot({ initialBlocks }: Props) {
                 cursor: 'pointer',
                 outline: isSelected ? '2px solid rgb(var(--brand-500))' : 'none',
                 outlineOffset: '-2px',
+                ...(bg ? { backgroundColor: bg } : {}),
+                ...pad,
                 ...accent,
               }}
               className="remolder-block"

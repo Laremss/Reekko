@@ -7,6 +7,15 @@ import { Menu, X, Zap } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { cn } from '@/lib/utils'
 
+interface HeaderProps {
+  brandName?: string
+  navLinks?: Array<{ href: string; label: string }>
+  ctaLabel?: string
+  ctaLink?: string
+  ctaLabelMobile?: string
+  ctaLinkMobile?: string
+}
+
 const HEADER_DEFAULTS = {
   brandName: 'Reekko',
   navLinks: [
@@ -21,12 +30,9 @@ const HEADER_DEFAULTS = {
   ctaLinkMobile: '/contact',
 }
 
-// [Remolder] Contenu éditable de l'en-tête. `remolder` = version publiée (passée
-// par le layout depuis remolder/published.json) fusionnée sur les valeurs
-// d'origine : sans elle, l'en-tête reste rigoureusement identique à l'original.
-export default function Header({ remolder }: { remolder?: Partial<typeof HEADER_DEFAULTS> }) {
-  const c = { ...HEADER_DEFAULTS, ...remolder }
-  const navLinks = c.navLinks
+export default function Header(props: HeaderProps = {}) {
+  const { brandName, navLinks, ctaLabel, ctaLink, ctaLabelMobile, ctaLinkMobile } = { ...HEADER_DEFAULTS, ...props }
+  
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
@@ -75,7 +81,7 @@ export default function Header({ remolder }: { remolder?: Partial<typeof HEADER_
               <Zap className="w-4 h-4 text-white fill-white" />
             </div>
             <span className="font-bold text-white text-xl tracking-tight">
-              {c.brandName}
+              {brandName}
             </span>
           </Link>
 
@@ -100,8 +106,8 @@ export default function Header({ remolder }: { remolder?: Partial<typeof HEADER_
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <Button href={c.ctaLink} size="sm">
-              {c.ctaLabel}
+            <Button href={ctaLink} size="sm">
+              {ctaLabel}
             </Button>
           </div>
 
@@ -140,7 +146,7 @@ export default function Header({ remolder }: { remolder?: Partial<typeof HEADER_
             <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
               <Zap className="w-3.5 h-3.5 text-white fill-white" />
             </div>
-            <span className="font-bold text-white text-lg">{c.brandName}</span>
+            <span className="font-bold text-white text-lg">{brandName}</span>
           </Link>
           <button
             className="p-2 text-zinc-400 hover:text-white transition-colors rounded-lg hover:bg-zinc-800/60"
@@ -168,8 +174,8 @@ export default function Header({ remolder }: { remolder?: Partial<typeof HEADER_
             </Link>
           ))}
           <div className="mt-4 pt-4 border-t border-zinc-800/50">
-            <Button href={c.ctaLinkMobile} className="w-full">
-              {c.ctaLabelMobile}
+            <Button href={ctaLinkMobile} className="w-full">
+              {ctaLabelMobile}
             </Button>
           </div>
         </nav>

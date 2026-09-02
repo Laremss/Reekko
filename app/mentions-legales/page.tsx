@@ -1,7 +1,11 @@
+import BlockList from '@/components/remolder/BlockList'
+import { committedPage } from '@/lib/remolder/data'
+import __remolderContent from '@/remolder/published.json'
+import { buildOgMetadata, formatTitle } from '@/lib/remolder/data'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = {
+const __remolderBaseMetadata: Metadata = {
   title: 'Mentions légales | Reekko',
   description: 'Mentions légales du site reekko.fr — éditeur, hébergeur, propriété intellectuelle.',
   robots: { index: false, follow: false },
@@ -9,7 +13,8 @@ export const metadata: Metadata = {
 
 
 
-export default function MentionsLegalesPage() {
+
+function MentionsLegalesPage() {
   return (
     <div className="min-h-screen bg-zinc-950 pt-16">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
@@ -119,3 +124,32 @@ export default function MentionsLegalesPage() {
     </div>
   )
 }
+
+export async function generateMetadata() {
+  const __d = committedPage(__remolderContent, "/mentions-legales")
+  const __seo = __d?.seo
+  if (!__seo) return __remolderBaseMetadata
+  const __site = __d?.tokens?.siteSeo
+  return {
+    ...(__remolderBaseMetadata),
+    ...(__seo.title ? { title: formatTitle(__seo.title, __site) } : {}),
+    ...(__seo.description ? { description: __seo.description } : {}),
+    ...buildOgMetadata(__seo, { title: __seo.title ?? '', description: __seo.description ?? '' }, __site),
+  }
+}
+
+export default function RemolderPage() {
+  const __data = committedPage(__remolderContent, "/mentions-legales")
+  if (__data) {
+    return (
+      <>
+      <div className="min-h-screen bg-zinc-950 pt-16">
+        <BlockList blocks={__data.blocks} tokens={__data.tokens} seo={__data.seo} />
+      </div>
+      </>
+    )
+  }
+  // Repli sûr : composition d'origine, inchangée.
+  return <MentionsLegalesPage />
+}
+

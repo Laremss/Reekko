@@ -24,6 +24,62 @@ import { resolveHit } from './bridge/resolve'
 import { activateField, clearField, postFieldRect, selectOwner } from './bridge/field'
 import { getZones, registerZone, subscribeZones, updateZoneData } from './bridge/zones'
 
+// Applique la police d'affichage choisie dans le Studio : charge la Google Font
+// et impose la famille sur tout le site (une balise <style> dédiée, remplacée à
+// chaque changement). Sans police définie, on retire l'override (retour au
+// dessin d'origine du site).
+function applyDisplayFont(display?: string) {
+  if (typeof document === 'undefined') return
+  const STYLE_ID = 'remolder-font-override'
+  const LINK_ID = 'remolder-font-link'
+  const existingStyle = document.getElementById(STYLE_ID)
+  if (!display) {
+    existingStyle?.remove()
+    document.getElementById(LINK_ID)?.remove()
+    return
+  }
+  let link = document.getElementById(LINK_ID) as HTMLLinkElement | null
+  if (!link) {
+    link = document.createElement('link')
+    link.id = LINK_ID
+    link.rel = 'stylesheet'
+    document.head.appendChild(link)
+  }
+  const family = display.replace(/ /g, '+')
+  link.href = `https://fonts.googleapis.com/css2?family=${family}:wght@400;500;600;700&display=swap`
+  const css = `:root, body { font-family: '${display}', ui-sans-serif, system-ui, sans-serif !important; }`
+  if (existingStyle) {
+    existingStyle.textContent = css
+  } else {
+    const style = document.createElement('style')
+    style.id = STYLE_ID
+    style.textContent = css
+    document.head.appendChild(style)
+  }
+}
+
+// Couleur de fond du site : imposée sur html + body via une balise <style>
+// dédiée (remplacée à chaque changement). Sans valeur, on retire l'override
+// (retour au fond d'origine).
+function applyBackground(hex?: string) {
+  if (typeof document === 'undefined') return
+  const STYLE_ID = 'remolder-bg-override'
+  const existing = document.getElementById(STYLE_ID)
+  if (!hex || !/^#[0-9a-f]{3,8}$/i.test(hex)) {
+    existing?.remove()
+    return
+  }
+  const css = `html, body { background-color: ${hex} !important; }`
+  if (existing) {
+    existing.textContent = css
+  } else {
+    const style = document.createElement('style')
+    style.id = STYLE_ID
+    style.textContent = css
+    document.head.appendChild(style)
+  }
+}
+
 interface Props {
   /** Tokens initiaux (rendu serveur) ; le Studio peut les remplacer en direct. */
   initialTokens?: RemolderTokens
@@ -55,6 +111,8 @@ export default function RemolderBridge({ initialTokens }: Props) {
     } else {
       root.style.removeProperty('font-size')
     }
+    applyDisplayFont(tokens.font?.display)
+    applyBackground(tokens.background)
   }, [tokens])
 
   // --- Zones : le chrome est déclaré ici, les pages déclarent les leurs -------

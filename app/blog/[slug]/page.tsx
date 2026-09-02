@@ -23,6 +23,7 @@ import {
   ArrowRight,
   BookOpen,
 } from 'lucide-react'
+import { overlayEntry } from '@/lib/remolder/data'
 
 type Props = {
   params: Promise<{ slug: string }>
@@ -45,7 +46,7 @@ function estReadingTime(content: string): string {
 // d'origine. Un article édité dans le Studio prime ; sinon on garde le fichier.
 function resolvePost(slug: string): BlogPost | null {
   const fsPost = getPostBySlug(slug)
-  const pub = committedCollectionEntry(__remolderContent, 'blog', slug)
+  const pub = overlayEntry(committedCollectionEntry(__remolderContent, 'blog', slug), __remolderContent, "blog", slug)
   if (!pub) return fsPost
   const base = fsPost ?? ({} as BlogPost)
   return {
@@ -65,7 +66,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = resolvePost(slug)
+  const post = overlayEntry(resolvePost(slug), __remolderContent, "blog", slug)
   if (!post) return {}
 
   return {
@@ -185,7 +186,7 @@ const mdxComponents = {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params
-  const post = resolvePost(slug)
+  const post = overlayEntry(resolvePost(slug), __remolderContent, "blog", slug)
 
   if (!post) {
     notFound()
